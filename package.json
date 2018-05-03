@@ -1,0 +1,23 @@
+{
+  "name": "ShareDB TypeScript",
+  "description": "A TypeScript Wrapper for ShareDB",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "npx electron ./built/main.js",
+    "debug": "npx electron --inspect-brk=5858 ./built/main.js",
+    "build": "npx gulp",
+    "watch": "npx gulp watch"
+  },
+  "window": {
+    "toolbar": true,
+    "icon": "./resources/logo/icon.png"
+  },
+  "main": "built/main.js",
+  "dependencies": {
+    "sharedb": "^1.0.0-beta.8"
+  },
+  "devDependencies": {
+    "typescript": "^2.8.3",
+    "webpack": "^4.6.0"
+  }
+}
