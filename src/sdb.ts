@@ -1,9 +1,8 @@
-import * as ShareDBClient from 'sharedb/lib/client';
 import * as ShareDB from 'sharedb';
 
-type DocIdentifier = [string,string];
+type DocIdentifier = [string, string];
 
-abstract class SDB {
+export abstract class SDB {
     private readonly docs:Map<DocIdentifier, SDBDoc<any>> = new Map<DocIdentifier, SDBDoc<any>>();
     protected connection:ShareDB.Connection;
     constructor() { }
@@ -28,40 +27,8 @@ abstract class SDB {
     public deleteDoc(doc:SDBDoc<any>):void {
         this.docs.delete(doc.getIdentifier());
     };
-}
-
-export class SDBClient extends SDB {
-    constructor(readonly ws:WebSocket) {
-        super();
-        this.connection = new ShareDBClient.Connection(ws);
-    };
-    public close():Promise<void> {
-        return Promise.resolve();
-    };
 };
-export class SDBServer extends SDB {
-    private readonly share:ShareDB;
-    constructor(options?:{db?:ShareDB.DB, pubsub?:ShareDB.PubSub}) {
-        super();
-        this.share = new ShareDB(options);
-        this.connection = this.share.connect();
-    };
 
-    public use(action:ShareDB.Action, fn:ShareDB.UseCallback):void {
-        this.share.use(action, fn);
-    };
-
-    public close():Promise<void> {
-        return new Promise((resolve, reject) => {
-            this.share.close(()=> {
-                resolve();
-            });
-        });
-    };
-    public listen(stream:any):void {
-        this.share.listen(stream);
-    };
-};
 
 export class SDBDoc<E> {
     constructor(private docIdentifier:DocIdentifier, private doc:ShareDB.Doc, private sdb:SDB) { };
@@ -80,24 +47,14 @@ export class SDBDoc<E> {
         }
         return x;
     };
-    public async submitObjectReplaceOp(p:Array<string|number>, oi:any, od:any=this.traverse(p)):Promise<this> {
-        return await this.submitOp([{p,oi,od}]);
-    };
-    public async submitObjectInsertOp(p:Array<string|number>, oi:any):Promise<this> {
-        return await this.submitOp([{p,oi}]);
-    };
-    public async submitObjectDeleteOp(p:Array<string|number>, od:any=this.traverse(p)):Promise<this> {
-        return await this.submitOp([{p,od}]);
-    };
-    public async submitListReplaceOp(p:Array<string|number>, li:any, ld:any=this.traverse(p)):Promise<this> {
-        return await this.submitOp([{p,li,ld}]);
-    };
-    public async submitListInsertOp(p:Array<string|number>, li:any):Promise<this> {
-        return await this.submitOp([{p,li}]);
-    };
-    public async submitListDeleteOp(p:Array<string|number>, ld:any=this.traverse(p)):Promise<this> {
-        return await this.submitOp([{p,ld}]);
-    };
+
+    public async submitObjectReplaceOp(p:Array<string|number>, oi:any, od:any=this.traverse(p)):Promise<this>   { return await this.submitOp([{p,oi,od}]); };
+    public async submitObjectInsertOp (p:Array<string|number>, oi:any):Promise<this>                            { return await this.submitOp([{p,oi}]);    };
+    public async submitObjectDeleteOp (p:Array<string|number>, od:any=this.traverse(p)):Promise<this>           { return await this.submitOp([{p,od}]);    };
+    public async submitListReplaceOp  (p:Array<string|number>, li:any, ld:any=this.traverse(p)):Promise<this>   { return await this.submitOp([{p,li,ld}]); };
+    public async submitListInsertOp   (p:Array<string|number>, li:any):Promise<this>                            { return await this.submitOp([{p,li}]);    };
+    public async submitListDeleteOp   (p:Array<string|number>, ld:any=this.traverse(p)):Promise<this>           { return await this.submitOp([{p,ld}]);    };
+
     public async submitListSpliceOp(p:Array<string|number>, index:number, numToRemove:number, ...toAdd:Array<any>):Promise<this> {
         const listDeleteOps:Array<ShareDB.Op> = [];
         const item:any = this.traverse(p);
