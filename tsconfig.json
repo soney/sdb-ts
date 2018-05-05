@@ -7,10 +7,8 @@
         "sourceRoot": "src",
         "outDir": "built"
     },
-	"lib": [ ],
+    "lib": [ "node" ],
+    "files": [ "src/sdb.ts" ],
     "typeRoots": ["node_modules/@types", "types"],
-    "files": [
-        "src/sdb.ts"
-    ],
     "exclude": [ ]
 }

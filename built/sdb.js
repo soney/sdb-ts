@@ -8,8 +8,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ShareDBClient = require("sharedb/lib/client");
-const ShareDB = require("sharedb");
+const sdb_client_1 = require("./sdb-client");
+exports.SDBClient = sdb_client_1.SDBClient;
+const sdb_server_1 = require("./sdb-server");
+exports.SDBServer = sdb_server_1.SDBServer;
 class SDB {
     constructor() {
         this.docs = new Map();
@@ -37,45 +39,7 @@ class SDB {
     }
     ;
 }
-class SDBClient extends SDB {
-    constructor(ws) {
-        super();
-        this.ws = ws;
-        this.connection = new ShareDBClient.Connection(ws);
-    }
-    ;
-    close() {
-        return Promise.resolve();
-    }
-    ;
-}
-exports.SDBClient = SDBClient;
-;
-class SDBServer extends SDB {
-    constructor(options) {
-        super();
-        this.share = new ShareDB(options);
-        this.connection = this.share.connect();
-    }
-    ;
-    use(action, fn) {
-        this.share.use(action, fn);
-    }
-    ;
-    close() {
-        return new Promise((resolve, reject) => {
-            this.share.close(() => {
-                resolve();
-            });
-        });
-    }
-    ;
-    listen(stream) {
-        this.share.listen(stream);
-    }
-    ;
-}
-exports.SDBServer = SDBServer;
+exports.SDB = SDB;
 ;
 class SDBDoc {
     constructor(docIdentifier, doc, sdb) {
@@ -104,39 +68,27 @@ class SDBDoc {
     }
     ;
     submitObjectReplaceOp(p, oi, od = this.traverse(p)) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield this.submitOp([{ p, oi, od }]);
-        });
+        return __awaiter(this, void 0, void 0, function* () { return yield this.submitOp([{ p, oi, od }]); });
     }
     ;
     submitObjectInsertOp(p, oi) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield this.submitOp([{ p, oi }]);
-        });
+        return __awaiter(this, void 0, void 0, function* () { return yield this.submitOp([{ p, oi }]); });
     }
     ;
     submitObjectDeleteOp(p, od = this.traverse(p)) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield this.submitOp([{ p, od }]);
-        });
+        return __awaiter(this, void 0, void 0, function* () { return yield this.submitOp([{ p, od }]); });
     }
     ;
     submitListReplaceOp(p, li, ld = this.traverse(p)) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield this.submitOp([{ p, li, ld }]);
-        });
+        return __awaiter(this, void 0, void 0, function* () { return yield this.submitOp([{ p, li, ld }]); });
     }
     ;
     submitListInsertOp(p, li) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield this.submitOp([{ p, li }]);
-        });
+        return __awaiter(this, void 0, void 0, function* () { return yield this.submitOp([{ p, li }]); });
     }
     ;
     submitListDeleteOp(p, ld = this.traverse(p)) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield this.submitOp([{ p, ld }]);
-        });
+        return __awaiter(this, void 0, void 0, function* () { return yield this.submitOp([{ p, ld }]); });
     }
     ;
     submitListSpliceOp(p, index, numToRemove, ...toAdd) {

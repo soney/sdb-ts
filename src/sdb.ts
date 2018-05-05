@@ -1,7 +1,10 @@
 import * as ShareDB from 'sharedb';
+import {SDBClient} from './sdb-client';
+import {SDBServer} from './sdb-server';
 
 type DocIdentifier = [string, string];
 
+export {SDBClient, SDBServer};
 export abstract class SDB {
     private readonly docs:Map<DocIdentifier, SDBDoc<any>> = new Map<DocIdentifier, SDBDoc<any>>();
     protected connection:ShareDB.Connection;
