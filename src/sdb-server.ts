@@ -10,7 +10,7 @@ export class SDBServer extends SDB {
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
         if(options && options.wss) {
-            options.wss.on('connection', function(ws:WebSocket) {
+            options.wss.on('connection', (ws:WebSocket) => {
                 const stream = new WebSocketJSONStream(ws);
                 this.listen(stream);
             });

@@ -1,3 +1,4 @@
 import { SDBClient } from './sdb-client';
 import { SDBServer } from './sdb-server';
-export { SDBClient, SDBServer };
+import { SDBDoc } from './sdb-doc';
+export { SDBClient, SDBServer, SDBDoc };

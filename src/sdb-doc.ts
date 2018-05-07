@@ -26,6 +26,7 @@ export class SDBDoc<E> {
     public async submitListReplaceOp  (p:Array<string|number>, li:any, ld:any=this.traverse(p)):Promise<this>   { return await this.submitOp([{p,li,ld}]); };
     public async submitListInsertOp   (p:Array<string|number>, li:any):Promise<this>                            { return await this.submitOp([{p,li}]);    };
     public async submitListDeleteOp   (p:Array<string|number>, ld:any=this.traverse(p)):Promise<this>           { return await this.submitOp([{p,ld}]);    };
+    public async submitNumberAddOp    (p:Array<string|number>, na:number):Promise<this>                         { return await this.submitOp([{p, na}]);   };
 
     public async submitListSpliceOp(p:Array<string|number>, index:number, numToRemove:number, ...toAdd:Array<any>):Promise<this> {
         const listDeleteOps:Array<ShareDB.Op> = [];

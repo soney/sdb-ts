@@ -15,6 +15,7 @@ export declare class SDBDoc<E> {
     submitListReplaceOp(p: Array<string | number>, li: any, ld?: any): Promise<this>;
     submitListInsertOp(p: Array<string | number>, li: any): Promise<this>;
     submitListDeleteOp(p: Array<string | number>, ld?: any): Promise<this>;
+    submitNumberAddOp(p: Array<string | number>, na: number): Promise<this>;
     submitListSpliceOp(p: Array<string | number>, index: number, numToRemove: number, ...toAdd: Array<any>): Promise<this>;
     submitListPushOp(p: Array<string | number>, ...items: Array<any>): Promise<this>;
     submitListUnshiftOp(p: Array<string | number>, ...items: Array<any>): Promise<this>;

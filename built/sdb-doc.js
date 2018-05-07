@@ -58,6 +58,10 @@ class SDBDoc {
         return __awaiter(this, void 0, void 0, function* () { return yield this.submitOp([{ p, ld }]); });
     }
     ;
+    submitNumberAddOp(p, na) {
+        return __awaiter(this, void 0, void 0, function* () { return yield this.submitOp([{ p, na }]); });
+    }
+    ;
     submitListSpliceOp(p, index, numToRemove, ...toAdd) {
         return __awaiter(this, void 0, void 0, function* () {
             const listDeleteOps = [];

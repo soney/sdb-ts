@@ -9,7 +9,7 @@ class SDBServer extends sdb_1.SDB {
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
         if (options && options.wss) {
-            options.wss.on('connection', function (ws) {
+            options.wss.on('connection', (ws) => {
                 const stream = new WebSocketJSONStream(ws);
                 this.listen(stream);
             });
