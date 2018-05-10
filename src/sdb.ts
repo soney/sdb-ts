@@ -21,6 +21,8 @@ export abstract class SDB {
         return sdbDoc;
     };
 
+    public static registerType(type:any):void { ShareDB.types.register(type); };
+
     public abstract close():Promise<void>;
 
     public deleteDoc(doc:SDBDoc<any>):void {

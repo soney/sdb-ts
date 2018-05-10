@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const ShareDB = require("sharedb");
 const sdb_doc_1 = require("./sdb-doc");
 class SDB {
     constructor() {
@@ -22,6 +23,8 @@ class SDB {
         }
         return sdbDoc;
     }
+    ;
+    static registerType(type) { ShareDB.types.register(type); }
     ;
     deleteDoc(doc) {
         this.docs.delete(doc.getIdentifier());

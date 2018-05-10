@@ -90,6 +90,9 @@ declare module 'sharedb' {
         public listen(stream:any):void;
         public close(callback?:(err:ShareDBServer.Error)=>any):void;
         public use(action:ShareDB.Action, fn:ShareDBServer.UseCallback);
+        public types:{
+            register:Function
+        };
     }
     namespace ShareDBServer {
         type UseCallback = ((request:{action:ShareDB.Action,agent:any,req:any,collection:string,id:string,query:any,op:ShareDB.RawOp}, callback:Function)=>void);
