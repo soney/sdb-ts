@@ -82,7 +82,7 @@ export class SDBDoc<E> {
             });
         });
     };
-    public del(source:boolean=true):Promise<void> {
+    public del(source:any=true):Promise<void> {
         return new Promise<void>((resolve, reject) => {
             this.doc.del({source}, (err) => {
                 if(err) { reject(err); }
@@ -93,12 +93,12 @@ export class SDBDoc<E> {
             });
         });
     };
-    public subscribe(callback:(ops:Array<ShareDB.Op>, source:boolean, data:E)=>void):()=>void {
+    public subscribe(callback:(ops:Array<ShareDB.Op>, source:any, data:E)=>void):()=>void {
         this.doc.subscribe((err) => {
             if(err) { throw(err); }
             callback(null, null, this.doc.data);
         });
-        const onOpFunc = (ops:Array<ShareDB.Op>, source:boolean) => {
+        const onOpFunc = (ops:Array<ShareDB.Op>, source:any) => {
             callback(ops, source, this.doc.data);
         };
         this.doc.on('op', onOpFunc);
@@ -106,7 +106,7 @@ export class SDBDoc<E> {
             this.doc.removeListener('op', onOpFunc);
         };
     };
-    public submitOp(ops:Array<ShareDB.Op>, source:boolean=true):Promise<this> {
+    public submitOp(ops:Array<ShareDB.Op>, source:any=true):Promise<this> {
         return new Promise<this>((resolve, reject) => {
             this.doc.submitOp(ops, {source}, (err) => {
                 if(err) {

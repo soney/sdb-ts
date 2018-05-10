@@ -21,9 +21,9 @@ export declare class SDBDoc<E> {
     submitListUnshiftOp(p: Array<string | number>, ...items: Array<any>): Promise<this>;
     private fetch();
     create(data: E, type?: any, options?: any): Promise<this>;
-    del(source?: boolean): Promise<void>;
-    subscribe(callback: (ops: Array<ShareDB.Op>, source: boolean, data: E) => void): () => void;
-    submitOp(ops: Array<ShareDB.Op>, source?: boolean): Promise<this>;
+    del(source?: any): Promise<void>;
+    subscribe(callback: (ops: Array<ShareDB.Op>, source: any, data: E) => void): () => void;
+    submitOp(ops: Array<ShareDB.Op>, source?: any): Promise<this>;
     createIfEmpty(data: E, type?: any, options?: any): Promise<this>;
     destroy(): void;
 }
