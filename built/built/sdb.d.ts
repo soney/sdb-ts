@@ -6,6 +6,7 @@ export declare abstract class SDB {
     constructor();
     private getDocIdentifier(collectionName, documentID);
     get<E>(collectionName: string, documentID: string): SDBDoc<E>;
+    static registerType(type: any): void;
     abstract close(): Promise<void>;
     deleteDoc(doc: SDBDoc<any>): void;
 }
