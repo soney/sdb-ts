@@ -22,7 +22,7 @@ export declare class SDBDoc<E> {
     private fetch();
     create(data: E, type?: any, options?: any): Promise<this>;
     del(source?: any): Promise<void>;
-    subscribe(callback: (ops: Array<ShareDB.Op>, source: any, data: E) => void): () => void;
+    subscribe(callback: (eventType: string, ops: Array<ShareDB.Op>, source: any, data: E) => void): () => void;
     submitOp(ops: Array<ShareDB.Op>, source?: any): Promise<this>;
     createIfEmpty(data: E, type?: any, options?: any): Promise<this>;
     destroy(): void;

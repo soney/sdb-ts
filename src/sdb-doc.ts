@@ -93,15 +93,19 @@ export class SDBDoc<E> {
             });
         });
     };
-    public subscribe(callback:(ops:Array<ShareDB.Op>, source:any, data:E)=>void):()=>void {
+    public subscribe(callback:(eventType:string, ops:Array<ShareDB.Op>, source:any, data:E)=>void):()=>void {
+        const onOpFunc = (ops:Array<ShareDB.Op>, source:any) => {
+            callback('op', ops, source, this.doc.data);
+        };
+        const onCreateFunc = () => {
+            callback('create', null, null, this.doc.data);
+        };
         this.doc.subscribe((err) => {
             if(err) { throw(err); }
-            callback(null, null, this.doc.data);
+            callback(null, null, null, this.doc.data);
         });
-        const onOpFunc = (ops:Array<ShareDB.Op>, source:any) => {
-            callback(ops, source, this.doc.data);
-        };
         this.doc.on('op', onOpFunc);
+        this.doc.on('create', onCreateFunc);
         return ():void => {
             this.doc.removeListener('op', onOpFunc);
         };

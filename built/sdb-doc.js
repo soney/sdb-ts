@@ -140,16 +140,20 @@ class SDBDoc {
     }
     ;
     subscribe(callback) {
+        const onOpFunc = (ops, source) => {
+            callback('op', ops, source, this.doc.data);
+        };
+        const onCreateFunc = () => {
+            callback('create', null, null, this.doc.data);
+        };
         this.doc.subscribe((err) => {
             if (err) {
                 throw (err);
             }
-            callback(null, null, this.doc.data);
+            callback(null, null, null, this.doc.data);
         });
-        const onOpFunc = (ops, source) => {
-            callback(ops, source, this.doc.data);
-        };
         this.doc.on('op', onOpFunc);
+        this.doc.on('create', onCreateFunc);
         return () => {
             this.doc.removeListener('op', onOpFunc);
         };

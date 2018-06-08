@@ -13,7 +13,7 @@
   "types": "./built/index.d.ts",
   "dependencies": {
     "@types/node": "^10.0.4",
-    "sharedb": "^1.0.0-beta.8",
+    "sharedb": "^1.0.0-beta.9",
     "ws": "^5.1.1"
   },
   "devDependencies": {
