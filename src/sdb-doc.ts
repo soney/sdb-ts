@@ -64,7 +64,7 @@ export class SDBDoc<E> {
         return await this.submitOp(ops);
     };
 
-    private fetch():Promise<ShareDB.Doc> {
+    public fetch():Promise<ShareDB.Doc> {
         return new Promise<ShareDB.Doc>((resolve, reject) => {
             this.doc.fetch((err) => {
                 if(err) {

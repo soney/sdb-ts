@@ -19,7 +19,7 @@ export declare class SDBDoc<E> {
     submitListSpliceOp(p: Array<string | number>, index: number, numToRemove: number, ...toAdd: Array<any>): Promise<this>;
     submitListPushOp(p: Array<string | number>, ...items: Array<any>): Promise<this>;
     submitListUnshiftOp(p: Array<string | number>, ...items: Array<any>): Promise<this>;
-    private fetch();
+    fetch(): Promise<ShareDB.Doc>;
     create(data: E, type?: any, options?: any): Promise<this>;
     del(source?: any): Promise<void>;
     subscribe(callback: (eventType: string, ops: Array<ShareDB.Op>, source: any, data: E) => void): () => void;
