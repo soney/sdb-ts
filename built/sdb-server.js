@@ -5,17 +5,15 @@ const ShareDB = require("sharedb");
 const stream_1 = require("stream");
 const lodash_1 = require("lodash");
 class SDBServer extends sdb_1.SDB {
-    constructor(options) {
+    constructor(wss, options) {
         super();
         options = lodash_1.extend({}, options, SDBServer.optionDefaults);
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
-        if (options && options.wss) {
-            options.wss.on('connection', (ws) => {
-                const stream = new WebSocketJSONStream(ws);
-                this.listen(stream);
-            });
-        }
+        wss.on('connection', (ws) => {
+            const stream = new WebSocketJSONStream(ws);
+            this.listen(stream);
+        });
     }
     ;
     use(action, fn) {

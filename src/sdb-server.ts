@@ -5,7 +5,6 @@ import {Duplex} from 'stream';
 import {extend} from 'lodash';
 
 export interface SDBServerOptions {
-    wss?:WebSocket.Server,
     db?:ShareDB.DB,
     pubsub?:ShareDB.PubSub,
     disableDocAction?: boolean,
@@ -18,17 +17,15 @@ export class SDBServer extends SDB {
         disableSpaceDelimitedActions: true
     };
     private readonly share:ShareDB;
-    constructor(options?:SDBServerOptions) {
+    constructor(wss: WebSocket.Server, options?:SDBServerOptions) {
         super();
         options = extend({}, options, SDBServer.optionDefaults);
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
-        if(options && options.wss) {
-            options.wss.on('connection', (ws:WebSocket) => {
-                const stream = new WebSocketJSONStream(ws);
-                this.listen(stream);
-            });
-        }
+        wss.on('connection', (ws:WebSocket): void => {
+            const stream = new WebSocketJSONStream(ws);
+            this.listen(stream);
+        });
     };
 
     public use(action:ShareDB.Action, fn:ShareDB.UseCallback):void {
