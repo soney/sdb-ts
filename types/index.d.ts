@@ -84,7 +84,7 @@ declare module 'sharedb/lib/client' {
 
 declare module 'sharedb' {
     class ShareDBServer {
-        constructor(options?:{db?:ShareDBServer.DB, pubsub?:ShareDBServer.PubSub});
+        constructor(options?:{db?:ShareDBServer.DB, pubsub?:ShareDBServer.PubSub, disableDocAction?: boolean, disableSpaceDelimitedActions?: boolean});
         public connect:()=>ShareDBServer.Connection;
         public addProjection(name:string, collection:string, fields:{}):any;
         public listen(stream:any):void;

@@ -7,6 +7,7 @@
         "sourceRoot": "src",
         "outDir": "built",
         "declaration": true,
+        "types": [ "node" ]
     },
     "lib": [ "node" ],
     "files": [ "src/index.ts" ],

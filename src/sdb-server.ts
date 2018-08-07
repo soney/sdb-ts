@@ -2,11 +2,25 @@ import {SDB} from './sdb';
 import * as ShareDB from 'sharedb';
 import * as WebSocket from 'ws';
 import {Duplex} from 'stream';
+import {extend} from 'lodash';
+
+export interface SDBServerOptions {
+    wss?:WebSocket.Server,
+    db?:ShareDB.DB,
+    pubsub?:ShareDB.PubSub,
+    disableDocAction?: boolean,
+    disableSpaceDelimitedActions?: boolean
+}
 
 export class SDBServer extends SDB {
+    private static optionDefaults: SDBServerOptions = {
+        disableDocAction: true,
+        disableSpaceDelimitedActions: true
+    };
     private readonly share:ShareDB;
-    constructor(options?:{wss?:WebSocket.Server, db?:ShareDB.DB, pubsub?:ShareDB.PubSub}) {
+    constructor(options?:SDBServerOptions) {
         super();
+        options = extend({}, options, SDBServer.optionDefaults);
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
         if(options && options.wss) {

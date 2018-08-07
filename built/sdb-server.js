@@ -3,9 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sdb_1 = require("./sdb");
 const ShareDB = require("sharedb");
 const stream_1 = require("stream");
+const lodash_1 = require("lodash");
 class SDBServer extends sdb_1.SDB {
     constructor(options) {
         super();
+        options = lodash_1.extend({}, options, SDBServer.optionDefaults);
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
         if (options && options.wss) {
@@ -33,6 +35,10 @@ class SDBServer extends sdb_1.SDB {
     }
     ;
 }
+SDBServer.optionDefaults = {
+    disableDocAction: true,
+    disableSpaceDelimitedActions: true
+};
 exports.SDBServer = SDBServer;
 ;
 //Adapted from https://github.com/avital/websocket-json-stream
