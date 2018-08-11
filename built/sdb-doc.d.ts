@@ -9,6 +9,7 @@ export declare class SDBDoc<E> {
     getIdentifier(): DocIdentifier;
     getData(): E;
     traverse(path: Array<string | number>): any;
+    static relative(from: Array<string | number>, to: Array<string | number>): Array<string | number>;
     submitObjectReplaceOp(p: Array<string | number>, oi: any, od?: any): Promise<this>;
     submitObjectInsertOp(p: Array<string | number>, oi: any): Promise<this>;
     submitObjectDeleteOp(p: Array<string | number>, od?: any): Promise<this>;

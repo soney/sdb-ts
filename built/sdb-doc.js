@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const lodash_1 = require("lodash");
 class SDBDoc {
     constructor(docIdentifier, doc, sdb) {
         this.docIdentifier = docIdentifier;
@@ -32,6 +33,11 @@ class SDBDoc {
             }
         }
         return x;
+    }
+    ;
+    static relative(from, to) {
+        const fl = from.length;
+        return lodash_1.isEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
     }
     ;
     submitObjectReplaceOp(p, oi, od = this.traverse(p)) {

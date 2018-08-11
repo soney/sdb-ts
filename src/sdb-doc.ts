@@ -1,5 +1,6 @@
 import * as ShareDB from 'sharedb';
 import {SDB} from './sdb';
+import { isEqual } from 'lodash';
 
 export type DocIdentifier = [string, string];
 export class SDBDoc<E> {
@@ -18,6 +19,11 @@ export class SDBDoc<E> {
             }
         }
         return x;
+    };
+
+    public static relative(from: Array<string|number>, to: Array<string|number>): Array<string|number> {
+        const fl = from.length;
+        return isEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
     };
 
     public async submitObjectReplaceOp(p:Array<string|number>, oi:any, od:any=this.traverse(p)):Promise<this>   { return await this.submitOp([{p,oi,od}]); };
