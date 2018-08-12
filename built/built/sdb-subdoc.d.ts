@@ -1,5 +1,6 @@
-import { SDBDoc, OpSubmittable } from './sdb-doc';
+import { SDBDoc } from './sdb-doc';
 import * as ShareDB from 'sharedb';
+import { OpSubmittable } from './OpSubmittable';
 export declare class SDBSubDoc<E> extends OpSubmittable {
     private doc;
     private path;

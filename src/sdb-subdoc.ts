@@ -1,6 +1,7 @@
-import { SDBDoc, OpSubmittable } from './sdb-doc';
+import { SDBDoc } from './sdb-doc';
 import * as ShareDB from 'sharedb';
 import { extend } from 'lodash';
+import { OpSubmittable } from './OpSubmittable';
 
 export class SDBSubDoc<E> extends OpSubmittable {
     constructor(private doc: SDBDoc<any>, private path: Array<string|number>) {

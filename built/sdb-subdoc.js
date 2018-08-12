@@ -10,7 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const sdb_doc_1 = require("./sdb-doc");
 const lodash_1 = require("lodash");
-class SDBSubDoc extends sdb_doc_1.OpSubmittable {
+const OpSubmittable_1 = require("./OpSubmittable");
+class SDBSubDoc extends OpSubmittable_1.OpSubmittable {
     constructor(doc, path) {
         super();
         this.doc = doc;
