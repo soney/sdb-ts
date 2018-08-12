@@ -9,37 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const lodash_1 = require("lodash");
-class SDBDoc {
-    constructor(docIdentifier, doc, sdb) {
-        this.docIdentifier = docIdentifier;
-        this.doc = doc;
-        this.sdb = sdb;
-    }
-    ;
-    getIdentifier() { return this.docIdentifier; }
-    ;
-    getData() { return this.doc.data; }
-    ;
-    traverse(path) {
-        let x = this.getData();
-        let prev = x;
-        for (let i = 0; i < path.length; i++) {
-            try {
-                x = x[path[i]];
-                prev = x;
-            }
-            catch (e) {
-                throw new Error(`Could not traverse path ${path}. Object ${prev} does not have property ${path[i]}`);
-            }
-        }
-        return x;
-    }
-    ;
-    static relative(from, to) {
-        const fl = from.length;
-        return lodash_1.isEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
-    }
-    ;
+const sdb_subdoc_1 = require("./sdb-subdoc");
+class OpSubmittable {
     submitObjectReplaceOp(p, oi, od = this.traverse(p)) {
         return __awaiter(this, void 0, void 0, function* () { return yield this.submitOp([{ p, oi, od }]); });
     }
@@ -108,6 +79,44 @@ class SDBDoc {
             });
             return yield this.submitOp(ops);
         });
+    }
+    ;
+}
+exports.OpSubmittable = OpSubmittable;
+;
+class SDBDoc extends OpSubmittable {
+    constructor(docIdentifier, doc, sdb) {
+        super();
+        this.docIdentifier = docIdentifier;
+        this.doc = doc;
+        this.sdb = sdb;
+    }
+    ;
+    subDoc(path) {
+        return new sdb_subdoc_1.SDBSubDoc(this, path);
+    }
+    getIdentifier() { return this.docIdentifier; }
+    ;
+    getData() { return this.doc.data; }
+    ;
+    traverse(path) {
+        let x = this.getData();
+        let prev = x;
+        for (let i = 0; i < path.length; i++) {
+            try {
+                x = x[path[i]];
+                prev = x;
+            }
+            catch (e) {
+                throw new Error(`Could not traverse path ${path}. Object ${prev} does not have property ${path[i]}`);
+            }
+        }
+        return x;
+    }
+    ;
+    static relative(from, to) {
+        const fl = from.length;
+        return lodash_1.isEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
     }
     ;
     fetch() {

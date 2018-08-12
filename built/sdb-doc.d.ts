@@ -1,15 +1,7 @@
 import * as ShareDB from 'sharedb';
 import { SDB } from './sdb';
-export declare type DocIdentifier = [string, string];
-export declare class SDBDoc<E> {
-    private docIdentifier;
-    private doc;
-    private sdb;
-    constructor(docIdentifier: DocIdentifier, doc: ShareDB.Doc, sdb: SDB);
-    getIdentifier(): DocIdentifier;
-    getData(): E;
-    traverse(path: Array<string | number>): any;
-    static relative(from: Array<string | number>, to: Array<string | number>): Array<string | number>;
+import { SDBSubDoc } from './sdb-subdoc';
+export declare abstract class OpSubmittable {
     submitObjectReplaceOp(p: Array<string | number>, oi: any, od?: any): Promise<this>;
     submitObjectInsertOp(p: Array<string | number>, oi: any): Promise<this>;
     submitObjectDeleteOp(p: Array<string | number>, od?: any): Promise<this>;
@@ -20,6 +12,20 @@ export declare class SDBDoc<E> {
     submitListSpliceOp(p: Array<string | number>, index: number, numToRemove: number, ...toAdd: Array<any>): Promise<this>;
     submitListPushOp(p: Array<string | number>, ...items: Array<any>): Promise<this>;
     submitListUnshiftOp(p: Array<string | number>, ...items: Array<any>): Promise<this>;
+    abstract submitOp(ops: Array<ShareDB.Op>, source?: any): Promise<this>;
+    abstract traverse(path: Array<string | number>): any;
+}
+export declare type DocIdentifier = [string, string];
+export declare class SDBDoc<E> extends OpSubmittable {
+    private docIdentifier;
+    private doc;
+    private sdb;
+    constructor(docIdentifier: DocIdentifier, doc: ShareDB.Doc, sdb: SDB);
+    subDoc<T>(path: Array<string | number>): SDBSubDoc<T>;
+    getIdentifier(): DocIdentifier;
+    getData(): E;
+    traverse(path: Array<string | number>): any;
+    static relative(from: Array<string | number>, to: Array<string | number>): Array<string | number>;
     fetch(): Promise<ShareDB.Doc>;
     create(data: E, type?: any, options?: any): Promise<this>;
     del(source?: any): Promise<void>;

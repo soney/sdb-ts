@@ -1,31 +1,9 @@
 import * as ShareDB from 'sharedb';
 import {SDB} from './sdb';
 import { isEqual } from 'lodash';
+import { SDBSubDoc } from './sdb-subdoc';
 
-export type DocIdentifier = [string, string];
-export class SDBDoc<E> {
-    constructor(private docIdentifier:DocIdentifier, private doc:ShareDB.Doc, private sdb:SDB) { };
-    public getIdentifier():DocIdentifier { return this.docIdentifier; };
-    public getData():E { return this.doc.data; };
-    public traverse(path:Array<string|number>):any {
-        let x:any = this.getData();
-        let prev:any = x;
-        for(let i:number = 0; i<path.length; i++) {
-            try {
-                x = x[path[i]];
-                prev = x;
-            } catch(e) {
-                throw new Error(`Could not traverse path ${path}. Object ${prev} does not have property ${path[i]}`);
-            }
-        }
-        return x;
-    };
-
-    public static relative(from: Array<string|number>, to: Array<string|number>): Array<string|number> {
-        const fl = from.length;
-        return isEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
-    };
-
+export abstract class OpSubmittable {
     public async submitObjectReplaceOp(p:Array<string|number>, oi:any, od:any=this.traverse(p)):Promise<this>   { return await this.submitOp([{p,oi,od}]); };
     public async submitObjectInsertOp (p:Array<string|number>, oi:any):Promise<this>                            { return await this.submitOp([{p,oi}]);    };
     public async submitObjectDeleteOp (p:Array<string|number>, od:any=this.traverse(p)):Promise<this>           { return await this.submitOp([{p,od}]);    };
@@ -69,6 +47,39 @@ export class SDBDoc<E> {
         });
         return await this.submitOp(ops);
     };
+    public abstract submitOp(ops:Array<ShareDB.Op>, source? :any):Promise<this>;
+    public abstract traverse(path:Array<string|number>):any;
+};
+
+export type DocIdentifier = [string, string];
+export class SDBDoc<E> extends OpSubmittable {
+    constructor(private docIdentifier:DocIdentifier, private doc:ShareDB.Doc, private sdb:SDB) {
+        super();
+    };
+    public subDoc<T>(path: Array<string|number>): SDBSubDoc<T> {
+        return new SDBSubDoc<T>(this, path);
+    }
+    public getIdentifier():DocIdentifier { return this.docIdentifier; };
+    public getData():E { return this.doc.data; };
+    public traverse(path:Array<string|number>):any {
+        let x:any = this.getData();
+        let prev:any = x;
+        for(let i:number = 0; i<path.length; i++) {
+            try {
+                x = x[path[i]];
+                prev = x;
+            } catch(e) {
+                throw new Error(`Could not traverse path ${path}. Object ${prev} does not have property ${path[i]}`);
+            }
+        }
+        return x;
+    };
+
+    public static relative(from: Array<string|number>, to: Array<string|number>): Array<string|number> {
+        const fl = from.length;
+        return isEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
+    };
+
 
     public fetch():Promise<ShareDB.Doc> {
         return new Promise<ShareDB.Doc>((resolve, reject) => {
