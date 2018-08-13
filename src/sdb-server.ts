@@ -48,7 +48,7 @@ export class SDBServer extends SDB {
 class WebSocketJSONStream extends Duplex {
     constructor(private readonly ws:WebSocket) {
         super({objectMode: true});
-        this.ws.on('message', (msg) => {
+        this.ws.on('message', (msg: string) => {
             this.push(JSON.parse(msg))
         });
         this.ws.on('close', () => {

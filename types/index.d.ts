@@ -104,7 +104,34 @@ declare module 'sharedb' {
         interface DB { }
 
         class MemoryDB implements DB { }
-        class PubSub { }
+        export interface IPubSubOptions {
+            prefix?: string;
+        }
+        export interface IStream {
+            id: string;
+        }
+        export abstract class PubSub {
+            private static shallowCopy(object);
+            protected prefix?: string;
+            protected nextStreamId: number;
+            protected streamsCount: number;
+            protected streams: {
+                [channel: string]: IStream;
+            };
+            protected subscribed: {
+                [channel: string]: boolean;
+            };
+            protected constructor(options?: IPubSubOptions);
+            close(callback?: (err:Error|null) => void): void;
+            publish(channels: string[], data: object, callback: (err: Error | null) => void): void;
+            subscribe(channel: string, callback: (err: Error | null, stream?: IStream) => void): void;
+            protected abstract _subscribe(channel: string, callback: (err: Error | null) => void): void;
+            protected abstract _unsubscribe(channel: string, callback: (err: Error | null) => void): void;
+            protected abstract _publish(channels: string[], data: Object, callback: (err: Error | null) => void): void;
+            protected _emit(channel: string, data: object): void;
+            private _createStream(channel);
+            private _removeStream(channel, stream);
+        }
         type Doc = ShareDB.Doc;
         type Op = ShareDB.Op;
         type Action = ShareDB.Action;
