@@ -80,17 +80,17 @@ export class SDBDoc<E> extends OpSubmittable {
     private onCreate = () => { this.subscribers.forEach((sub) => sub('create', null, null, this.doc.data)); };
 
     public subscribe(subscriber: Subscriber<E> = ()=>null): ()=>void {
-        if(subscriber) {
-            this.subscribers.push(subscriber);
+        this.subscribers.push(subscriber);
 
-            if(this.subscribers.length === 1) {
-                this.doc.on('op', this.onOp);
-                this.doc.on('create', this.onCreate);
-                this.doc.subscribe((err) => {
-                    if(err) { throw(err); }
-                    this.subscribers.forEach((sub) => sub(null, null, null, this.doc.data));
-                });
-            }
+        if(this.subscribers.length === 1) {
+            this.doc.on('op', this.onOp);
+            this.doc.on('create', this.onCreate);
+            this.doc.subscribe((err) => {
+                if(err) { throw(err); }
+                subscriber(null, null, null, this.doc.data);
+            });
+        } else {
+            subscriber(null, null, null, this.doc.data);
         }
         return ():void => { this.removeSubscriber(subscriber); };
     };

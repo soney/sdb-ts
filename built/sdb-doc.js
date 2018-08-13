@@ -95,18 +95,19 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
         }
     }
     subscribe(subscriber = () => null) {
-        if (subscriber) {
-            this.subscribers.push(subscriber);
-            if (this.subscribers.length === 1) {
-                this.doc.on('op', this.onOp);
-                this.doc.on('create', this.onCreate);
-                this.doc.subscribe((err) => {
-                    if (err) {
-                        throw (err);
-                    }
-                    this.subscribers.forEach((sub) => sub(null, null, null, this.doc.data));
-                });
-            }
+        this.subscribers.push(subscriber);
+        if (this.subscribers.length === 1) {
+            this.doc.on('op', this.onOp);
+            this.doc.on('create', this.onCreate);
+            this.doc.subscribe((err) => {
+                if (err) {
+                    throw (err);
+                }
+                subscriber(null, null, null, this.doc.data);
+            });
+        }
+        else {
+            subscriber(null, null, null, this.doc.data);
         }
         return () => { this.removeSubscriber(subscriber); };
     }

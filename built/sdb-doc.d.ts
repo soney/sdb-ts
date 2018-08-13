@@ -18,7 +18,7 @@ export declare class SDBDoc<E> extends OpSubmittable {
     fetch(): Promise<ShareDB.Doc>;
     create(data: E, type?: any, options?: any): Promise<this>;
     del(source?: any): Promise<void>;
-    private removeSubscriber(subscriber);
+    private removeSubscriber;
     private onOp;
     private onCreate;
     subscribe(subscriber?: Subscriber<E>): () => void;
