@@ -17,6 +17,9 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
         this.docIdentifier = docIdentifier;
         this.doc = doc;
         this.sdb = sdb;
+        this.subscribers = [];
+        this.onOp = (ops, source) => { this.subscribers.forEach((sub) => sub('op', ops, source, this.doc.data)); };
+        this.onCreate = () => { this.subscribers.forEach((sub) => sub('create', null, null, this.doc.data)); };
     }
     ;
     subDoc(path) {
@@ -81,30 +84,31 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
         });
     }
     ;
-    subscribe(callback) {
-        const onOpFunc = (ops, source) => {
-            if (callback) {
-                callback('op', ops, source, this.doc.data);
+    removeSubscriber(subscriber) {
+        let idx;
+        while ((idx = this.subscribers.indexOf(subscriber)) >= 0) {
+            this.subscribers.splice(idx, 1);
+        }
+        if (this.subscribers.length === 0) {
+            this.doc.off('op', this.onOp);
+            this.doc.off('create', this.onCreate);
+        }
+    }
+    subscribe(subscriber = () => null) {
+        if (subscriber) {
+            this.subscribers.push(subscriber);
+            if (this.subscribers.length === 1) {
+                this.doc.on('op', this.onOp);
+                this.doc.on('create', this.onCreate);
+                this.doc.subscribe((err) => {
+                    if (err) {
+                        throw (err);
+                    }
+                    this.subscribers.forEach((sub) => sub(null, null, null, this.doc.data));
+                });
             }
-        };
-        const onCreateFunc = () => {
-            if (callback) {
-                callback('create', null, null, this.doc.data);
-            }
-        };
-        this.doc.subscribe((err) => {
-            if (err) {
-                throw (err);
-            }
-            if (callback) {
-                callback(null, null, null, this.doc.data);
-            }
-        });
-        this.doc.on('op', onOpFunc);
-        this.doc.on('create', onCreateFunc);
-        return () => {
-            this.doc.removeListener('op', onOpFunc);
-        };
+        }
+        return () => { this.removeSubscriber(subscriber); };
     }
     ;
     submitOp(ops, source = true) {

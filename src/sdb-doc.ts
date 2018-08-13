@@ -5,11 +5,13 @@ import { SDBSubDoc } from './sdb-subdoc';
 import { OpSubmittable } from './OpSubmittable';
 
 export type DocIdentifier = [string, string];
+export type Subscriber<E> = (eventType:string, ops:Array<ShareDB.Op>, source:any, data:E)=>void;
 
 export class SDBDoc<E> extends OpSubmittable {
     constructor(private docIdentifier:DocIdentifier, private doc:ShareDB.Doc, private sdb:SDB) {
         super();
     };
+    private subscribers:Subscriber<E>[] = [];
     public subDoc<T>(path: Array<string|number>): SDBSubDoc<T> {
         return new SDBSubDoc<T>(this, path);
     }
@@ -64,28 +66,33 @@ export class SDBDoc<E> extends OpSubmittable {
             });
         });
     };
-    public subscribe(callback?:(eventType:string, ops:Array<ShareDB.Op>, source:any, data:E)=>void):()=>void {
-        const onOpFunc = (ops:Array<ShareDB.Op>, source:any) => {
-            if(callback) {
-                callback('op', ops, source, this.doc.data);
+    private removeSubscriber(subscriber: Subscriber<E>): void {
+        let idx: number;
+        while((idx = this.subscribers.indexOf(subscriber))>=0) {
+            this.subscribers.splice(idx, 1);
+        }
+        if(this.subscribers.length === 0) {
+            this.doc.off('op', this.onOp);
+            this.doc.off('create', this.onCreate);
+        }
+    }
+    private onOp = (ops:Array<ShareDB.Op>, source:any) => { this.subscribers.forEach((sub) => sub('op', ops, source, this.doc.data)); };
+    private onCreate = () => { this.subscribers.forEach((sub) => sub('create', null, null, this.doc.data)); };
+
+    public subscribe(subscriber: Subscriber<E> = ()=>null): ()=>void {
+        if(subscriber) {
+            this.subscribers.push(subscriber);
+
+            if(this.subscribers.length === 1) {
+                this.doc.on('op', this.onOp);
+                this.doc.on('create', this.onCreate);
+                this.doc.subscribe((err) => {
+                    if(err) { throw(err); }
+                    this.subscribers.forEach((sub) => sub(null, null, null, this.doc.data));
+                });
             }
-        };
-        const onCreateFunc = () => {
-            if(callback) {
-                callback('create', null, null, this.doc.data);
-            }
-        };
-        this.doc.subscribe((err) => {
-            if(err) { throw(err); }
-            if(callback) {
-                callback(null, null, null, this.doc.data);
-            }
-        });
-        this.doc.on('op', onOpFunc);
-        this.doc.on('create', onCreateFunc);
-        return ():void => {
-            this.doc.removeListener('op', onOpFunc);
-        };
+        }
+        return ():void => { this.removeSubscriber(subscriber); };
     };
     public submitOp(ops:Array<ShareDB.Op>, source:any=true):Promise<this> {
         return new Promise<this>((resolve, reject) => {

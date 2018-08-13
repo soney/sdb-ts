@@ -4,7 +4,7 @@ export declare abstract class SDB {
     private readonly docs;
     protected connection: ShareDB.Connection;
     constructor();
-    private getDocIdentifier;
+    private getDocIdentifier(collectionName, documentID);
     get<E>(collectionName: string, documentID: string): SDBDoc<E>;
     static registerType(type: any): void;
     abstract close(): Promise<void>;

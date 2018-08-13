@@ -13,5 +13,5 @@ export declare class SDBServer extends SDB {
     constructor(wss: WebSocket.Server, options?: SDBServerOptions);
     use(action: ShareDB.Action, fn: ShareDB.UseCallback): void;
     close(): Promise<void>;
-    private listen;
+    private listen(stream);
 }
