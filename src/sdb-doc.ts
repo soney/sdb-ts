@@ -17,7 +17,7 @@ export class SDBDoc<E> extends OpSubmittable {
     }
     public getIdentifier():DocIdentifier { return this.docIdentifier; };
     public getData():E { return this.doc.data; };
-    public traverse(path:Array<string|number>):any {
+    public traverse(path:ReadonlyArray<string|number>):any {
         let x:any = this.getData();
         let prev:any = x;
         for(let i:number = 0; i<path.length; i++) {
@@ -76,13 +76,11 @@ export class SDBDoc<E> extends OpSubmittable {
             this.doc.on('op', this.onOp);
             this.doc.on('create', this.onCreate);
             return new Promise<void>((resolve, reject) => {
-                console.log('az');
-                console.log(this.doc);
                 this.doc.subscribe((err) => {
-                    console.error(err);
-                    console.log('b');
-                    if(err) { reject(err); }
-                    console.log('resolve');
+                    if(err) {
+                        reject(err);
+                        throw(err);
+                    }
                     resolve();
                     subscriber(null, null, null, this.doc.data);
                 });

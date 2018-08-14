@@ -14,7 +14,7 @@ export function extend(obj: {[key: string]: any}, ...args: {[key: string]: any}[
     args.forEach((arg: {[key: string]: any}) => {
         if(arg) {
             for (let prop in arg) {
-                obj[prop] = arg;
+                obj[prop] = arg[prop];
             }
         }
     });

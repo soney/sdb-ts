@@ -13,7 +13,7 @@ export declare class SDBDoc<E> extends OpSubmittable {
     subDoc<T>(path: Array<string | number>): SDBSubDoc<T>;
     getIdentifier(): DocIdentifier;
     getData(): E;
-    traverse(path: Array<string | number>): any;
+    traverse(path: ReadonlyArray<string | number>): any;
     static relative(from: Array<string | number>, to: Array<string | number>): Array<string | number>;
     fetch(): Promise<ShareDB.Doc>;
     create(data: E, type?: any, options?: any): Promise<this>;

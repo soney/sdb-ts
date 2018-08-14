@@ -1,21 +1,47 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const WebSocket = require("ws");
 const ShareDB = require("sharedb");
+const net = require("net");
 const sdb_1 = require("./sdb");
 const stream_1 = require("stream");
 const utils_1 = require("./utils");
+const path_1 = require("path");
 class SDBServer extends sdb_1.SDB {
-    constructor(wss, options) {
+    constructor(server, options) {
         super();
-        options = utils_1.extend({}, options, SDBServer.optionDefaults, { wss });
+        options = utils_1.extend({}, options, SDBServer.optionDefaults);
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
-        wss.on('connection', (ws) => {
-            const stream = new WebSocketJSONStream(ws);
-            this.listen(stream);
+        if (server) {
+            if (server instanceof WebSocket.Server) {
+                this.wssPromise = Promise.resolve(server);
+            }
+            else if (server instanceof net.Server) {
+                this.wssPromise = Promise.resolve(new WebSocket.Server({ server: server }));
+            }
+            else {
+                throw new Error(`Could not recognize type of expected server ${server}`);
+            }
+        }
+        else {
+            this.wssPromise = getOpenPort().then((port) => {
+                return new WebSocket.Server({ port });
+            }).catch((err) => {
+                throw (err);
+            });
+        }
+        this.wssPromise.then((wss) => {
+            wss.on('connection', (ws) => {
+                const stream = new WebSocketJSONStream(ws);
+                this.listen(stream);
+            });
         });
     }
     ;
+    address() {
+        return this.wssPromise.then((wss) => wss.address());
+    }
     use(action, fn) {
         this.share.use(action, fn);
     }
@@ -28,6 +54,13 @@ class SDBServer extends sdb_1.SDB {
         });
     }
     ;
+    listening() {
+        return this.wssPromise.then((wss) => {
+            wss.once('listening', () => {
+                path_1.resolve();
+            });
+        });
+    }
     listen(stream) {
         this.share.listen(stream);
     }
@@ -66,4 +99,17 @@ class WebSocketJSONStream extends stream_1.Duplex {
     ;
 }
 ;
+function getOpenPort() {
+    return new Promise((resolve, reject) => {
+        const server = net.createServer();
+        server.unref();
+        server.on('error', reject);
+        server.listen(() => {
+            const port = server.address().port;
+            server.close(() => {
+                resolve(port);
+            });
+        });
+    });
+}
 //# sourceMappingURL=sdb-server.js.map

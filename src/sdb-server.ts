@@ -1,8 +1,12 @@
+import * as http from 'http';
 import * as WebSocket from 'ws';
 import * as ShareDB from 'sharedb';
+import * as net from 'net';
 import { SDB } from './sdb';
 import { Duplex } from 'stream';
 import { extend } from './utils';
+import { resolve } from 'path';
+import { AddressInfo } from 'ws';
 
 export interface SDBServerOptions {
     db?:ShareDB.DB,
@@ -17,16 +21,39 @@ export class SDBServer extends SDB {
         disableSpaceDelimitedActions: true
     };
     private readonly share:ShareDB;
-    constructor(wss: WebSocket.Server, options?:SDBServerOptions) {
+    private wssPromise: Promise<WebSocket.Server>;
+    constructor(server?: WebSocket.Server | net.Server, options?:SDBServerOptions) {
         super();
-        options = extend({}, options, SDBServer.optionDefaults, { wss });
+        options = extend({}, options, SDBServer.optionDefaults);
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
-        wss.on('connection', (ws:WebSocket): void => {
-            const stream = new WebSocketJSONStream(ws);
-            this.listen(stream);
+
+        if (server) {
+            if (server instanceof WebSocket.Server) {
+                this.wssPromise = Promise.resolve(server);
+            } else if(server instanceof net.Server) {
+                this.wssPromise = Promise.resolve(new WebSocket.Server({ server: server as http.Server }));
+            } else {
+                throw new Error(`Could not recognize type of expected server ${server}`);
+            }
+        } else {
+            this.wssPromise = getOpenPort().then((port) => {
+                return new WebSocket.Server({ port });
+            }).catch((err) => {
+                throw(err);
+            });
+        }
+        this.wssPromise.then((wss: WebSocket.Server) => {
+            wss.on('connection', (ws:WebSocket): void => {
+                const stream = new WebSocketJSONStream(ws);
+                this.listen(stream);
+            });
         });
     };
+
+    public address(): Promise<AddressInfo> {
+        return this.wssPromise.then((wss) => wss.address() as AddressInfo );
+    }
 
     public use(action:ShareDB.Action, fn:ShareDB.UseCallback):void {
         this.share.use(action, fn);
@@ -39,7 +66,16 @@ export class SDBServer extends SDB {
             });
         });
     };
-    private listen(stream:Duplex):void {
+
+    public listening(): Promise<void> {
+        return this.wssPromise.then((wss) => {
+            wss.once('listening', () => {
+                resolve();
+            });
+        });
+    }
+
+    private listen(stream:WebSocketJSONStream):void {
         this.share.listen(stream);
     };
 };
@@ -67,3 +103,19 @@ class WebSocketJSONStream extends Duplex {
         next();
     };
 };
+
+function getOpenPort(): Promise<number> {
+    return new Promise<number>((resolve, reject) => {
+        const server = net.createServer();
+        server.unref();
+
+        server.on('error', reject);
+        server.listen(() => {
+            const port: number = (server.address() as net.AddressInfo).port;
+
+            server.close(() => {
+                resolve(port);
+            });
+        });
+    });
+}

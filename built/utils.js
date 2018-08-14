@@ -16,7 +16,7 @@ function extend(obj, ...args) {
     args.forEach((arg) => {
         if (arg) {
             for (let prop in arg) {
-                obj[prop] = arg;
+                obj[prop] = arg[prop];
             }
         }
     });

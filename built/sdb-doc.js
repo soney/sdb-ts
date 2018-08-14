@@ -90,15 +90,11 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
             this.doc.on('op', this.onOp);
             this.doc.on('create', this.onCreate);
             return new Promise((resolve, reject) => {
-                console.log('az');
-                console.log(this.doc);
                 this.doc.subscribe((err) => {
-                    console.error(err);
-                    console.log('b');
                     if (err) {
                         reject(err);
+                        throw (err);
                     }
-                    console.log('resolve');
                     resolve();
                     subscriber(null, null, null, this.doc.data);
                 });
