@@ -13,7 +13,10 @@ npm install sdb-ts
 ## Client-side Usage
 For client-side code, use [`built/sdb-client-bundle.js`](https://raw.githubusercontent.com/soney/sdb-ts/master/built/sdb-client-bundle.js).
 
+`window.SDB` will contain `SDBClient, SDBDoc, and SDBSubDoc`
+
 ## Usage Examples
+
 
 
 ### Creating a server (in Node.js):
@@ -84,4 +87,34 @@ const subDoc = d.subDoc(['sd']);
 subDoc.subscribe();
 
 subDoc.submitObjectReplaceOp(['numEx'], 33);
+```
+
+### Connecting a Client (in browser):
+```
+const sdbClient = new SDB.SDBClient(ws);
+const doc:SDB.SDBDoc<CounterDoc> = sdbClient.get('ex', 'counter');
+doc.subscribe(() => {
+	console.log('update');
+});
+```
+
+## Building
+```
+npm install .
+npx tsc
+npx webpack
+```
+To watch:
+```
+npx tsc --watch
+```
+or (if building for client-side)
+```
+npx webpack --watch
+```
+
+## Testing
+
+```
+npm test
 ```
