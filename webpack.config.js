@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = [{
     entry: './src/sdb-client-bundle.ts',
-    mode: 'development',
+    mode: 'production',
     module: {
         rules: [{
             test: /\.tsx?$/,

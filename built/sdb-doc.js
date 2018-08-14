@@ -8,9 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const lodash_1 = require("lodash");
 const sdb_subdoc_1 = require("./sdb-subdoc");
 const OpSubmittable_1 = require("./OpSubmittable");
+const utils_1 = require("./utils");
 class SDBDoc extends OpSubmittable_1.OpSubmittable {
     constructor(docIdentifier, doc, sdb) {
         super();
@@ -46,7 +46,7 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
     ;
     static relative(from, to) {
         const fl = from.length;
-        return lodash_1.isEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
+        return utils_1.isArrayEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
     }
     ;
     fetch() {
@@ -84,7 +84,33 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
         });
     }
     ;
-    removeSubscriber(subscriber) {
+    subscribe(subscriber = () => null) {
+        this.subscribers.push(subscriber);
+        if (this.subscribers.length === 1) {
+            this.doc.on('op', this.onOp);
+            this.doc.on('create', this.onCreate);
+            return new Promise((resolve, reject) => {
+                console.log('az');
+                console.log(this.doc);
+                this.doc.subscribe((err) => {
+                    console.error(err);
+                    console.log('b');
+                    if (err) {
+                        reject(err);
+                    }
+                    console.log('resolve');
+                    resolve();
+                    subscriber(null, null, null, this.doc.data);
+                });
+            });
+        }
+        else {
+            subscriber(null, null, null, this.doc.data);
+            return Promise.resolve();
+        }
+    }
+    ;
+    unsubscribe(subscriber) {
         let idx;
         while ((idx = this.subscribers.indexOf(subscriber)) >= 0) {
             this.subscribers.splice(idx, 1);
@@ -93,23 +119,6 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
             this.doc.off('op', this.onOp);
             this.doc.off('create', this.onCreate);
         }
-    }
-    subscribe(subscriber = () => null) {
-        this.subscribers.push(subscriber);
-        if (this.subscribers.length === 1) {
-            this.doc.on('op', this.onOp);
-            this.doc.on('create', this.onCreate);
-            this.doc.subscribe((err) => {
-                if (err) {
-                    throw (err);
-                }
-                subscriber(null, null, null, this.doc.data);
-            });
-        }
-        else {
-            subscriber(null, null, null, this.doc.data);
-        }
-        return () => { this.removeSubscriber(subscriber); };
     }
     ;
     submitOp(ops, source = true) {

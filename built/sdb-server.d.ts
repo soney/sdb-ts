@@ -1,6 +1,6 @@
-import { SDB } from './sdb';
-import * as ShareDB from 'sharedb';
 import * as WebSocket from 'ws';
+import * as ShareDB from 'sharedb';
+import { SDB } from './sdb';
 export interface SDBServerOptions {
     db?: ShareDB.DB;
     pubsub?: ShareDB.PubSub;

@@ -1,4 +1,4 @@
-import {SDB} from './sdb';
+import { SDB } from './sdb';
 import * as ShareDBClient from 'sharedb/lib/client';
 
 export class SDBClient extends SDB {

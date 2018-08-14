@@ -1,8 +1,8 @@
-import {SDB} from './sdb';
-import * as ShareDB from 'sharedb';
 import * as WebSocket from 'ws';
-import {Duplex} from 'stream';
-import {extend} from 'lodash';
+import * as ShareDB from 'sharedb';
+import { SDB } from './sdb';
+import { Duplex } from 'stream';
+import { extend } from './utils';
 
 export interface SDBServerOptions {
     db?:ShareDB.DB,
@@ -19,7 +19,7 @@ export class SDBServer extends SDB {
     private readonly share:ShareDB;
     constructor(wss: WebSocket.Server, options?:SDBServerOptions) {
         super();
-        options = extend({}, options, SDBServer.optionDefaults);
+        options = extend({}, options, SDBServer.optionDefaults, { wss });
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
         wss.on('connection', (ws:WebSocket): void => {

@@ -1,5 +1,5 @@
 import * as ShareDB from 'sharedb';
-import {DocIdentifier, SDBDoc} from './sdb-doc';
+import { DocIdentifier, SDBDoc } from './sdb-doc';
 
 export abstract class SDB {
     private readonly docs:Map<DocIdentifier, SDBDoc<any>> = new Map<DocIdentifier, SDBDoc<any>>();

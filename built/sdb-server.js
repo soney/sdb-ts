@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const sdb_1 = require("./sdb");
 const ShareDB = require("sharedb");
+const sdb_1 = require("./sdb");
 const stream_1 = require("stream");
-const lodash_1 = require("lodash");
+const utils_1 = require("./utils");
 class SDBServer extends sdb_1.SDB {
     constructor(wss, options) {
         super();
-        options = lodash_1.extend({}, options, SDBServer.optionDefaults);
+        options = utils_1.extend({}, options, SDBServer.optionDefaults, { wss });
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
         wss.on('connection', (ws) => {

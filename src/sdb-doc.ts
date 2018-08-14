@@ -1,8 +1,8 @@
 import * as ShareDB from 'sharedb';
-import {SDB} from './sdb';
-import { isEqual } from 'lodash';
+import { SDB } from './sdb';
 import { SDBSubDoc } from './sdb-subdoc';
 import { OpSubmittable } from './OpSubmittable';
+import { isArrayEqual } from './utils';
 
 export type DocIdentifier = [string, string];
 export type Subscriber<E> = (eventType:string, ops:Array<ShareDB.Op>, source:any, data:E)=>void;
@@ -33,7 +33,7 @@ export class SDBDoc<E> extends OpSubmittable {
 
     public static relative(from: Array<string|number>, to: Array<string|number>): Array<string|number> {
         const fl = from.length;
-        return isEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
+        return isArrayEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
     };
 
 
@@ -66,7 +66,33 @@ export class SDBDoc<E> extends OpSubmittable {
             });
         });
     };
-    private removeSubscriber(subscriber: Subscriber<E>): void {
+    private onOp = (ops:Array<ShareDB.Op>, source:any) => { this.subscribers.forEach((sub) => sub('op', ops, source, this.doc.data)); };
+    private onCreate = () => { this.subscribers.forEach((sub) => sub('create', null, null, this.doc.data)); };
+
+    public subscribe(subscriber: Subscriber<E> = ()=>null): Promise<void> {
+        this.subscribers.push(subscriber);
+
+        if(this.subscribers.length === 1) {
+            this.doc.on('op', this.onOp);
+            this.doc.on('create', this.onCreate);
+            return new Promise<void>((resolve, reject) => {
+                console.log('az');
+                console.log(this.doc);
+                this.doc.subscribe((err) => {
+                    console.error(err);
+                    console.log('b');
+                    if(err) { reject(err); }
+                    console.log('resolve');
+                    resolve();
+                    subscriber(null, null, null, this.doc.data);
+                });
+            });
+        } else {
+            subscriber(null, null, null, this.doc.data);
+            return Promise.resolve();
+        }
+    };
+    public unsubscribe(subscriber: Subscriber<E>): void {
         let idx: number;
         while((idx = this.subscribers.indexOf(subscriber))>=0) {
             this.subscribers.splice(idx, 1);
@@ -75,24 +101,6 @@ export class SDBDoc<E> extends OpSubmittable {
             this.doc.off('op', this.onOp);
             this.doc.off('create', this.onCreate);
         }
-    }
-    private onOp = (ops:Array<ShareDB.Op>, source:any) => { this.subscribers.forEach((sub) => sub('op', ops, source, this.doc.data)); };
-    private onCreate = () => { this.subscribers.forEach((sub) => sub('create', null, null, this.doc.data)); };
-
-    public subscribe(subscriber: Subscriber<E> = ()=>null): ()=>void {
-        this.subscribers.push(subscriber);
-
-        if(this.subscribers.length === 1) {
-            this.doc.on('op', this.onOp);
-            this.doc.on('create', this.onCreate);
-            this.doc.subscribe((err) => {
-                if(err) { throw(err); }
-                subscriber(null, null, null, this.doc.data);
-            });
-        } else {
-            subscriber(null, null, null, this.doc.data);
-        }
-        return ():void => { this.removeSubscriber(subscriber); };
     };
     public submitOp(ops:Array<ShareDB.Op>, source:any=true):Promise<this> {
         return new Promise<this>((resolve, reject) => {

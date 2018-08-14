@@ -9,17 +9,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const sdb_doc_1 = require("./sdb-doc");
-const lodash_1 = require("lodash");
 const OpSubmittable_1 = require("./OpSubmittable");
+const utils_1 = require("./utils");
 class SDBSubDoc extends OpSubmittable_1.OpSubmittable {
     constructor(doc, path) {
         super();
         this.doc = doc;
         this.path = path;
+        this.subscriptionShims = new Map();
     }
     ;
-    subscribe(callback) {
-        const unsubscribe = this.doc.subscribe((eventType, ops, source, data) => {
+    subscribe(callback = () => null) {
+        const shimmedCB = (eventType, ops, source, data) => {
             if (eventType === 'op') {
                 const relOps = [];
                 ops.forEach((op) => {
@@ -29,7 +30,7 @@ class SDBSubDoc extends OpSubmittable_1.OpSubmittable {
                     }
                 });
                 if (relOps.length > 0) {
-                    const newOps = relOps.map(({ op, rp }) => lodash_1.extend({}, op, { p: rp }));
+                    const newOps = relOps.map(({ op, rp }) => utils_1.extend({}, op, { p: rp }));
                     if (callback) {
                         callback(eventType, newOps, source, this.getData());
                     }
@@ -40,10 +41,22 @@ class SDBSubDoc extends OpSubmittable_1.OpSubmittable {
                     callback(eventType, ops, source, this.getData());
                 }
             }
-        });
-        return unsubscribe;
+        };
+        if (this.subscriptionShims.has(callback)) {
+            this.subscriptionShims.set(callback, this.subscriptionShims.get(callback).concat([shimmedCB]));
+        }
+        else {
+            this.subscriptionShims.set(callback, [shimmedCB]);
+        }
+        return this.doc.subscribe(shimmedCB);
     }
-    ;
+    unsubscribe(callback) {
+        if (this.subscriptionShims.has(callback)) {
+            const shimmedCB = this.subscriptionShims.get(callback);
+            shimmedCB.forEach((cb) => this.doc.unsubscribe(cb));
+            this.subscriptionShims.delete(callback);
+        }
+    }
     getData() {
         try {
             return this.doc.traverse(this.path);
@@ -54,7 +67,7 @@ class SDBSubDoc extends OpSubmittable_1.OpSubmittable {
     }
     submitOp(ops, source = true) {
         return __awaiter(this, void 0, void 0, function* () {
-            const absOps = ops.map((op) => lodash_1.extend({}, op, { p: this.path.concat(op.p) }));
+            const absOps = ops.map((op) => utils_1.extend({}, op, { p: this.path.concat(op.p) }));
             yield this.doc.submitOp(absOps, source);
             return this;
         });
