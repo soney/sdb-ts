@@ -1,5 +1,5 @@
-import { SDBDoc } from './sdb-doc';
-import { SDBClient } from './sdb-client';
-import { SDBServer } from './sdb-server';
-import { SDBSubDoc } from './sdb-subdoc';
+import { SDBDoc } from './SDBDoc';
+import { SDBClient } from './SDBClient';
+import { SDBServer } from './SDBServer';
+import { SDBSubDoc } from './SDBSubDoc';
 export { SDBClient, SDBServer, SDBDoc, SDBSubDoc };

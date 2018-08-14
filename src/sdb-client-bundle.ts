@@ -1,5 +1,6 @@
-import { SDBDoc } from './sdb-doc';
-import { SDBClient } from './sdb-client';
-import { SDBSubDoc } from './sdb-subdoc';
+import { SDBDoc } from './SDBDoc';
+import { SDBClient } from './SDBClient';
+import { SDBSubDoc } from './SDBSubDoc';
 
+// Put all of these under a global variable `SDB`
 window['SDB'] = { SDBClient, SDBDoc, SDBSubDoc };
