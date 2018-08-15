@@ -11,7 +11,7 @@
   "types": "./built/index.d.ts",
   "dependencies": {
     "sharedb": "^1.0.0-beta.11",
-    "ws": "^5.2.2"
+    "ws": "^6.0.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.4",
