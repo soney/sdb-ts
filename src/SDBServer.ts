@@ -37,7 +37,7 @@ export class SDBServer extends SDB {
         this.connection = this.share.connect();
 
         if (server) {
-            if (server instanceof WebSocket.Server) {
+            if (server instanceof WebSocket.Server || (server.clients && server.handleUpgrade)) { // (use having .clients and .handleUpgrade as a proxy in case using a different version of WebSocket)
                 this.wssPromise = Promise.resolve(server);
             } else if(server instanceof net.Server) {
                 this.wssPromise = Promise.resolve(new WebSocket.Server({ server: server as http.Server }));
