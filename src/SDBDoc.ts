@@ -146,16 +146,17 @@ export class SDBDoc<E> extends OpSubmittable {
         this.subscribers.push(subscriber);
 
         if(this.subscribers.length === 1) {
-            this.doc.on('op', this.onOp);
-            this.doc.on('create', this.onCreate);
+            this.doc.addListener('op', this.onOp);
+            this.doc.addListener('create', this.onCreate);
             return new Promise<void>((resolve, reject) => {
                 this.doc.subscribe((err) => {
+                    subscriber(null, null, null, this.doc.data);
                     if(err) {
                         reject(err);
                         throw(err);
+                    } else {
+                        resolve();
                     }
-                    resolve();
-                    subscriber(null, null, null, this.doc.data);
                 });
             });
         } else {
@@ -173,8 +174,8 @@ export class SDBDoc<E> extends OpSubmittable {
             this.subscribers.splice(idx, 1);
         }
         if(this.subscribers.length === 0) {
-            this.doc.off('op', this.onOp);
-            this.doc.off('create', this.onCreate);
+            this.doc.removeListener('op', this.onOp);
+            this.doc.removeListener('create', this.onCreate);
         }
     };
 

@@ -1,7 +1,7 @@
 {
   "name": "sdb-ts",
   "description": "A TypeScript Wrapper for ShareDB",
-  "version": "0.2.3",
+  "version": "0.2.2",
   "scripts": {
     "build": "npx tsc",
     "test": "npx mocha -r ts-node/register tests/**/test.ts",
