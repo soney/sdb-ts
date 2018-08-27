@@ -37,8 +37,8 @@ export class SDBServer extends SDB {
         this.connection = this.share.connect();
 
         if (server) {
-            if (server instanceof WebSocket.Server || (server.clients && server.handleUpgrade)) { // (use having .clients and .handleUpgrade as a proxy in case using a different version of WebSocket)
-                this.wssPromise = Promise.resolve(server);
+            if (server instanceof WebSocket.Server ||(server.hasOwnProperty('clients') && server.hasOwnProperty('handleUpgrade'))) { // (use having .clients and .handleUpgrade as a proxy in case using a different version of WebSocket)
+                this.wssPromise = Promise.resolve(server as WebSocket.Server);
             } else if(server instanceof net.Server) {
                 this.wssPromise = Promise.resolve(new WebSocket.Server({ server: server as http.Server }));
             } else {
@@ -91,7 +91,7 @@ export class SDBServer extends SDB {
      */
     public listening(): Promise<void> {
         return this.wssPromise.then((wss: WebSocket.Server) => {
-            if(wss.readyState === wss.OPEN) {
+            if(wss['readyState'] === wss['OPEN']) {
                 return Promise.resolve();
             } else {
                 return new Promise<void>((resolve, reject) => {
