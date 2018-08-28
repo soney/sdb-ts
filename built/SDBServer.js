@@ -21,7 +21,7 @@ class SDBServer extends SDB_1.SDB {
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
         if (server) {
-            if (server instanceof WebSocket.Server || (server.hasOwnProperty('clients') && server.hasOwnProperty('handleUpgrade'))) { // (use having .clients and .handleUpgrade as a proxy in case using a different version of WebSocket)
+            if (server instanceof WebSocket.Server || (server['clients'] && server['handleUpgrade'])) { // (use having .clients and .handleUpgrade as a proxy in case using a different version of WebSocket)
                 this.wssPromise = Promise.resolve(server);
             }
             else if (server instanceof net.Server) {
