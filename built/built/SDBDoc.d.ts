@@ -3,7 +3,7 @@ import { SDB } from './SDB';
 import { SDBSubDoc } from './SDBSubDoc';
 import { OpSubmittable } from './OpSubmittable';
 export declare type DocIdentifier = [string, string];
-export declare type Subscriber<E> = (eventType: string, ops: Array<ShareDB.Op>, source: any, data: E) => void;
+export declare type Subscriber<E> = (eventType: string | null, ops: ReadonlyArray<ShareDB.Op> | null, source: any, data: E | null) => void;
 /**
  * A class that represents a ShareDB document. This class uses generics: `const doc: SDBDooc<{x: number}> = client.get('docs', 'doc1')`
  */
@@ -28,7 +28,7 @@ export declare class SDBDoc<E> extends OpSubmittable {
      * ```
      * @param path The path of the subdoc
      */
-    subDoc<T>(path: Array<string | number>): SDBSubDoc<T>;
+    subDoc<T>(path: ShareDB.Path): SDBSubDoc<T>;
     /**
      * The identifier for this document
      * @returns a two-item array representing the identifier
@@ -53,7 +53,7 @@ export declare class SDBDoc<E> extends OpSubmittable {
      * @param to The full path
      * @return A path that takes us from `from` to `to`
      */
-    static relative(from: Array<string | number>, to: Array<string | number>): Array<string | number>;
+    static relative(from: ShareDB.Path, to: ShareDB.Path): ShareDB.Path;
     /**
      * Fetch and get the actual ShareDB doc.
      * @returns a promise wrapping the ShareDB doc
@@ -95,7 +95,7 @@ export declare class SDBDoc<E> extends OpSubmittable {
      * @param ops The raw operations
      * @param source (optional) the change source
      */
-    submitOp(ops: Array<ShareDB.Op>, source?: any): Promise<this>;
+    protected doSubmitOp(ops: ReadonlyArray<ShareDB.Op>, source?: any): Promise<this>;
     /**
      * Create this document only if it's empty. If it's not empty, do nothing.
      * @param data The initial data

@@ -15,7 +15,11 @@ export declare abstract class SDB {
      * Register a new ShareDB.OT type (see [https://github.com/ottypes/docs](https://github.com/ottypes/docs))
      * @param type The type object
      */
-    static registerType(type: any): void;
+    static registerType(type: {
+        name?: string;
+        uri?: string;
+        [key: string]: any;
+    }): void;
     /**
      * Close the connection (implemented by `SDBServer` and `SDBClient`)
      */

@@ -135,6 +135,13 @@ Testing
 npm test
 ```
 
+### Auto-generated Documentation
+
+*   ["SDBClient"](doc/modules/_sdbclient_.md)
+*   ["SDBServer"](doc/modules/_sdbserver_.md)
+*   ["SDBDoc"](doc/modules/_sdbdoc_.md)
+*   ["SDBSubDoc"](doc/modules/_sdbsubdoc_.md)
+
 ## Index
 
 ### External modules

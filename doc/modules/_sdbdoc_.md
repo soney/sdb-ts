@@ -21,30 +21,30 @@
 
 ###  DocIdentifier
 
-**ΤDocIdentifier**: *[`string`, `string`]*
+**Ƭ DocIdentifier**: *[`string`, `string`]*
 
-*Defined in SDBDoc.ts:7*
+*Defined in [SDBDoc.ts:7](https://github.com/soney/sdb-ts/blob/2988743/src/SDBDoc.ts#L7)*
 
 ___
 <a id="subscriber"></a>
 
 ###  Subscriber
 
-**ΤSubscriber**: *`function`*
+**Ƭ Subscriber**: *`function`*
 
-*Defined in SDBDoc.ts:8*
+*Defined in [SDBDoc.ts:8](https://github.com/soney/sdb-ts/blob/2988743/src/SDBDoc.ts#L8)*
 
 #### Type declaration
-▸(eventType: *`string`*, ops: *`Array`<`ShareDB.Op`>*, source: *`any`*, data: *`E`*): `void`
+▸(eventType: * `string` &#124; `null`*, ops: * `ReadonlyArray`<`ShareDB.Op`> &#124; `null`*, source: *`any`*, data: * `E` &#124; `null`*): `void`
 
 **Parameters:**
 
 | Param | Type |
 | ------ | ------ |
-| eventType | `string` |
-| ops | `Array`<`ShareDB.Op`> |
+| eventType |  `string` &#124; `null`|
+| ops |  `ReadonlyArray`<`ShareDB.Op`> &#124; `null`|
 | source | `any` |
-| data | `E` |
+| data |  `E` &#124; `null`|
 
 **Returns:** `void`
 

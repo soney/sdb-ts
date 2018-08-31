@@ -88,7 +88,7 @@ class SDBSubDoc extends OpSubmittable_1.OpSubmittable {
      * @param ops The raw operations
      * @param source (optional) the change source
      */
-    submitOp(ops, source = true) {
+    doSubmitOp(ops, source = true) {
         return __awaiter(this, void 0, void 0, function* () {
             const absOps = ops.map((op) => utils_1.extend({}, op, { p: this.path.concat(op.p) }));
             yield this.doc.submitOp(absOps, source);

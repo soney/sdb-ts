@@ -1,146 +1,102 @@
-// Type definitions for sharedb v1.0.0-beta.8
+// Type definitions for sharedb 1.0
 // Project: https://github.com/share/sharedb
-// Definitions by: Steve Oney <http://from.so/>
+// Definitions by: Steve Oney <https://github.com/soney>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-declare namespace ShareDB {
-    type DocumentID = string;
-    type Path = Array<string|number>
-    type Snapshot = number;
+/// <reference path="lib/sharedb.d.ts" />
 
-    interface AddNumOp { p:Path, na:number }
+import * as ShareDB from './lib/sharedb';
 
-    interface ListInsertOp  { p:Path, li:any }
-    interface ListDeleteOp  { p:Path, ld:any }
-    interface ListReplaceOp { p:Path, li:any, ld:any }
-    interface ListMoveOp    { p:Path, lm:any }
-
-    interface ObjectInsertOp  { p:Path, oi:any }
-    interface ObjectDeleteOp  { p:Path, od:any }
-    interface ObjectReplaceOp { p:Path, oi:any, od:any }
-
-    interface StringInsertOp { p:Path, si:string }
-    interface StringDeleteOp { p:Path, sd:string }
-
-    interface SubtypeOp { p:Path, t:string, o:any }
-
-    type Op = AddNumOp | ListInsertOp | ListDeleteOp | ListReplaceOp | ListMoveOp | ObjectInsertOp | ObjectDeleteOp | ObjectReplaceOp | StringInsertOp | StringDeleteOp | SubtypeOp;
-
-    interface RawOp {
-        src:string,
-        seq:number,
-        v:number,
-        op:Array<Op>,
-        m:any,
-        c:string,
-        d:string
-    }
-    type OTType = 'ot-text' | 'ot-json0' | 'ot-text-tp2' | 'rich-text';
-    type Action = 'connect'|'op'|'doc'|'query'|'submit'|'apply'|'commit'|'after submit'|'receive';
-    interface Error {
-        code:number,
-        message:string
-    }
-    interface ShareDBSourceOptions { source?:boolean }
-    interface ShareDBCreateOptions extends ShareDBSourceOptions{}
-    interface ShareDBDelOptions extends ShareDBSourceOptions{}
-    interface ShareDBSubmitOpOptions extends ShareDBSourceOptions{}
-
-    export interface Doc {
-        type:string;
-        id:DocumentID;
-        data:any;
-        fetch:(callback:(err:ShareDB.Error)=>void) => void;
-        subscribe:(callback:(err:ShareDB.Error)=>void) => void
-        on:(event:'load'|'create'|'before op'|'op'|'del'|'error', callback:(...args:Array<any>)=>any)=>void;
-        ingestSnapshot:(snapshot:Snapshot, callback:(err:ShareDB.Error)=>any)=>void;
-        destroy:()=>void;
-        create:(data:any, type?:OTType, options?:ShareDBCreateOptions, callback?:(err:ShareDB.Error)=>any)=>void;
-        submitOp:(data:Array<Op>, options?:ShareDBSubmitOpOptions, callback?:(err:ShareDB.Error)=>any)=>void;
-        del:(options:ShareDBDelOptions, callback:(err:ShareDB.Error)=>void)=>void
-        removeListener:(eventName:string, listener:Function)=>void
-    }
-
-    class Query {
-        ready:boolean;
-        results:Array<ShareDB.Doc>;
-        extra:any;
-        on:(event:'ready'|'error'|'changed'|'insert'|'move'|'remove'|'extra', callback:(...args:Array<any>)=>any)=>any;
-        destroy:()=>void;
-    }
+interface PubSubOptions {
+    prefix?: string;
+}
+interface Stream {
+    id: string;
 }
 
-declare module 'sharedb/lib/client' {
-    export type Doc = ShareDB.Doc;
-    export type Op = ShareDB.Op;
-    export type Action = ShareDB.Action;
-    export class Connection {
-        constructor(ws:WebSocket);
-        public get(collectionName:string, documentID:ShareDB.DocumentID):ShareDB.Doc
-        public createFetchQuery(collectionName:string, query:string, options:{results?:Array<ShareDB.Query>}, callback:(err:ShareDB.Error, results:any)=>any):ShareDB.Query
-        public createSubscribeQuery(collectionName:string, query:string, options:{results?:Array<ShareDB.Query>}, callback:(err:ShareDB.Error, results:any)=>any):ShareDB.Query
-    }
+export = sharedb;
+
+declare class sharedb {
+    constructor(options?: {db?: any, pubsub?: sharedb.PubSub, disableDocAction?: boolean, disableSpaceDelimitedActions?: boolean});
+    connect: () => sharedb.Connection;
+    addProjection(name: string, collection: string, fields: {}): any;
+    listen(stream: any): void;
+    close(callback?: (err: Error) => any): void;
+    use(action: sharedb.UseAction, fn: sharedb.UseCallback);
+    static types: {
+        register: (type: { name?: string, uri?: string, [key: string]: any}) => void;
+    };
 }
 
-declare module 'sharedb' {
-    class ShareDBServer {
-        constructor(options?:{db?:ShareDBServer.DB, pubsub?:ShareDBServer.PubSub, disableDocAction?: boolean, disableSpaceDelimitedActions?: boolean});
-        public connect:()=>ShareDBServer.Connection;
-        public addProjection(name:string, collection:string, fields:{}):any;
-        public listen(stream:any):void;
-        public close(callback?:(err:ShareDBServer.Error)=>any):void;
-        public use(action:ShareDB.Action, fn:ShareDBServer.UseCallback);
-        public types:{
-            register:Function
+declare namespace sharedb {
+    type UseAction = 'connect' | 'op' | 'doc' | 'query' | 'submit' | 'apply' | 'commit' | 'after submit' | 'receive';
+    type UseCallback = ((request: {action: UseAction, agent: any, req: any, collection: string, id: string, query: any, op: ShareDB.RawOp}, callback: () => void) => void);
+
+    abstract class DB {
+        projectsSnapshots: boolean;
+        disableSubscribe: boolean;
+        close(callback?: () => void): void;
+        commit(collection: string, id: string, op: Op, snapshot, options, callback: (...args: any[]) => any): void;
+        getSnapshot(collection: string, id: string, fields, options, callback: (...args: any[]) => any): void;
+        getSnapshotBulk(collection: string, ids: string, fields, options, callback: (...args: any[]) => any): void;
+        getOps(collection: string, id: string, from: number, to: number, options, callback: (...args: any[]) => any): void;
+        getOpsToSnapshot(collection: string, id: string, from: number, snapshot: number, options, callback: (...args: any[]) => any): void;
+        getOpsBulk(collection: string, fromMap, toMap, options, callback: (...args: any[]) => any): void;
+        getCommittedOpVersion(collection: string, id: string, snapshot, op, options, callback: (...args: any[]) => any): void;
+        query(collection: string, query: Query, fields, options, callback: (...args: any[]) => any): void;
+        queryPoll(collection: string, query: Query, options, callback: (...args: any[]) => any): void;
+        queryPollDoc(collection: string, id: string, query: Query, options, callback: (...args: any[]) => any): void;
+        canPollDoc(): boolean;
+        skipPoll(): boolean;
+    }
+
+    class MemoryDB extends DB { }
+
+    abstract class PubSub {
+        private static shallowCopy(obj: any);
+        protected prefix?: string;
+        protected nextStreamId: number;
+        protected streamsCount: number;
+        protected streams: {
+            [channel: string]: Stream;
         };
+        protected subscribed: {
+            [channel: string]: boolean;
+        };
+        protected constructor(options?: PubSubOptions);
+        close(callback?: (err: Error|null) => void): void;
+        publish(channels: string[], data: {[k: string]: any}, callback: (err: Error | null) => void): void;
+        subscribe(channel: string, callback: (err: Error | null, stream?: Stream) => void): void;
+        protected abstract _subscribe(channel: string, callback: (err: Error | null) => void): void;
+        protected abstract _unsubscribe(channel: string, callback: (err: Error | null) => void): void;
+        protected abstract _publish(channels: string[], data: any, callback: (err: Error | null) => void): void;
+        protected _emit(channel: string, data: {[k: string]: any}): void;
+        private _createStream(channel);
+        private _removeStream(channel, stream);
     }
-    namespace ShareDBServer {
-        type UseCallback = ((request:{action:ShareDB.Action,agent:any,req:any,collection:string,id:string,query:any,op:ShareDB.RawOp}, callback:Function)=>void);
-        interface Error {
-            code:number,
-            message:string
-        }
 
-        interface DB { }
-
-        class MemoryDB implements DB { }
-        export interface IPubSubOptions {
-            prefix?: string;
-        }
-        export interface IStream {
-            id: string;
-        }
-        export abstract class PubSub {
-            private static shallowCopy(object);
-            protected prefix?: string;
-            protected nextStreamId: number;
-            protected streamsCount: number;
-            protected streams: {
-                [channel: string]: IStream;
-            };
-            protected subscribed: {
-                [channel: string]: boolean;
-            };
-            protected constructor(options?: IPubSubOptions);
-            close(callback?: (err:Error|null) => void): void;
-            publish(channels: string[], data: object, callback: (err: Error | null) => void): void;
-            subscribe(channel: string, callback: (err: Error | null, stream?: IStream) => void): void;
-            protected abstract _subscribe(channel: string, callback: (err: Error | null) => void): void;
-            protected abstract _unsubscribe(channel: string, callback: (err: Error | null) => void): void;
-            protected abstract _publish(channels: string[], data: Object, callback: (err: Error | null) => void): void;
-            protected _emit(channel: string, data: object): void;
-            private _createStream(channel);
-            private _removeStream(channel, stream);
-        }
-        type Doc = ShareDB.Doc;
-        type Op = ShareDB.Op;
-        type Action = ShareDB.Action;
-        class Connection {
-            constructor(ws:WebSocket);
-            public get(collectionName:string, documentID:ShareDB.DocumentID):ShareDB.Doc
-            public createFetchQuery(collectionName:string, query:string, options:{results?:Array<ShareDB.Query>}, callback:(err:ShareDB.Error, results:any)=>any):ShareDB.Query
-            public createSubscribeQuery(collectionName:string, query:string, options:{results?:Array<ShareDB.Query>}, callback:(err:ShareDB.Error, results:any)=>any):ShareDB.Query
-        }
+    class Connection {
+        constructor(ws: WebSocket);
+        get(collectionName: string, documentID: string): ShareDB.Doc;
+        createFetchQuery(collectionName: string, query: string, options: {results?: ShareDB.Query[]}, callback: (err: Error, results: any) => any): ShareDB.Query;
+        createSubscribeQuery(collectionName: string, query: string, options: {results?: ShareDB.Query[]}, callback: (err: Error, results: any) => any): ShareDB.Query;
     }
-    export = ShareDBServer;
+    type Doc = ShareDB.Doc;
+    type Query = ShareDB.Query;
+    type Error = ShareDB.Error;
+    type Op = ShareDB.Op;
+    type AddNumOp = ShareDB.AddNumOp;
+    type ListMoveOp = ShareDB.ListMoveOp;
+    type ListInsertOp = ShareDB.ListInsertOp;
+    type ListDeleteOp = ShareDB.ListDeleteOp;
+    type ListReplaceOp = ShareDB.ListReplaceOp;
+    type StringInsertOp = ShareDB.StringInsertOp;
+    type StringDeleteOp = ShareDB.StringDeleteOp;
+    type ObjectInsertOp = ShareDB.ObjectInsertOp;
+    type ObjectDeleteOp = ShareDB.ObjectDeleteOp;
+    type ObjectReplaceOp = ShareDB.ObjectReplaceOp;
+    type SubtypeOp = ShareDB.SubtypeOp;
+
+    type Path = ShareDB.Path;
+    type ShareDBSourceOptions = ShareDB.ShareDBSourceOptions;
 }

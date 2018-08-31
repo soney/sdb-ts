@@ -194,7 +194,7 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
      * @param ops The raw operations
      * @param source (optional) the change source
      */
-    submitOp(ops, source = true) {
+    doSubmitOp(ops, source = true) {
         return new Promise((resolve, reject) => {
             this.doc.submitOp(ops, { source }, (err) => {
                 if (err) {

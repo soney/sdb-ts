@@ -17,7 +17,7 @@ export abstract class OpSubmittable {
      * @param od (optional) The object to remove. Leave this unspecified
      * @returns A promise that resolve to `this`
      */
-    public async submitObjectReplaceOp(p:Array<string|number>, oi:any, od:any=this.traverse(p)):Promise<this>   { return await this.submitOp([{p,oi,od}]); };
+    public async submitObjectReplaceOp(p: ShareDB.Path, oi:any, od:any=this.traverse(p)):Promise<this>   { return await this.submitOp([{p,oi,od}]); };
     /**
      * Insert within an object (if the property does not have a value).
      * ```
@@ -32,7 +32,7 @@ export abstract class OpSubmittable {
      * @param oi The object to insert
      * @returns A promise that resolve to `this`
      */
-    public async submitObjectInsertOp (p:Array<string|number>, oi:any):Promise<this>                            { return await this.submitOp([{p,oi}]);    };
+    public async submitObjectInsertOp (p: ShareDB.Path, oi:any):Promise<this>                            { return await this.submitOp([{p,oi}]);    };
     /**
      * Delete an object property.
      * ```
@@ -47,7 +47,7 @@ export abstract class OpSubmittable {
      * @param od (optional) The object to delete. Leave this unspecified.
      * @returns A promise that resolve to `this`
      */
-    public async submitObjectDeleteOp (p:Array<string|number>, od:any=this.traverse(p)):Promise<this>           { return await this.submitOp([{p,od}]);    };
+    public async submitObjectDeleteOp (p: ShareDB.Path, od:any=this.traverse(p)):Promise<this>           { return await this.submitOp([{p,od}]);    };
     /**
      * Replace an item in a list
      * ```
@@ -63,7 +63,7 @@ export abstract class OpSubmittable {
      * @param ld The object to remove. Leave this unspecified.
      * @returns A promise that resolve to `this`
      */
-    public async submitListReplaceOp  (p:Array<string|number>, li:any, ld:any=this.traverse(p)):Promise<this>   { return await this.submitOp([{p,li,ld}]); };
+    public async submitListReplaceOp  (p: ShareDB.Path, li:any, ld:any=this.traverse(p)):Promise<this>   { return await this.submitOp([{p,li,ld}]); };
     /**
      * Insert an item into a list
      * ```
@@ -78,7 +78,7 @@ export abstract class OpSubmittable {
      * @param li The object to insert.
      * @returns A promise that resolve to `this`
      */
-    public async submitListInsertOp   (p:Array<string|number>, li:any):Promise<this>                            { return await this.submitOp([{p,li}]);    };
+    public async submitListInsertOp   (p: ShareDB.Path, li:any):Promise<this>                            { return await this.submitOp([{p,li}]);    };
     /**
      * Remove an item from a list
      * ```
@@ -93,7 +93,7 @@ export abstract class OpSubmittable {
      * @param ld The object to delete. Leave this unspecified.
      * @returns A promise that resolve to `this`
      */
-    public async submitListDeleteOp   (p:Array<string|number>, ld:any=this.traverse(p)):Promise<this>           { return await this.submitOp([{p,ld}]);    };
+    public async submitListDeleteOp   (p: ShareDB.Path, ld:any=this.traverse(p)):Promise<this>           { return await this.submitOp([{p,ld}]);    };
 
     /**
      * Increment a number
@@ -109,7 +109,7 @@ export abstract class OpSubmittable {
      * @param na The number to increment by
      * @returns A promise that resolve to `this`
      */
-    public async submitNumberAddOp    (p:Array<string|number>, na:number):Promise<this>                         { return await this.submitOp([{p, na}]);   };
+    public async submitNumberAddOp    (p: ShareDB.Path, na: number):Promise<this>                         { return await this.submitOp([{p, na}]);   };
 
     /**
      * Perform a JavaScript splice operation
@@ -119,8 +119,8 @@ export abstract class OpSubmittable {
      * @param numToRemove An integer indicating the number of old array elements to remove.
      * @param toAdd The elements to add to the array, beginning at `index`.
      */
-    public async submitListSpliceOp(p:Array<string|number>, index:number, numToRemove:number, ...toAdd:Array<any>):Promise<this> {
-        const listDeleteOps:Array<ShareDB.Op> = [];
+    public async submitListSpliceOp(p:ShareDB.Path, index:number, numToRemove:number, ...toAdd:Array<any>):Promise<this> {
+        const listDeleteOps:Array<ShareDB.ListDeleteOp> = [];
         const item:any = this.traverse(p);
         for(let i:number = index+numToRemove-1; i>=index; i--) {
             const pi:Array<string|number> = p.concat([i]);
@@ -130,11 +130,11 @@ export abstract class OpSubmittable {
             });
         }
 
-        const listInsertOps:Array<ShareDB.Op> = toAdd.map((li:any, i:number) => {
-            return { p: p.concat([index+i]), li };
-        });
+        const listInsertOps:Array<ShareDB.ListInsertOp> = toAdd.map((li:any, i:number) => ({ p: p.concat([index+i]), li }));
 
-        return await this.submitOp(listDeleteOps.concat(listInsertOps));
+        const ops: Array<ShareDB.ListDeleteOp | ShareDB.ListInsertOp> = Array.prototype.concat(listDeleteOps, listInsertOps);
+
+        return await this.submitOp(ops);
     };
 
     /**
@@ -143,13 +143,10 @@ export abstract class OpSubmittable {
      * @param p The path array
      * @param items The items to add to the end of the list
      */
-    public async submitListPushOp(p:Array<string|number>, ...items:Array<any>):Promise<this> {
+    public async submitListPushOp(p: ShareDB.Path, ...items:Array<any>):Promise<this> {
         const arr:Array<any> = this.traverse(p);
         const previousLength:number = arr.length;
-        const ops:Array<ShareDB.Op> = items.map((x:any, i:number) => {
-            const op:ShareDB.Op = {p:p.concat(previousLength+i), li:x};
-            return op;
-        });
+        const ops:Array<ShareDB.ListInsertOp> = items.map((x:any, i:number) => ({ p: p.concat(previousLength+i), li: x }));
         return await this.submitOp(ops);
     };
 
@@ -159,14 +156,18 @@ export abstract class OpSubmittable {
      * @param p The path array
      * @param items The items to add to the beginning of the list
      */
-    public async submitListUnshiftOp(p:Array<string|number>, ...items:Array<any>):Promise<this> {
-        const arr:Array<any> = this.traverse(p);
-        const previousLength:number = arr.length;
-        const ops:Array<ShareDB.Op> = items.map((x:any, i:number) => {
-            const op:ShareDB.Op = {p:p.concat(i), li:x};
-            return op;
-        });
+    public async submitListUnshiftOp(p: ShareDB.Path, ...items:Array<any>):Promise<this> {
+        const ops:Array<ShareDB.ListInsertOp> = items.map((x:any, i:number) => ({ p: p.concat(i), li: x }));
         return await this.submitOp(ops);
+    };
+
+    /**
+     * Submit a series of ShareDB operations
+     * @param ops The raw operations
+     * @param source (optional) the change source
+     */
+    public submitOp(ops: ReadonlyArray<ShareDB.Op>, source?: any): Promise<this> {
+        return this.doSubmitOp(ops, source);
     };
 
     /**
@@ -174,11 +175,11 @@ export abstract class OpSubmittable {
      * @param ops The raw operations
      * @param source (optional) the change source
      */
-    public abstract submitOp(ops:Array<ShareDB.Op>, source? :any):Promise<this>;
+    protected abstract doSubmitOp(ops:ReadonlyArray<ShareDB.Op>, source? :any):Promise<this>;
 
     /**
      * Get the value at a given location in the document.
      * @param path The path array
      */
-    public abstract traverse(path:Array<string|number>):any;
+    public abstract traverse(path:ShareDB.Path):any;
 };

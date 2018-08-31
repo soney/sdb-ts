@@ -18,6 +18,7 @@
 
 ### Methods
 
+* [doSubmitOp](_sdbsubdoc_.sdbsubdoc.md#dosubmitop)
 * [getData](_sdbsubdoc_.sdbsubdoc.md#getdata)
 * [submitListDeleteOp](_sdbsubdoc_.sdbsubdoc.md#submitlistdeleteop)
 * [submitListInsertOp](_sdbsubdoc_.sdbsubdoc.md#submitlistinsertop)
@@ -42,18 +43,18 @@
 
 ###  constructor
 
-⊕ **new SDBSubDoc**(doc: *[SDBDoc](_sdbdoc_.sdbdoc.md)<`any`>*, path: *`Array`< `string` &#124; `number`>*): [SDBSubDoc](_sdbsubdoc_.sdbsubdoc.md)
+⊕ **new SDBSubDoc**(doc: *[SDBDoc](_sdbdoc_.sdbdoc.md)<`any`>*, path: *`ShareDB.Path`*): [SDBSubDoc](_sdbsubdoc_.sdbsubdoc.md)
 
 *Overrides [OpSubmittable](_opsubmittable_.opsubmittable.md).[constructor](_opsubmittable_.opsubmittable.md#constructor)*
 
-*Defined in SDBSubDoc.ts:7*
+*Defined in [SDBSubDoc.ts:7](https://github.com/soney/sdb-ts/blob/2988743/src/SDBSubDoc.ts#L7)*
 
 **Parameters:**
 
 | Param | Type |
 | ------ | ------ |
 | doc | [SDBDoc](_sdbdoc_.sdbdoc.md)<`any`> |
-| path | `Array`< `string` &#124; `number`> |
+| path | `ShareDB.Path` |
 
 **Returns:** [SDBSubDoc](_sdbsubdoc_.sdbsubdoc.md)
 
@@ -61,28 +62,50 @@ ___
 
 ## Methods
 
+<a id="dosubmitop"></a>
+
+### `<Protected>` doSubmitOp
+
+▸ **doSubmitOp**(ops: *`ReadonlyArray`<`ShareDB.Op`>*, source?: *`any`*): `Promise`<`this`>
+
+*Overrides [OpSubmittable](_opsubmittable_.opsubmittable.md).[doSubmitOp](_opsubmittable_.opsubmittable.md#dosubmitop)*
+
+*Defined in [SDBSubDoc.ts:78](https://github.com/soney/sdb-ts/blob/2988743/src/SDBSubDoc.ts#L78)*
+
+Submit a raw series of ShareDB operations. Note that all paths should be relative to this subdoc
+
+**Parameters:**
+
+| Param | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| ops | `ReadonlyArray`<`ShareDB.Op`> | - |  The raw operations |
+| `Default value` source | `any` | true |  (optional) the change source |
+
+**Returns:** `Promise`<`this`>
+
+___
 <a id="getdata"></a>
 
 ###  getData
 
-▸ **getData**(): `E`
+▸ **getData**():  `E` &#124; `null`
 
-*Defined in SDBSubDoc.ts:65*
+*Defined in [SDBSubDoc.ts:65](https://github.com/soney/sdb-ts/blob/2988743/src/SDBSubDoc.ts#L65)*
 
 Get the data in this sub-document
 
-**Returns:** `E`
+**Returns:**  `E` &#124; `null`
 
 ___
 <a id="submitlistdeleteop"></a>
 
 ###  submitListDeleteOp
 
-▸ **submitListDeleteOp**(p: *`Array`< `string` &#124; `number`>*, ld?: *`any`*): `Promise`<`this`>
+▸ **submitListDeleteOp**(p: *`ShareDB.Path`*, ld?: *`any`*): `Promise`<`this`>
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListDeleteOp](_opsubmittable_.opsubmittable.md#submitlistdeleteop)*
 
-*Defined in [OpSubmittable.ts:96](https://github.com/soney/sdb-ts/blob/4b5785c/src/OpSubmittable.ts#L96)*
+*Defined in [OpSubmittable.ts:96](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L96)*
 
 Remove an item from a list
 
@@ -100,7 +123,7 @@ obj.lst.splice(2, 1);
 
 | Param | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| p | `Array`< `string` &#124; `number`> | - |  The path array |
+| p | `ShareDB.Path` | - |  The path array |
 | `Default value` ld | `any` | this.traverse(p) |  The object to delete. Leave this unspecified. |
 
 **Returns:** `Promise`<`this`>
@@ -111,11 +134,11 @@ ___
 
 ###  submitListInsertOp
 
-▸ **submitListInsertOp**(p: *`Array`< `string` &#124; `number`>*, li: *`any`*): `Promise`<`this`>
+▸ **submitListInsertOp**(p: *`ShareDB.Path`*, li: *`any`*): `Promise`<`this`>
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListInsertOp](_opsubmittable_.opsubmittable.md#submitlistinsertop)*
 
-*Defined in [OpSubmittable.ts:81](https://github.com/soney/sdb-ts/blob/4b5785c/src/OpSubmittable.ts#L81)*
+*Defined in [OpSubmittable.ts:81](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L81)*
 
 Insert an item into a list
 
@@ -133,7 +156,7 @@ obj.lst[0] = 'item';
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| p | `Array`< `string` &#124; `number`> |  The path array |
+| p | `ShareDB.Path` |  The path array |
 | li | `any` |  The object to insert. |
 
 **Returns:** `Promise`<`this`>
@@ -144,11 +167,11 @@ ___
 
 ###  submitListPushOp
 
-▸ **submitListPushOp**(p: *`Array`< `string` &#124; `number`>*, ...items: *`Array`<`any`>*): `Promise`<`this`>
+▸ **submitListPushOp**(p: *`ShareDB.Path`*, ...items: *`Array`<`any`>*): `Promise`<`this`>
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListPushOp](_opsubmittable_.opsubmittable.md#submitlistpushop)*
 
-*Defined in [OpSubmittable.ts:146](https://github.com/soney/sdb-ts/blob/4b5785c/src/OpSubmittable.ts#L146)*
+*Defined in [OpSubmittable.ts:146](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L146)*
 
 Push any number of items to the end of the list.
 
@@ -156,7 +179,7 @@ Push any number of items to the end of the list.
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| p | `Array`< `string` &#124; `number`> |  The path array |
+| p | `ShareDB.Path` |  The path array |
 | `Rest` items | `Array`<`any`> |  The items to add to the end of the list |
 
 **Returns:** `Promise`<`this`>
@@ -166,11 +189,11 @@ ___
 
 ###  submitListReplaceOp
 
-▸ **submitListReplaceOp**(p: *`Array`< `string` &#124; `number`>*, li: *`any`*, ld?: *`any`*): `Promise`<`this`>
+▸ **submitListReplaceOp**(p: *`ShareDB.Path`*, li: *`any`*, ld?: *`any`*): `Promise`<`this`>
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListReplaceOp](_opsubmittable_.opsubmittable.md#submitlistreplaceop)*
 
-*Defined in [OpSubmittable.ts:66](https://github.com/soney/sdb-ts/blob/4b5785c/src/OpSubmittable.ts#L66)*
+*Defined in [OpSubmittable.ts:66](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L66)*
 
 Replace an item in a list
 
@@ -188,7 +211,7 @@ obj.lst[0] = 'item';
 
 | Param | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| p | `Array`< `string` &#124; `number`> | - |  The path array |
+| p | `ShareDB.Path` | - |  The path array |
 | li | `any` | - |  The object to insert. |
 | `Default value` ld | `any` | this.traverse(p) |  The object to remove. Leave this unspecified. |
 
@@ -200,11 +223,11 @@ ___
 
 ###  submitListSpliceOp
 
-▸ **submitListSpliceOp**(p: *`Array`< `string` &#124; `number`>*, index: *`number`*, numToRemove: *`number`*, ...toAdd: *`Array`<`any`>*): `Promise`<`this`>
+▸ **submitListSpliceOp**(p: *`ShareDB.Path`*, index: *`number`*, numToRemove: *`number`*, ...toAdd: *`Array`<`any`>*): `Promise`<`this`>
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListSpliceOp](_opsubmittable_.opsubmittable.md#submitlistspliceop)*
 
-*Defined in [OpSubmittable.ts:122](https://github.com/soney/sdb-ts/blob/4b5785c/src/OpSubmittable.ts#L122)*
+*Defined in [OpSubmittable.ts:122](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L122)*
 
 Perform a JavaScript splice operation
 
@@ -212,7 +235,7 @@ Perform a JavaScript splice operation
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| p | `Array`< `string` &#124; `number`> |  The path array |
+| p | `ShareDB.Path` |  The path array |
 | index | `number` |  Index at which to start changing the array (with origin 0). |
 | numToRemove | `number` |  An integer indicating the number of old array elements to remove. |
 | `Rest` toAdd | `Array`<`any`> |  The elements to add to the array, beginning at \`index\`. |
@@ -224,11 +247,11 @@ ___
 
 ###  submitListUnshiftOp
 
-▸ **submitListUnshiftOp**(p: *`Array`< `string` &#124; `number`>*, ...items: *`Array`<`any`>*): `Promise`<`this`>
+▸ **submitListUnshiftOp**(p: *`ShareDB.Path`*, ...items: *`Array`<`any`>*): `Promise`<`this`>
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListUnshiftOp](_opsubmittable_.opsubmittable.md#submitlistunshiftop)*
 
-*Defined in [OpSubmittable.ts:162](https://github.com/soney/sdb-ts/blob/4b5785c/src/OpSubmittable.ts#L162)*
+*Defined in [OpSubmittable.ts:159](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L159)*
 
 Add any number of items to the beginning of a list
 
@@ -236,7 +259,7 @@ Add any number of items to the beginning of a list
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| p | `Array`< `string` &#124; `number`> |  The path array |
+| p | `ShareDB.Path` |  The path array |
 | `Rest` items | `Array`<`any`> |  The items to add to the beginning of the list |
 
 **Returns:** `Promise`<`this`>
@@ -246,11 +269,11 @@ ___
 
 ###  submitNumberAddOp
 
-▸ **submitNumberAddOp**(p: *`Array`< `string` &#124; `number`>*, na: *`number`*): `Promise`<`this`>
+▸ **submitNumberAddOp**(p: *`ShareDB.Path`*, na: *`number`*): `Promise`<`this`>
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitNumberAddOp](_opsubmittable_.opsubmittable.md#submitnumberaddop)*
 
-*Defined in [OpSubmittable.ts:112](https://github.com/soney/sdb-ts/blob/4b5785c/src/OpSubmittable.ts#L112)*
+*Defined in [OpSubmittable.ts:112](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L112)*
 
 Increment a number
 
@@ -268,7 +291,7 @@ obj.prop1.x += 4;
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| p | `Array`< `string` &#124; `number`> |  The path array |
+| p | `ShareDB.Path` |  The path array |
 | na | `number` |  The number to increment by |
 
 **Returns:** `Promise`<`this`>
@@ -279,11 +302,11 @@ ___
 
 ###  submitObjectDeleteOp
 
-▸ **submitObjectDeleteOp**(p: *`Array`< `string` &#124; `number`>*, od?: *`any`*): `Promise`<`this`>
+▸ **submitObjectDeleteOp**(p: *`ShareDB.Path`*, od?: *`any`*): `Promise`<`this`>
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitObjectDeleteOp](_opsubmittable_.opsubmittable.md#submitobjectdeleteop)*
 
-*Defined in [OpSubmittable.ts:50](https://github.com/soney/sdb-ts/blob/4b5785c/src/OpSubmittable.ts#L50)*
+*Defined in [OpSubmittable.ts:50](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L50)*
 
 Delete an object property.
 
@@ -301,7 +324,7 @@ delete obj.prop1.x;
 
 | Param | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| p | `Array`< `string` &#124; `number`> | - |  The path array |
+| p | `ShareDB.Path` | - |  The path array |
 | `Default value` od | `any` | this.traverse(p) |  (optional) The object to delete. Leave this unspecified. |
 
 **Returns:** `Promise`<`this`>
@@ -312,11 +335,11 @@ ___
 
 ###  submitObjectInsertOp
 
-▸ **submitObjectInsertOp**(p: *`Array`< `string` &#124; `number`>*, oi: *`any`*): `Promise`<`this`>
+▸ **submitObjectInsertOp**(p: *`ShareDB.Path`*, oi: *`any`*): `Promise`<`this`>
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitObjectInsertOp](_opsubmittable_.opsubmittable.md#submitobjectinsertop)*
 
-*Defined in [OpSubmittable.ts:35](https://github.com/soney/sdb-ts/blob/4b5785c/src/OpSubmittable.ts#L35)*
+*Defined in [OpSubmittable.ts:35](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L35)*
 
 Insert within an object (if the property does not have a value).
 
@@ -334,7 +357,7 @@ obj.prop1.x = 'value';
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| p | `Array`< `string` &#124; `number`> |  The path array |
+| p | `ShareDB.Path` |  The path array |
 | oi | `any` |  The object to insert |
 
 **Returns:** `Promise`<`this`>
@@ -345,11 +368,11 @@ ___
 
 ###  submitObjectReplaceOp
 
-▸ **submitObjectReplaceOp**(p: *`Array`< `string` &#124; `number`>*, oi: *`any`*, od?: *`any`*): `Promise`<`this`>
+▸ **submitObjectReplaceOp**(p: *`ShareDB.Path`*, oi: *`any`*, od?: *`any`*): `Promise`<`this`>
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitObjectReplaceOp](_opsubmittable_.opsubmittable.md#submitobjectreplaceop)*
 
-*Defined in [OpSubmittable.ts:20](https://github.com/soney/sdb-ts/blob/4b5785c/src/OpSubmittable.ts#L20)*
+*Defined in [OpSubmittable.ts:20](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L20)*
 
 Replace within an object (if the property already has a value).
 
@@ -367,7 +390,7 @@ obj.prop1.x = 'value';
 
 | Param | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| p | `Array`< `string` &#124; `number`> | - |  The path array |
+| p | `ShareDB.Path` | - |  The path array |
 | oi | `any` | - |  The object to insert |
 | `Default value` od | `any` | this.traverse(p) |  (optional) The object to remove. Leave this unspecified |
 
@@ -379,20 +402,20 @@ ___
 
 ###  submitOp
 
-▸ **submitOp**(ops: *`Array`<`ShareDB.Op`>*, source?: *`any`*): `Promise`<`this`>
+▸ **submitOp**(ops: *`ReadonlyArray`<`ShareDB.Op`>*, source?: *`any`*): `Promise`<`this`>
 
-*Overrides [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitOp](_opsubmittable_.opsubmittable.md#submitop)*
+*Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitOp](_opsubmittable_.opsubmittable.md#submitop)*
 
-*Defined in SDBSubDoc.ts:78*
+*Defined in [OpSubmittable.ts:169](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L169)*
 
-Submit a raw series of ShareDB operations. Note that all paths should be relative to this subdoc
+Submit a series of ShareDB operations
 
 **Parameters:**
 
-| Param | Type | Default value | Description |
-| ------ | ------ | ------ | ------ |
-| ops | `Array`<`ShareDB.Op`> | - |  The raw operations |
-| `Default value` source | `any` | true |  (optional) the change source |
+| Param | Type | Description |
+| ------ | ------ | ------ |
+| ops | `ReadonlyArray`<`ShareDB.Op`> |  The raw operations |
+| `Optional` source | `any` |  (optional) the change source |
 
 **Returns:** `Promise`<`this`>
 
@@ -403,7 +426,7 @@ ___
 
 ▸ **subscribe**(callback?: *[Subscriber](../modules/_sdbdoc_.md#subscriber)<`E`>*): `Promise`<`void`>
 
-*Defined in SDBSubDoc.ts:22*
+*Defined in [SDBSubDoc.ts:22](https://github.com/soney/sdb-ts/blob/2988743/src/SDBSubDoc.ts#L22)*
 
 Signal that we want to listen to changes in this sub-document. Note that we don't fetch new versions unless the document is being subscribed to
 
@@ -421,11 +444,11 @@ ___
 
 ###  traverse
 
-▸ **traverse**(path: *`Array`< `string` &#124; `number`>*): `any`
+▸ **traverse**(path: *`ShareDB.Path`*): `any`
 
 *Overrides [OpSubmittable](_opsubmittable_.opsubmittable.md).[traverse](_opsubmittable_.opsubmittable.md#traverse)*
 
-*Defined in SDBSubDoc.ts:87*
+*Defined in [SDBSubDoc.ts:87](https://github.com/soney/sdb-ts/blob/2988743/src/SDBSubDoc.ts#L87)*
 
 Get the value at a given location in the document. Note that this is relative to this subdocument
 
@@ -433,7 +456,7 @@ Get the value at a given location in the document. Note that this is relative to
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| path | `Array`< `string` &#124; `number`> |  The path array |
+| path | `ShareDB.Path` |  The path array |
 
 **Returns:** `any`
 
@@ -444,7 +467,7 @@ ___
 
 ▸ **unsubscribe**(callback: *[Subscriber](../modules/_sdbdoc_.md#subscriber)<`E`>*): `void`
 
-*Defined in SDBSubDoc.ts:55*
+*Defined in [SDBSubDoc.ts:55](https://github.com/soney/sdb-ts/blob/2988743/src/SDBSubDoc.ts#L55)*
 
 Unsubscribe from changes to this document
 

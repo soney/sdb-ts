@@ -32,7 +32,7 @@ export class SDBServer extends SDB {
      */
     constructor(server?: WebSocket.Server | net.Server, options?:SDBServerOptions) {
         super();
-        options = extend({}, options, SDBServer.optionDefaults);
+        options = extend({}, options as SDBServerOptions, SDBServer.optionDefaults);
         this.share = new ShareDB(options);
         this.connection = this.share.connect();
 
@@ -67,11 +67,11 @@ export class SDBServer extends SDB {
     }
 
     /**
-     * For ShareDB Middlewarese
+     * For ShareDB Middlewares
      * @param action e.g., `'connect'`, `'op'`, ... (see ShareDB documentation)
      * @param fn Call this function at the time specified by `action`
      */
-    public use(action:ShareDB.Action, fn:ShareDB.UseCallback):void {
+    public use(action:ShareDB.UseAction, fn:ShareDB.UseCallback):void {
         this.share.use(action, fn);
     };
 
@@ -129,7 +129,7 @@ class WebSocketJSONStream extends Duplex {
         this.on('end',   function() { ws.close(); });
     };
     public _read():void {};
-    public _write(msg:any, encoding:string, next:Function):void {
+    public _write(msg:any, encoding:string, next: ()=>void):void {
         this.ws.send(JSON.stringify(msg));
         next();
     };

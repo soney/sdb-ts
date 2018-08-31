@@ -22,7 +22,7 @@ export abstract class SDB {
         const docIdentifier:DocIdentifier = this.getDocIdentifier(collectionName, documentID);
         let sdbDoc:SDBDoc<E>;
         if(this.docs.has(docIdentifier)) {
-            sdbDoc = this.docs.get(docIdentifier);
+            sdbDoc = this.docs.get(docIdentifier) as SDBDoc<E>;
         } else {
             const doc:ShareDB.Doc = this.connection.get(collectionName, documentID);
             sdbDoc = new SDBDoc<E>(docIdentifier, doc, this);
@@ -35,7 +35,7 @@ export abstract class SDB {
      * Register a new ShareDB.OT type (see [https://github.com/ottypes/docs](https://github.com/ottypes/docs))
      * @param type The type object
      */
-    public static registerType(type:any):void { ShareDB.types.register(type); };
+    public static registerType(type: {name?: string, uri?: string, [key: string]: any}):void { ShareDB.types.register(type); };
 
     /**
      * Close the connection (implemented by `SDBServer` and `SDBClient`)

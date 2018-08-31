@@ -158,10 +158,9 @@ class OpSubmittable {
                     ld: item[i]
                 });
             }
-            const listInsertOps = toAdd.map((li, i) => {
-                return { p: p.concat([index + i]), li };
-            });
-            return yield this.submitOp(listDeleteOps.concat(listInsertOps));
+            const listInsertOps = toAdd.map((li, i) => ({ p: p.concat([index + i]), li }));
+            const ops = Array.prototype.concat(listDeleteOps, listInsertOps);
+            return yield this.submitOp(ops);
         });
     }
     ;
@@ -175,10 +174,7 @@ class OpSubmittable {
         return __awaiter(this, void 0, void 0, function* () {
             const arr = this.traverse(p);
             const previousLength = arr.length;
-            const ops = items.map((x, i) => {
-                const op = { p: p.concat(previousLength + i), li: x };
-                return op;
-            });
+            const ops = items.map((x, i) => ({ p: p.concat(previousLength + i), li: x }));
             return yield this.submitOp(ops);
         });
     }
@@ -191,14 +187,18 @@ class OpSubmittable {
      */
     submitListUnshiftOp(p, ...items) {
         return __awaiter(this, void 0, void 0, function* () {
-            const arr = this.traverse(p);
-            const previousLength = arr.length;
-            const ops = items.map((x, i) => {
-                const op = { p: p.concat(i), li: x };
-                return op;
-            });
+            const ops = items.map((x, i) => ({ p: p.concat(i), li: x }));
             return yield this.submitOp(ops);
         });
+    }
+    ;
+    /**
+     * Submit a series of ShareDB operations
+     * @param ops The raw operations
+     * @param source (optional) the change source
+     */
+    submitOp(ops, source) {
+        return this.doSubmitOp(ops, source);
     }
     ;
 }

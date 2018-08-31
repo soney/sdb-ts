@@ -52,7 +52,7 @@ class SDBServer extends SDB_1.SDB {
         return this.wssPromise.then((wss) => wss.address());
     }
     /**
-     * For ShareDB Middlewarese
+     * For ShareDB Middlewares
      * @param action e.g., `'connect'`, `'op'`, ... (see ShareDB documentation)
      * @param fn Call this function at the time specified by `action`
      */

@@ -5,7 +5,7 @@ import { OpSubmittable } from './OpSubmittable';
 import { isArrayEqual } from './utils';
 
 export type DocIdentifier = [string, string];
-export type Subscriber<E> = (eventType:string, ops:Array<ShareDB.Op>, source:any, data:E)=>void;
+export type Subscriber<E> = (eventType: string | null, ops: ReadonlyArray<ShareDB.Op> | null, source: any, data: E | null)=>void;
 
 /**
  * A class that represents a ShareDB document. This class uses generics: `const doc: SDBDooc<{x: number}> = client.get('docs', 'doc1')`
@@ -32,7 +32,7 @@ export class SDBDoc<E> extends OpSubmittable {
      * ```
      * @param path The path of the subdoc
      */
-    public subDoc<T>(path: Array<string|number>): SDBSubDoc<T> {
+    public subDoc<T>(path: ShareDB.Path): SDBSubDoc<T> {
         return new SDBSubDoc<T>(this, path);
     }
 
@@ -75,7 +75,7 @@ export class SDBDoc<E> extends OpSubmittable {
      * @param to The full path
      * @return A path that takes us from `from` to `to`
      */
-    public static relative(from: Array<string|number>, to: Array<string|number>): Array<string|number> {
+    public static relative(from: ShareDB.Path, to: ShareDB.Path): ShareDB.Path {
         const fl = from.length;
         return isArrayEqual(from, to.slice(0, fl)) ? to.slice(fl) : null;
     };
@@ -126,7 +126,7 @@ export class SDBDoc<E> extends OpSubmittable {
     };
 
     // When an op happens forward to every subscriber
-    private onOp = (ops:Array<ShareDB.Op>, source:any) => { this.subscribers.forEach((sub) => sub('op', ops, source, this.doc.data)); };
+    private onOp = (ops: ReadonlyArray<ShareDB.Op>, source:any) => { this.subscribers.forEach((sub) => sub('op', ops, source, this.doc.data)); };
 
     // When a create event happens forward to every subscriber
     private onCreate = () => { this.subscribers.forEach((sub) => sub('create', null, null, this.doc.data)); };
@@ -184,7 +184,7 @@ export class SDBDoc<E> extends OpSubmittable {
      * @param ops The raw operations
      * @param source (optional) the change source
      */
-    public submitOp(ops:Array<ShareDB.Op>, source:any=true):Promise<this> {
+    protected doSubmitOp(ops:ReadonlyArray<ShareDB.Op>, source:any=true):Promise<this> {
         return new Promise<this>((resolve, reject) => {
             this.doc.submitOp(ops, {source}, (err) => {
                 if(err) {

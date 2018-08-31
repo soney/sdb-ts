@@ -16,7 +16,7 @@ export declare abstract class OpSubmittable {
      * @param od (optional) The object to remove. Leave this unspecified
      * @returns A promise that resolve to `this`
      */
-    submitObjectReplaceOp(p: Array<string | number>, oi: any, od?: any): Promise<this>;
+    submitObjectReplaceOp(p: ShareDB.Path, oi: any, od?: any): Promise<this>;
     /**
      * Insert within an object (if the property does not have a value).
      * ```
@@ -31,7 +31,7 @@ export declare abstract class OpSubmittable {
      * @param oi The object to insert
      * @returns A promise that resolve to `this`
      */
-    submitObjectInsertOp(p: Array<string | number>, oi: any): Promise<this>;
+    submitObjectInsertOp(p: ShareDB.Path, oi: any): Promise<this>;
     /**
      * Delete an object property.
      * ```
@@ -46,7 +46,7 @@ export declare abstract class OpSubmittable {
      * @param od (optional) The object to delete. Leave this unspecified.
      * @returns A promise that resolve to `this`
      */
-    submitObjectDeleteOp(p: Array<string | number>, od?: any): Promise<this>;
+    submitObjectDeleteOp(p: ShareDB.Path, od?: any): Promise<this>;
     /**
      * Replace an item in a list
      * ```
@@ -62,7 +62,7 @@ export declare abstract class OpSubmittable {
      * @param ld The object to remove. Leave this unspecified.
      * @returns A promise that resolve to `this`
      */
-    submitListReplaceOp(p: Array<string | number>, li: any, ld?: any): Promise<this>;
+    submitListReplaceOp(p: ShareDB.Path, li: any, ld?: any): Promise<this>;
     /**
      * Insert an item into a list
      * ```
@@ -77,7 +77,7 @@ export declare abstract class OpSubmittable {
      * @param li The object to insert.
      * @returns A promise that resolve to `this`
      */
-    submitListInsertOp(p: Array<string | number>, li: any): Promise<this>;
+    submitListInsertOp(p: ShareDB.Path, li: any): Promise<this>;
     /**
      * Remove an item from a list
      * ```
@@ -92,7 +92,7 @@ export declare abstract class OpSubmittable {
      * @param ld The object to delete. Leave this unspecified.
      * @returns A promise that resolve to `this`
      */
-    submitListDeleteOp(p: Array<string | number>, ld?: any): Promise<this>;
+    submitListDeleteOp(p: ShareDB.Path, ld?: any): Promise<this>;
     /**
      * Increment a number
      * ```
@@ -107,7 +107,7 @@ export declare abstract class OpSubmittable {
      * @param na The number to increment by
      * @returns A promise that resolve to `this`
      */
-    submitNumberAddOp(p: Array<string | number>, na: number): Promise<this>;
+    submitNumberAddOp(p: ShareDB.Path, na: number): Promise<this>;
     /**
      * Perform a JavaScript splice operation
      *
@@ -116,30 +116,36 @@ export declare abstract class OpSubmittable {
      * @param numToRemove An integer indicating the number of old array elements to remove.
      * @param toAdd The elements to add to the array, beginning at `index`.
      */
-    submitListSpliceOp(p: Array<string | number>, index: number, numToRemove: number, ...toAdd: Array<any>): Promise<this>;
+    submitListSpliceOp(p: ShareDB.Path, index: number, numToRemove: number, ...toAdd: Array<any>): Promise<this>;
     /**
      * Push any number of items to the end of the list.
      *
      * @param p The path array
      * @param items The items to add to the end of the list
      */
-    submitListPushOp(p: Array<string | number>, ...items: Array<any>): Promise<this>;
+    submitListPushOp(p: ShareDB.Path, ...items: Array<any>): Promise<this>;
     /**
      * Add any number of items to the beginning of a list
      *
      * @param p The path array
      * @param items The items to add to the beginning of the list
      */
-    submitListUnshiftOp(p: Array<string | number>, ...items: Array<any>): Promise<this>;
+    submitListUnshiftOp(p: ShareDB.Path, ...items: Array<any>): Promise<this>;
+    /**
+     * Submit a series of ShareDB operations
+     * @param ops The raw operations
+     * @param source (optional) the change source
+     */
+    submitOp(ops: ReadonlyArray<ShareDB.Op>, source?: any): Promise<this>;
     /**
      * Submit a raw series of ShareDB operations
      * @param ops The raw operations
      * @param source (optional) the change source
      */
-    abstract submitOp(ops: Array<ShareDB.Op>, source?: any): Promise<this>;
+    protected abstract doSubmitOp(ops: ReadonlyArray<ShareDB.Op>, source?: any): Promise<this>;
     /**
      * Get the value at a given location in the document.
      * @param path The path array
      */
-    abstract traverse(path: Array<string | number>): any;
+    abstract traverse(path: ShareDB.Path): any;
 }

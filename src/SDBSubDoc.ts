@@ -5,7 +5,7 @@ import { extend } from './utils';
 
 export class SDBSubDoc<E> extends OpSubmittable {
     private subscriptionShims: Map<Subscriber<E>, Subscriber<E>[]> = new Map();
-    constructor(private doc: SDBDoc<any>, private path: Array<string|number>) {
+    constructor(private doc: SDBDoc<any>, private path: ShareDB.Path) {
         super();
     };
     /**
@@ -20,17 +20,17 @@ export class SDBSubDoc<E> extends OpSubmittable {
      * @returns a promise that resolves when we have an initial snapshot of the sub-document
      */
     public subscribe(callback:Subscriber<E> = ()=>null):Promise<void> {
-        const shimmedCB: Subscriber<E> = (eventType: string, ops: ShareDB.Op[], source: any, data: any) => {
+        const shimmedCB: Subscriber<E> = (eventType: string | null, ops: ReadonlyArray<ShareDB.Op> | null, source: any, data: any) => {
             if (eventType === 'op') {
-                const relOps: {op: ShareDB.Op, rp: (string|number)[]}[] = [];
-                ops.forEach((op: ShareDB.Op) => {
+                const relOps: {op: ShareDB.Op, rp: ShareDB.Path}[] = [];
+                (ops as ReadonlyArray<ShareDB.Op>).forEach((op: ShareDB.Op) => {
                     const rp = SDBDoc.relative(this.path, op.p);
                     if(rp) {
                         relOps.push({op, rp});
                     }
                 });
                 if (relOps.length > 0) {
-                    const newOps = relOps.map(({ op, rp }) =>  extend( {}, op, {p: rp}) );
+                    const newOps = relOps.map(({ op, rp }) => ( extend( {}, op, {p: rp}) as ShareDB.Op ) );
                     if(callback) {
                         callback(eventType, newOps, source, this.getData());
                     }
@@ -42,7 +42,7 @@ export class SDBSubDoc<E> extends OpSubmittable {
             }
         };
         if(this.subscriptionShims.has(callback)) {
-            this.subscriptionShims.set(callback, this.subscriptionShims.get(callback).concat([shimmedCB]));
+            this.subscriptionShims.set(callback, (this.subscriptionShims.get(callback) as Subscriber<E>[]).concat([shimmedCB]));
         } else {
             this.subscriptionShims.set(callback, [shimmedCB]);
         }
@@ -54,7 +54,7 @@ export class SDBSubDoc<E> extends OpSubmittable {
      */
     public unsubscribe(callback: Subscriber<E>): void {
         if(this.subscriptionShims.has(callback)) {
-            const shimmedCB: Subscriber<E>[] = this.subscriptionShims.get(callback);
+            const shimmedCB: Subscriber<E>[] = this.subscriptionShims.get(callback) as Subscriber<E>[];
             shimmedCB.forEach((cb) => this.doc.unsubscribe(cb));
             this.subscriptionShims.delete(callback);
         }
@@ -62,7 +62,7 @@ export class SDBSubDoc<E> extends OpSubmittable {
     /**
      * Get the data in this sub-document
      */
-    public getData(): E {
+    public getData(): E | null {
         try {
             return this.doc.traverse(this.path) as E;
         } catch (e) {
@@ -75,8 +75,8 @@ export class SDBSubDoc<E> extends OpSubmittable {
      * @param ops The raw operations
      * @param source (optional) the change source
      */
-    public async submitOp(ops:Array<ShareDB.Op>, source:any=true):Promise<this> {
-        const absOps = ops.map((op: ShareDB.Op) => extend({}, op, {p: this.path.concat(op.p)}));
+    protected async doSubmitOp(ops:ReadonlyArray<ShareDB.Op>, source:any=true):Promise<this> {
+        const absOps = ops.map((op: ShareDB.Op) => (extend({}, op, {p: this.path.concat(op.p)}) as ShareDB.Op));
         await this.doc.submitOp(absOps, source);
         return this;
     };
@@ -84,7 +84,7 @@ export class SDBSubDoc<E> extends OpSubmittable {
      * Get the value at a given location in the document. Note that this is relative to this subdocument
      * @param path The path array
      */
-    public traverse(path:Array<string|number>):any {
+    public traverse(path:ShareDB.Path):any {
         return this.doc.traverse(this.path.concat(path));
     };
 }

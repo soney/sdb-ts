@@ -28,11 +28,11 @@ export declare class SDBServer extends SDB {
      */
     address(): Promise<AddressInfo>;
     /**
-     * For ShareDB Middlewarese
+     * For ShareDB Middlewares
      * @param action e.g., `'connect'`, `'op'`, ... (see ShareDB documentation)
      * @param fn Call this function at the time specified by `action`
      */
-    use(action: ShareDB.Action, fn: ShareDB.UseCallback): void;
+    use(action: ShareDB.UseAction, fn: ShareDB.UseCallback): void;
     /**
      * Close and clean up this web server
      */

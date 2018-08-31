@@ -5,7 +5,7 @@ export declare class SDBSubDoc<E> extends OpSubmittable {
     private doc;
     private path;
     private subscriptionShims;
-    constructor(doc: SDBDoc<any>, path: Array<string | number>);
+    constructor(doc: SDBDoc<any>, path: ShareDB.Path);
     /**
      * Signal that we want to listen to changes in this sub-document. Note that we don't fetch new versions unless the document is being
      * subscribed to
@@ -26,16 +26,16 @@ export declare class SDBSubDoc<E> extends OpSubmittable {
     /**
      * Get the data in this sub-document
      */
-    getData(): E;
+    getData(): E | null;
     /**
      * Submit a raw series of ShareDB operations. Note that all paths should be relative to this subdoc
      * @param ops The raw operations
      * @param source (optional) the change source
      */
-    submitOp(ops: Array<ShareDB.Op>, source?: any): Promise<this>;
+    protected doSubmitOp(ops: ReadonlyArray<ShareDB.Op>, source?: any): Promise<this>;
     /**
      * Get the value at a given location in the document. Note that this is relative to this subdocument
      * @param path The path array
      */
-    traverse(path: Array<string | number>): any;
+    traverse(path: ShareDB.Path): any;
 }

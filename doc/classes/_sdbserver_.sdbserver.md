@@ -38,17 +38,17 @@ A class to wrap ShareDB servers (typically run in Node.js)
 
 ###  constructor
 
-⊕ **new SDBServer**(server?: * `WebSocket.Server` &#124; `Server`*, options?: *[SDBServerOptions](../interfaces/_sdbserver_.sdbserveroptions.md)*): [SDBServer](_sdbserver_.sdbserver.md)
+⊕ **new SDBServer**(server?: * `Server` &#124; `Server`*, options?: *[SDBServerOptions](../interfaces/_sdbserver_.sdbserveroptions.md)*): [SDBServer](_sdbserver_.sdbserver.md)
 
 *Overrides [SDB](_sdb_.sdb.md).[constructor](_sdb_.sdb.md#constructor)*
 
-*Defined in SDBServer.ts:27*
+*Defined in [SDBServer.ts:27](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L27)*
 
 **Parameters:**
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| `Optional` server |  `WebSocket.Server` &#124; `Server`|  Either a WebSocket.Server object, a net.Server object (e.g., http.Server or https.Server in which case the constructor create a new WebSocket.Server) or ignored (in which case an open port is picked and a WebSocket.Server is created) |
+| `Optional` server |  `Server` &#124; `Server`|  Either a WebSocket.Server object, a net.Server object (e.g., http.Server or https.Server in which case the constructor create a new WebSocket.Server) or ignored (in which case an open port is picked and a WebSocket.Server is created) |
 | `Optional` options | [SDBServerOptions](../interfaces/_sdbserver_.sdbserveroptions.md) |  Optional: options passed into ShareDB |
 
 **Returns:** [SDBServer](_sdbserver_.sdbserver.md)
@@ -65,7 +65,7 @@ ___
 
 *Inherited from [SDB](_sdb_.sdb.md).[connection](_sdb_.sdb.md#connection)*
 
-*Defined in SDB.ts:6*
+*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/2988743/src/SDB.ts#L6)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 ▸ **address**(): `Promise`<`AddressInfo`>
 
-*Defined in SDBServer.ts:65*
+*Defined in [SDBServer.ts:65](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L65)*
 
 A promise that gets the address for this server (mainly useful if this instance was called without a `server` argument)
 
@@ -92,7 +92,7 @@ ___
 
 *Overrides [SDB](_sdb_.sdb.md).[close](_sdb_.sdb.md#close)*
 
-*Defined in SDBServer.ts:81*
+*Defined in [SDBServer.ts:81](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L81)*
 
 Close and clean up this web server
 
@@ -107,7 +107,7 @@ ___
 
 *Inherited from [SDB](_sdb_.sdb.md).[deleteDoc](_sdb_.sdb.md#deletedoc)*
 
-*Defined in SDB.ts:50*
+*Defined in [SDB.ts:50](https://github.com/soney/sdb-ts/blob/2988743/src/SDB.ts#L50)*
 
 Delete a document from the list of documents (note this does not delete the document itself; it just cleans up some memory in the wrapper). You should not call this method; it will be automatically called by the document.
 
@@ -128,7 +128,7 @@ ___
 
 *Inherited from [SDB](_sdb_.sdb.md).[get](_sdb_.sdb.md#get)*
 
-*Defined in SDB.ts:21*
+*Defined in [SDB.ts:21](https://github.com/soney/sdb-ts/blob/2988743/src/SDB.ts#L21)*
 
 Get a document for this connection. (note that to create a new document, you call `.get()` and _then_ `.create()` or `.createIfEmpty()` on that doc)
 
@@ -151,7 +151,7 @@ ___
 
 ▸ **listening**(): `Promise`<`void`>
 
-*Defined in SDBServer.ts:92*
+*Defined in [SDBServer.ts:92](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L92)*
 
 A promise that resolves (with no value) once the WebSocketServer is listening
 
@@ -162,17 +162,17 @@ ___
 
 ###  use
 
-▸ **use**(action: *`ShareDB.Action`*, fn: *`ShareDB.UseCallback`*): `void`
+▸ **use**(action: *`ShareDB.UseAction`*, fn: *`ShareDB.UseCallback`*): `void`
 
-*Defined in SDBServer.ts:74*
+*Defined in [SDBServer.ts:74](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L74)*
 
-For ShareDB Middlewarese
+For ShareDB Middlewares
 
 **Parameters:**
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| action | `ShareDB.Action` |  e.g., `'connect'`, `'op'`, ... (see ShareDB documentation) |
+| action | `ShareDB.UseAction` |  e.g., `'connect'`, `'op'`, ... (see ShareDB documentation) |
 | fn | `ShareDB.UseCallback` |  Call this function at the time specified by \`action\` |
 
 **Returns:** `void`
@@ -182,11 +182,11 @@ ___
 
 ### `<Static>` registerType
 
-▸ **registerType**(type: *`any`*): `void`
+▸ **registerType**(type: *`object`*): `void`
 
 *Inherited from [SDB](_sdb_.sdb.md).[registerType](_sdb_.sdb.md#registertype)*
 
-*Defined in SDB.ts:38*
+*Defined in [SDB.ts:38](https://github.com/soney/sdb-ts/blob/2988743/src/SDB.ts#L38)*
 
 Register a new ShareDB.OT type (see [https://github.com/ottypes/docs](https://github.com/ottypes/docs))
 
@@ -194,7 +194,7 @@ Register a new ShareDB.OT type (see [https://github.com/ottypes/docs](https://gi
 
 | Param | Type | Description |
 | ------ | ------ | ------ |
-| type | `any` |  The type object |
+| type | `object` |  The type object |
 
 **Returns:** `void`
 

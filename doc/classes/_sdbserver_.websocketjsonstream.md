@@ -82,7 +82,7 @@
 
 *Overrides Duplex.__constructor*
 
-*Defined in SDBServer.ts:115*
+*Defined in [SDBServer.ts:115](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L115)*
 
 **Parameters:**
 
@@ -104,7 +104,7 @@ ___
 
 *Inherited from Readable.readable*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6055*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5984*
 
 ___
 <a id="readablehighwatermark"></a>
@@ -115,7 +115,7 @@ ___
 
 *Inherited from Readable.readableHighWaterMark*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6056*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5985*
 
 ___
 <a id="readablelength"></a>
@@ -126,7 +126,7 @@ ___
 
 *Inherited from Readable.readableLength*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6057*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5986*
 
 ___
 <a id="writable"></a>
@@ -137,7 +137,7 @@ ___
 
 *Inherited from Duplex.writable*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6242*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6171*
 
 ___
 <a id="writablehighwatermark"></a>
@@ -148,7 +148,7 @@ ___
 
 *Inherited from Duplex.writableHighWaterMark*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6243*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6172*
 
 ___
 <a id="writablelength"></a>
@@ -159,7 +159,7 @@ ___
 
 *Inherited from Duplex.writableLength*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6244*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6173*
 
 ___
 <a id="defaultmaxlisteners"></a>
@@ -184,7 +184,7 @@ ___
 
 *Inherited from Readable.[Symbol.asyncIterator]*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6130*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6059*
 
 **Returns:** `AsyncIterableIterator`<`any`>
 
@@ -199,7 +199,7 @@ ___
 
 *Overrides Readable._destroy*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6248*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6177*
 
 **Parameters:**
 
@@ -219,7 +219,7 @@ ___
 
 *Inherited from Duplex._final*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6249*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6178*
 
 **Parameters:**
 
@@ -238,7 +238,7 @@ ___
 
 *Overrides Readable._read*
 
-*Defined in SDBServer.ts:131*
+*Defined in [SDBServer.ts:131](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L131)*
 
 **Returns:** `void`
 
@@ -247,11 +247,11 @@ ___
 
 ###  _write
 
-▸ **_write**(msg: *`any`*, encoding: *`string`*, next: *`Function`*): `void`
+▸ **_write**(msg: *`any`*, encoding: *`string`*, next: *`function`*): `void`
 
 *Overrides Duplex._write*
 
-*Defined in SDBServer.ts:132*
+*Defined in [SDBServer.ts:132](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L132)*
 
 **Parameters:**
 
@@ -259,7 +259,7 @@ ___
 | ------ | ------ |
 | msg | `any` |
 | encoding | `string` |
-| next | `Function` |
+| next | `function` |
 
 **Returns:** `void`
 
@@ -272,7 +272,7 @@ ___
 
 *Inherited from Duplex._writev*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6247*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6176*
 
 **Parameters:**
 
@@ -304,7 +304,7 @@ ___
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6081*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6010*
 
 Event emitter The defined events on documents including:
 
@@ -327,7 +327,7 @@ Event emitter The defined events on documents including:
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6082*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6011*
 
 **Parameters:**
 
@@ -342,7 +342,7 @@ Event emitter The defined events on documents including:
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6083*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6012*
 
 **Parameters:**
 
@@ -357,7 +357,7 @@ Event emitter The defined events on documents including:
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6084*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6013*
 
 **Parameters:**
 
@@ -372,7 +372,7 @@ Event emitter The defined events on documents including:
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6085*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6014*
 
 **Parameters:**
 
@@ -387,7 +387,7 @@ Event emitter The defined events on documents including:
 
 *Overrides EventEmitter.addListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6086*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6015*
 
 **Parameters:**
 
@@ -407,7 +407,7 @@ ___
 
 *Inherited from Duplex.cork*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6256*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6185*
 
 **Returns:** `void`
 
@@ -420,7 +420,7 @@ ___
 
 *Inherited from Readable.destroy*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6070*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5999*
 
 **Parameters:**
 
@@ -451,7 +451,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6088*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6017*
 
 **Parameters:**
 
@@ -465,7 +465,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6089*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6018*
 
 **Parameters:**
 
@@ -480,7 +480,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6090*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6019*
 
 **Parameters:**
 
@@ -494,7 +494,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6091*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6020*
 
 **Parameters:**
 
@@ -508,7 +508,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6092*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6021*
 
 **Parameters:**
 
@@ -523,7 +523,7 @@ ___
 
 *Overrides EventEmitter.emit*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6093*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6022*
 
 **Parameters:**
 
@@ -547,7 +547,7 @@ ___
 
 *Inherited from Duplex.end*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6253*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6182*
 
 **Parameters:**
 
@@ -559,7 +559,7 @@ ___
 
 *Inherited from Duplex.end*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6254*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6183*
 
 **Parameters:**
 
@@ -572,7 +572,7 @@ ___
 
 *Inherited from Duplex.end*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6255*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6184*
 
 **Parameters:**
 
@@ -623,7 +623,7 @@ ___
 
 *Inherited from Readable.isPaused*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6064*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5993*
 
 **Returns:** `boolean`
 
@@ -712,7 +712,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6095*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6024*
 
 **Parameters:**
 
@@ -727,7 +727,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6096*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6025*
 
 **Parameters:**
 
@@ -742,7 +742,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6097*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6026*
 
 **Parameters:**
 
@@ -757,7 +757,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6098*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6027*
 
 **Parameters:**
 
@@ -772,7 +772,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6099*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6028*
 
 **Parameters:**
 
@@ -787,7 +787,7 @@ ___
 
 *Overrides EventEmitter.on*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6100*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6029*
 
 **Parameters:**
 
@@ -819,7 +819,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6102*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6031*
 
 **Parameters:**
 
@@ -834,7 +834,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6103*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6032*
 
 **Parameters:**
 
@@ -849,7 +849,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6104*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6033*
 
 **Parameters:**
 
@@ -864,7 +864,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6105*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6034*
 
 **Parameters:**
 
@@ -879,7 +879,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6106*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6035*
 
 **Parameters:**
 
@@ -894,7 +894,7 @@ ___
 
 *Overrides EventEmitter.once*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6107*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6036*
 
 **Parameters:**
 
@@ -914,7 +914,7 @@ ___
 
 *Inherited from Readable.pause*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6062*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5991*
 
 **Returns:** `this`
 
@@ -927,7 +927,7 @@ ___
 
 *Inherited from internal.pipe*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6040*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5969*
 
 **Type parameters:**
 
@@ -962,7 +962,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6109*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6038*
 
 **Parameters:**
 
@@ -977,7 +977,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6110*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6039*
 
 **Parameters:**
 
@@ -992,7 +992,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6111*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6040*
 
 **Parameters:**
 
@@ -1007,7 +1007,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6112*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6041*
 
 **Parameters:**
 
@@ -1022,7 +1022,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6113*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6042*
 
 **Parameters:**
 
@@ -1037,7 +1037,7 @@ ___
 
 *Overrides EventEmitter.prependListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6114*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6043*
 
 **Parameters:**
 
@@ -1069,7 +1069,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6116*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6045*
 
 **Parameters:**
 
@@ -1084,7 +1084,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6117*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6046*
 
 **Parameters:**
 
@@ -1099,7 +1099,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6118*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6047*
 
 **Parameters:**
 
@@ -1114,7 +1114,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6119*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6048*
 
 **Parameters:**
 
@@ -1129,7 +1129,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6120*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6049*
 
 **Parameters:**
 
@@ -1144,7 +1144,7 @@ ___
 
 *Overrides EventEmitter.prependOnceListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6121*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6050*
 
 **Parameters:**
 
@@ -1164,7 +1164,7 @@ ___
 
 *Inherited from Readable.push*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6068*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5997*
 
 **Parameters:**
 
@@ -1205,7 +1205,7 @@ ___
 
 *Inherited from Readable.read*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6060*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5989*
 
 **Parameters:**
 
@@ -1257,7 +1257,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6123*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6052*
 
 **Parameters:**
 
@@ -1272,7 +1272,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6124*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6053*
 
 **Parameters:**
 
@@ -1287,7 +1287,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6125*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6054*
 
 **Parameters:**
 
@@ -1302,7 +1302,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6126*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6055*
 
 **Parameters:**
 
@@ -1317,7 +1317,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6127*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6056*
 
 **Parameters:**
 
@@ -1332,7 +1332,7 @@ ___
 
 *Overrides EventEmitter.removeListener*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6128*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6057*
 
 **Parameters:**
 
@@ -1352,7 +1352,7 @@ ___
 
 *Inherited from Readable.resume*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6063*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5992*
 
 **Returns:** `this`
 
@@ -1365,7 +1365,7 @@ ___
 
 *Inherited from Duplex.setDefaultEncoding*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6252*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6181*
 
 **Parameters:**
 
@@ -1384,7 +1384,7 @@ ___
 
 *Inherited from Readable.setEncoding*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6061*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5990*
 
 **Parameters:**
 
@@ -1424,7 +1424,7 @@ ___
 
 *Inherited from Duplex.uncork*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6257*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6186*
 
 **Returns:** `void`
 
@@ -1437,7 +1437,7 @@ ___
 
 *Inherited from Readable.unpipe*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6065*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5994*
 
 **Type parameters:**
 
@@ -1459,7 +1459,7 @@ ___
 
 *Inherited from Readable.unshift*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6066*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5995*
 
 **Parameters:**
 
@@ -1478,7 +1478,7 @@ ___
 
 *Inherited from Readable.wrap*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6067*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:5996*
 
 **Parameters:**
 
@@ -1499,7 +1499,7 @@ ___
 
 *Inherited from Duplex.write*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6250*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6179*
 
 **Parameters:**
 
@@ -1512,7 +1512,7 @@ ___
 
 *Inherited from Duplex.write*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6251*
+*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6180*
 
 **Parameters:**
 
