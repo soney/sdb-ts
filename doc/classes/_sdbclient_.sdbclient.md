@@ -40,7 +40,7 @@ SDBClient is the wrapper for clients (usually run in the browser)
 
 *Overrides [SDB](_sdb_.sdb.md).[constructor](_sdb_.sdb.md#constructor)*
 
-*Defined in [SDBClient.ts:7](https://github.com/soney/sdb-ts/blob/2988743/src/SDBClient.ts#L7)*
+*Defined in [SDBClient.ts:7](https://github.com/soney/sdb-ts/blob/1937748/src/SDBClient.ts#L7)*
 
 Constructor
 
@@ -64,7 +64,7 @@ ___
 
 *Inherited from [SDB](_sdb_.sdb.md).[connection](_sdb_.sdb.md#connection)*
 
-*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/2988743/src/SDB.ts#L6)*
+*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/1937748/src/SDB.ts#L6)*
 
 ___
 <a id="ws"></a>
@@ -73,7 +73,7 @@ ___
 
 **● ws**: *`WebSocket`*
 
-*Defined in [SDBClient.ts:12](https://github.com/soney/sdb-ts/blob/2988743/src/SDBClient.ts#L12)*
+*Defined in [SDBClient.ts:12](https://github.com/soney/sdb-ts/blob/1937748/src/SDBClient.ts#L12)*
 
 A WebSocket object that connects to the ShareDB server
 
@@ -89,7 +89,7 @@ ___
 
 *Overrides [SDB](_sdb_.sdb.md).[close](_sdb_.sdb.md#close)*
 
-*Defined in [SDBClient.ts:19](https://github.com/soney/sdb-ts/blob/2988743/src/SDBClient.ts#L19)*
+*Defined in [SDBClient.ts:19](https://github.com/soney/sdb-ts/blob/1937748/src/SDBClient.ts#L19)*
 
 Close up this client
 
@@ -104,7 +104,7 @@ ___
 
 *Inherited from [SDB](_sdb_.sdb.md).[deleteDoc](_sdb_.sdb.md#deletedoc)*
 
-*Defined in [SDB.ts:50](https://github.com/soney/sdb-ts/blob/2988743/src/SDB.ts#L50)*
+*Defined in [SDB.ts:50](https://github.com/soney/sdb-ts/blob/1937748/src/SDB.ts#L50)*
 
 Delete a document from the list of documents (note this does not delete the document itself; it just cleans up some memory in the wrapper). You should not call this method; it will be automatically called by the document.
 
@@ -121,11 +121,11 @@ ___
 
 ###  get
 
-▸ **get**E(collectionName: *`string`*, documentID: *`string`*): [SDBDoc](_sdbdoc_.sdbdoc.md)<`E`>
+▸ **get**<`E`>(collectionName: *`string`*, documentID: *`string`*): [SDBDoc](_sdbdoc_.sdbdoc.md)<`E`>
 
 *Inherited from [SDB](_sdb_.sdb.md).[get](_sdb_.sdb.md#get)*
 
-*Defined in [SDB.ts:21](https://github.com/soney/sdb-ts/blob/2988743/src/SDB.ts#L21)*
+*Defined in [SDB.ts:21](https://github.com/soney/sdb-ts/blob/1937748/src/SDB.ts#L21)*
 
 Get a document for this connection. (note that to create a new document, you call `.get()` and _then_ `.create()` or `.createIfEmpty()` on that doc)
 
@@ -150,7 +150,7 @@ ___
 
 *Inherited from [SDB](_sdb_.sdb.md).[registerType](_sdb_.sdb.md#registertype)*
 
-*Defined in [SDB.ts:38](https://github.com/soney/sdb-ts/blob/2988743/src/SDB.ts#L38)*
+*Defined in [SDB.ts:38](https://github.com/soney/sdb-ts/blob/1937748/src/SDB.ts#L38)*
 
 Register a new ShareDB.OT type (see [https://github.com/ottypes/docs](https://github.com/ottypes/docs))
 

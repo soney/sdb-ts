@@ -23,7 +23,7 @@
 
 **Ƭ DocIdentifier**: *[`string`, `string`]*
 
-*Defined in [SDBDoc.ts:7](https://github.com/soney/sdb-ts/blob/2988743/src/SDBDoc.ts#L7)*
+*Defined in [SDBDoc.ts:7](https://github.com/soney/sdb-ts/blob/1937748/src/SDBDoc.ts#L7)*
 
 ___
 <a id="subscriber"></a>
@@ -32,7 +32,7 @@ ___
 
 **Ƭ Subscriber**: *`function`*
 
-*Defined in [SDBDoc.ts:8](https://github.com/soney/sdb-ts/blob/2988743/src/SDBDoc.ts#L8)*
+*Defined in [SDBDoc.ts:8](https://github.com/soney/sdb-ts/blob/1937748/src/SDBDoc.ts#L8)*
 
 #### Type declaration
 ▸(eventType: * `string` &#124; `null`*, ops: * `ReadonlyArray`<`ShareDB.Op`> &#124; `null`*, source: *`any`*, data: * `E` &#124; `null`*): `void`

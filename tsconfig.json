@@ -11,6 +11,5 @@
     },
     "lib": [ "node" ],
     "files": [ "src/index.ts" ],
-    "typeRoots": ["./node_modules/@types", "./types"],
     "exclude": [ "node_modules" ]
 }

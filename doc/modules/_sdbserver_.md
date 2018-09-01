@@ -27,7 +27,7 @@
 
 ▸ **getOpenPort**(): `Promise`<`number`>
 
-*Defined in [SDBServer.ts:139](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L139)*
+*Defined in [SDBServer.ts:139](https://github.com/soney/sdb-ts/blob/1937748/src/SDBServer.ts#L139)*
 
 **Returns:** `Promise`<`number`>
 

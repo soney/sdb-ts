@@ -25,7 +25,7 @@
 
 **● db**: *`ShareDB.DB`*
 
-*Defined in [SDBServer.ts:12](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L12)*
+*Defined in [SDBServer.ts:12](https://github.com/soney/sdb-ts/blob/1937748/src/SDBServer.ts#L12)*
 
 ___
 <a id="disabledocaction"></a>
@@ -34,7 +34,7 @@ ___
 
 **● disableDocAction**: *`boolean`*
 
-*Defined in [SDBServer.ts:14](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L14)*
+*Defined in [SDBServer.ts:14](https://github.com/soney/sdb-ts/blob/1937748/src/SDBServer.ts#L14)*
 
 ___
 <a id="disablespacedelimitedactions"></a>
@@ -43,7 +43,7 @@ ___
 
 **● disableSpaceDelimitedActions**: *`boolean`*
 
-*Defined in [SDBServer.ts:15](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L15)*
+*Defined in [SDBServer.ts:15](https://github.com/soney/sdb-ts/blob/1937748/src/SDBServer.ts#L15)*
 
 ___
 <a id="pubsub"></a>
@@ -52,7 +52,7 @@ ___
 
 **● pubsub**: *`ShareDB.PubSub`*
 
-*Defined in [SDBServer.ts:13](https://github.com/soney/sdb-ts/blob/2988743/src/SDBServer.ts#L13)*
+*Defined in [SDBServer.ts:13](https://github.com/soney/sdb-ts/blob/1937748/src/SDBServer.ts#L13)*
 
 ___
 

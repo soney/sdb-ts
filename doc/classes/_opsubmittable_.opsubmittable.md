@@ -42,7 +42,7 @@
 
 ⊕ **new OpSubmittable**(): [OpSubmittable](_opsubmittable_.opsubmittable.md)
 
-*Defined in [OpSubmittable.ts:3](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L3)*
+*Defined in [OpSubmittable.ts:3](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L3)*
 
 **Returns:** [OpSubmittable](_opsubmittable_.opsubmittable.md)
 
@@ -56,7 +56,7 @@ ___
 
 ▸ **doSubmitOp**(ops: *`ReadonlyArray`<`ShareDB.Op`>*, source?: *`any`*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:178](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L178)*
+*Defined in [OpSubmittable.ts:178](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L178)*
 
 Submit a raw series of ShareDB operations
 
@@ -76,7 +76,7 @@ ___
 
 ▸ **submitListDeleteOp**(p: *`ShareDB.Path`*, ld?: *`any`*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:96](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L96)*
+*Defined in [OpSubmittable.ts:96](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L96)*
 
 Remove an item from a list
 
@@ -107,7 +107,7 @@ ___
 
 ▸ **submitListInsertOp**(p: *`ShareDB.Path`*, li: *`any`*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:81](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L81)*
+*Defined in [OpSubmittable.ts:81](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L81)*
 
 Insert an item into a list
 
@@ -138,7 +138,7 @@ ___
 
 ▸ **submitListPushOp**(p: *`ShareDB.Path`*, ...items: *`Array`<`any`>*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:146](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L146)*
+*Defined in [OpSubmittable.ts:146](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L146)*
 
 Push any number of items to the end of the list.
 
@@ -158,7 +158,7 @@ ___
 
 ▸ **submitListReplaceOp**(p: *`ShareDB.Path`*, li: *`any`*, ld?: *`any`*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:66](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L66)*
+*Defined in [OpSubmittable.ts:66](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L66)*
 
 Replace an item in a list
 
@@ -190,7 +190,7 @@ ___
 
 ▸ **submitListSpliceOp**(p: *`ShareDB.Path`*, index: *`number`*, numToRemove: *`number`*, ...toAdd: *`Array`<`any`>*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:122](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L122)*
+*Defined in [OpSubmittable.ts:122](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L122)*
 
 Perform a JavaScript splice operation
 
@@ -212,7 +212,7 @@ ___
 
 ▸ **submitListUnshiftOp**(p: *`ShareDB.Path`*, ...items: *`Array`<`any`>*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:159](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L159)*
+*Defined in [OpSubmittable.ts:159](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L159)*
 
 Add any number of items to the beginning of a list
 
@@ -232,7 +232,7 @@ ___
 
 ▸ **submitNumberAddOp**(p: *`ShareDB.Path`*, na: *`number`*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:112](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L112)*
+*Defined in [OpSubmittable.ts:112](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L112)*
 
 Increment a number
 
@@ -263,7 +263,7 @@ ___
 
 ▸ **submitObjectDeleteOp**(p: *`ShareDB.Path`*, od?: *`any`*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:50](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L50)*
+*Defined in [OpSubmittable.ts:50](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L50)*
 
 Delete an object property.
 
@@ -294,7 +294,7 @@ ___
 
 ▸ **submitObjectInsertOp**(p: *`ShareDB.Path`*, oi: *`any`*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:35](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L35)*
+*Defined in [OpSubmittable.ts:35](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L35)*
 
 Insert within an object (if the property does not have a value).
 
@@ -325,7 +325,7 @@ ___
 
 ▸ **submitObjectReplaceOp**(p: *`ShareDB.Path`*, oi: *`any`*, od?: *`any`*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:20](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L20)*
+*Defined in [OpSubmittable.ts:20](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L20)*
 
 Replace within an object (if the property already has a value).
 
@@ -357,7 +357,7 @@ ___
 
 ▸ **submitOp**(ops: *`ReadonlyArray`<`ShareDB.Op`>*, source?: *`any`*): `Promise`<`this`>
 
-*Defined in [OpSubmittable.ts:169](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L169)*
+*Defined in [OpSubmittable.ts:169](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L169)*
 
 Submit a series of ShareDB operations
 
@@ -377,7 +377,7 @@ ___
 
 ▸ **traverse**(path: *`ShareDB.Path`*): `any`
 
-*Defined in [OpSubmittable.ts:184](https://github.com/soney/sdb-ts/blob/2988743/src/OpSubmittable.ts#L184)*
+*Defined in [OpSubmittable.ts:184](https://github.com/soney/sdb-ts/blob/1937748/src/OpSubmittable.ts#L184)*
 
 Get the value at a given location in the document.
 
