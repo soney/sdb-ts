@@ -108,7 +108,12 @@ class WebSocketJSONStream extends stream_1.Duplex {
         super({ objectMode: true });
         this.ws = ws;
         this.ws.on('message', (msg) => {
-            this.push(JSON.parse(msg));
+            try {
+                this.push(JSON.parse(msg));
+            }
+            catch (err) {
+                console.error(err);
+            }
         });
         this.ws.on('close', () => {
             this.push(null); // end readable stream

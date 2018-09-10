@@ -10,7 +10,7 @@
   "main": "./built/index.js",
   "types": "./built/index.d.ts",
   "dependencies": {
-    "sharedb": "^1.0.0-beta.12",
+    "sharedb": "^1.0.0-beta.13",
     "ws": "^6.0.0"
   },
   "devDependencies": {
