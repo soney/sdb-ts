@@ -1,3 +1,5 @@
+import { EventEmitter } from "events";
+
 /**
  * Performs a shallow item-by-item comparison between two arrays.
  * 
@@ -36,4 +38,105 @@ export function extend(obj: {[key: string]: any}, ...args: {[key: string]: any}[
         }
     });
     return obj;
+}
+
+// https://github.com/FahadAlbukhari/typescript-reconnecting-websocket/blob/master/reconnecting-websocket.ts
+// https://github.com/joewalnes/reconnecting-websocket
+export class ReconnectingWebsocket extends EventEmitter {
+    public static CONNECTING: number = WebSocket.CONNECTING;
+    public static OPEN: number = WebSocket.OPEN;
+    public static CLOSING: number = WebSocket.CLOSING;
+    public static CLOSED: number = WebSocket.CLOSED;
+
+    public readyState: number;
+    private ws: WebSocket;
+    private forcedClose: boolean = false;
+    private timedOut: boolean = false;
+
+    private reconnectionAttempts: number = 0;
+
+    public maxReconnectAttempts: number|false = false;
+    public reconnectionDecay: number = 1.3;
+    public reconnectInterval: number = 1000;
+    public timeoutInterval: number = 2000;
+
+    public onopen: ((ev: Event) => void) = () => {};
+    public onclose: ((ev: CloseEvent) => void) = () => {};
+    public onconnecting: (() => void) = () => {};
+    public onmessage: ((ev: MessageEvent) => void) = () => {};
+    public onerror: ((ev: ErrorEvent) => void) = () => {};
+
+    public constructor(private url: string, private protocols: string | string[]) {
+        super();
+        this.readyState = ReconnectingWebsocket.CONNECTING;
+        this.connect();
+    }
+
+    public connect(reconnectionAttempt: boolean = false): void {
+        if(reconnectionAttempt) {
+            if( this.maxReconnectAttempts !== false &&
+               this.reconnectionAttempts > this.maxReconnectAttempts) {
+                return;
+            }
+        } else {
+            this.reconnectionAttempts = 0;
+        }
+
+        this.ws = new WebSocket(this.url, this.protocols);
+        this.ws.addEventListener('open', (event: Event) => {
+            this.reconnectionAttempts = 0;
+            this.readyState = ReconnectingWebsocket.OPEN;
+            this.onopen(event);
+            this.emit('open', event);
+        });
+
+        this.ws.addEventListener('close', (event: CloseEvent) => {
+            this.ws = null;
+            if(this.forcedClose) {
+                this.readyState = ReconnectingWebsocket.CLOSED;
+            } else {
+                this.readyState = ReconnectingWebsocket.CONNECTING;
+                this.onconnecting();
+                this.emit('connecting');
+
+                if(!reconnectionAttempt && !this.timedOut) {
+                    this.onclose(event);
+                }
+
+                const timeout = this.reconnectInterval * Math.pow(this.reconnectionDecay, this.reconnectionAttempts);
+                setTimeout(() => {
+                    this.reconnectionAttempts++;
+                    this.connect(true);
+                }, timeout);
+            }
+        });
+
+        this.ws.addEventListener('message', (event: MessageEvent) => {
+            this.onmessage(event);
+            this.emit('message', event);
+        });
+
+        this.ws.addEventListener('error', (event: ErrorEvent) => {
+            this.onerror(event);
+            this.emit('error', event);
+        });
+    }
+
+    public send(data: any): void {
+        if(this.ws) {
+            this.ws.send(data);
+        } else {
+            throw new Error('INVALID_STATE_ERR : Pausing to reconnect websocket')
+        }
+    }
+
+    public close(): boolean {
+        if(this.ws) {
+            this.forcedClose = true;
+            this.ws.close();
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
