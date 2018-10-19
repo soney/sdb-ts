@@ -1,3 +1,5 @@
+/// <reference types="node" />
+import { EventEmitter } from "events";
 /**
  * Performs a shallow item-by-item comparison between two arrays.
  *
@@ -23,3 +25,29 @@ export declare function extend(obj: {
 }[]): {
     [key: string]: any;
 };
+export declare class ReconnectingWebsocket extends EventEmitter {
+    private url;
+    private protocols;
+    static CONNECTING: number;
+    static OPEN: number;
+    static CLOSING: number;
+    static CLOSED: number;
+    readyState: number;
+    private ws;
+    private forcedClose;
+    private timedOut;
+    private reconnectionAttempts;
+    maxReconnectAttempts: number | false;
+    reconnectionDecay: number;
+    reconnectInterval: number;
+    timeoutInterval: number;
+    onopen: ((ev: Event) => void);
+    onclose: ((ev: CloseEvent) => void);
+    onconnecting: (() => void);
+    onmessage: ((ev: MessageEvent) => void);
+    onerror: ((ev: ErrorEvent) => void);
+    constructor(url: string, protocols: string | string[]);
+    connect(reconnectionAttempt?: boolean): void;
+    send(data: any): void;
+    close(): boolean;
+}

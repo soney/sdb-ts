@@ -2,7 +2,7 @@ import 'mocha';
 import * as net from 'net';
 import * as WebSocket from 'ws';
 import { AddressInfo } from 'net';
-import { SDBServer, SDBClient, SDBDoc } from '../built/index'; 
+import { ReconnectingWebsocket, SDBServer, SDBClient, SDBDoc } from '../built/index'; 
 import { expect } from 'chai';
 import { times, sample, isEqual } from 'lodash';
 import { resolve } from 'path';

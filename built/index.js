@@ -8,4 +8,6 @@ const SDBServer_1 = require("./SDBServer");
 exports.SDBServer = SDBServer_1.SDBServer;
 const SDBSubDoc_1 = require("./SDBSubDoc");
 exports.SDBSubDoc = SDBSubDoc_1.SDBSubDoc;
+const utils_1 = require("./utils");
+exports.ReconnectingWebsocket = utils_1.ReconnectingWebsocket;
 //# sourceMappingURL=index.js.map
