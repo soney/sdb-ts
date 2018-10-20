@@ -27,7 +27,7 @@ export declare function extend(obj: {
 };
 export declare class ReconnectingWebsocket extends EventEmitter {
     private url;
-    private protocols;
+    private protocols?;
     static CONNECTING: number;
     static OPEN: number;
     static CLOSING: number;
@@ -46,7 +46,7 @@ export declare class ReconnectingWebsocket extends EventEmitter {
     onconnecting: (() => void);
     onmessage: ((ev: MessageEvent) => void);
     onerror: ((ev: ErrorEvent) => void);
-    constructor(url: string, protocols: string | string[]);
+    constructor(url: string, protocols?: string | string[]);
     connect(reconnectionAttempt?: boolean): void;
     send(data: any): void;
     close(): boolean;

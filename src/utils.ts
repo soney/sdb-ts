@@ -66,7 +66,7 @@ export class ReconnectingWebsocket extends EventEmitter {
     public onmessage: ((ev: MessageEvent) => void) = () => {};
     public onerror: ((ev: ErrorEvent) => void) = () => {};
 
-    public constructor(private url: string, private protocols: string | string[]) {
+    public constructor(private url: string, private protocols?: string | string[]) {
         super();
         this.readyState = ReconnectingWebsocket.CONNECTING;
         this.connect();
