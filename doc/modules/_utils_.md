@@ -19,7 +19,7 @@
 
 ▸ **extend**(`obj`: object, ...`args`: object[]): *object*
 
-*Defined in [utils.ts:32](https://github.com/soney/sdb-ts/blob/5c450be/src/utils.ts#L32)*
+*Defined in [utils.ts:33](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L33)*
 
 Assigns own enumerable string keyed properties of source objects to the destination object.
 Source objects are applied from left to right.
@@ -44,7 +44,7 @@ ___
 
 ▸ **isArrayEqual**(`a`: ReadonlyArray‹any›, `b`: ReadonlyArray‹any›): *boolean*
 
-*Defined in [utils.ts:11](https://github.com/soney/sdb-ts/blob/5c450be/src/utils.ts#L11)*
+*Defined in [utils.ts:12](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L12)*
 
 Performs a shallow item-by-item comparison between two arrays.
 

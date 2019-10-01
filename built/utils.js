@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const events_1 = require("events");
+const WebSocket = require("ws");
 /**
  * Performs a shallow item-by-item comparison between two arrays.
  *

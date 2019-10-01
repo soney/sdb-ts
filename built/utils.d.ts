@@ -41,11 +41,11 @@ export declare class ReconnectingWebsocket extends EventEmitter {
     reconnectionDecay: number;
     reconnectInterval: number;
     timeoutInterval: number;
-    onopen: ((ev: Event) => void);
-    onclose: ((ev: CloseEvent) => void);
+    onopen: ((ev: any) => void);
+    onclose: ((ev: any) => void);
     onconnecting: (() => void);
-    onmessage: ((ev: MessageEvent) => void);
-    onerror: ((ev: ErrorEvent) => void);
+    onmessage: ((ev: any) => void);
+    onerror: ((ev: any) => void);
     constructor(url: string, protocols?: string | string[]);
     connect(reconnectionAttempt?: boolean): void;
     send(data: any): void;

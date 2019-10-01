@@ -1,4 +1,5 @@
 import { EventEmitter } from "events";
+import * as WebSocket from 'ws';
 
 /**
  * Performs a shallow item-by-item comparison between two arrays.
@@ -60,11 +61,11 @@ export class ReconnectingWebsocket extends EventEmitter {
     public reconnectInterval: number = 1000;
     public timeoutInterval: number = 2000;
 
-    public onopen: ((ev: Event) => void) = () => {};
-    public onclose: ((ev: CloseEvent) => void) = () => {};
+    public onopen: ((ev) => void) = () => {};
+    public onclose: ((ev) => void) = () => {};
     public onconnecting: (() => void) = () => {};
-    public onmessage: ((ev: MessageEvent) => void) = () => {};
-    public onerror: ((ev: ErrorEvent) => void) = () => {};
+    public onmessage: ((ev) => void) = () => {};
+    public onerror: ((ev) => void) = () => {};
 
     public constructor(private url: string, private protocols?: string | string[]) {
         super();
@@ -83,14 +84,14 @@ export class ReconnectingWebsocket extends EventEmitter {
         }
 
         this.ws = new WebSocket(this.url, this.protocols);
-        this.ws.addEventListener('open', (event: Event) => {
+        this.ws.addEventListener('open', (event) => {
             this.reconnectionAttempts = 0;
             this.readyState = ReconnectingWebsocket.OPEN;
             this.onopen(event);
             this.emit('open', event);
         });
 
-        this.ws.addEventListener('close', (event: CloseEvent) => {
+        this.ws.addEventListener('close', (event) => {
             this.ws = null;
             if(this.forcedClose) {
                 this.readyState = ReconnectingWebsocket.CLOSED;
@@ -111,12 +112,12 @@ export class ReconnectingWebsocket extends EventEmitter {
             }
         });
 
-        this.ws.addEventListener('message', (event: MessageEvent) => {
+        this.ws.addEventListener('message', (event) => {
             this.onmessage(event);
             this.emit('message', event);
         });
 
-        this.ws.addEventListener('error', (event: ErrorEvent) => {
+        this.ws.addEventListener('error', (event) => {
             this.onerror(event);
             this.emit('error', event);
         });

@@ -38,7 +38,7 @@ A class to wrap ShareDB servers (typically run in Node.js)
 
 *Overrides [SDB](_sdb_.sdb.md).[constructor](_sdb_.sdb.md#constructor)*
 
-*Defined in [SDBServer.ts:27](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBServer.ts#L27)*
+*Defined in [SDBServer.ts:27](https://github.com/soney/sdb-ts/blob/2d09328/src/SDBServer.ts#L27)*
 
 **Parameters:**
 
@@ -57,7 +57,7 @@ Name | Type | Description |
 
 *Inherited from [SDB](_sdb_.sdb.md).[connection](_sdb_.sdb.md#protected-connection)*
 
-*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/5c450be/src/SDB.ts#L6)*
+*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/2d09328/src/SDB.ts#L6)*
 
 ## Methods
 
@@ -65,7 +65,7 @@ Name | Type | Description |
 
 ▸ **address**(): *Promise‹AddressInfo›*
 
-*Defined in [SDBServer.ts:65](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBServer.ts#L65)*
+*Defined in [SDBServer.ts:65](https://github.com/soney/sdb-ts/blob/2d09328/src/SDBServer.ts#L65)*
 
 A promise that gets the address for this server (mainly useful if this instance was called without a `server` argument)
 
@@ -79,7 +79,7 @@ ___
 
 *Overrides [SDB](_sdb_.sdb.md).[close](_sdb_.sdb.md#abstract-close)*
 
-*Defined in [SDBServer.ts:81](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBServer.ts#L81)*
+*Defined in [SDBServer.ts:81](https://github.com/soney/sdb-ts/blob/2d09328/src/SDBServer.ts#L81)*
 
 Close and clean up this web server
 
@@ -93,7 +93,7 @@ ___
 
 *Inherited from [SDB](_sdb_.sdb.md).[deleteDoc](_sdb_.sdb.md#deletedoc)*
 
-*Defined in [SDB.ts:50](https://github.com/soney/sdb-ts/blob/5c450be/src/SDB.ts#L50)*
+*Defined in [SDB.ts:50](https://github.com/soney/sdb-ts/blob/2d09328/src/SDB.ts#L50)*
 
 Delete a document from the list of documents (note this does not delete the document itself; it just cleans up some memory in the wrapper).
 You should not call this method; it will be automatically called by the document.
@@ -114,7 +114,7 @@ ___
 
 *Inherited from [SDB](_sdb_.sdb.md).[get](_sdb_.sdb.md#get)*
 
-*Defined in [SDB.ts:21](https://github.com/soney/sdb-ts/blob/5c450be/src/SDB.ts#L21)*
+*Defined in [SDB.ts:21](https://github.com/soney/sdb-ts/blob/2d09328/src/SDB.ts#L21)*
 
 Get a document for this connection. (note that to create a new document, you call `.get()` and *then* `.create()` or `.createIfEmpty()` on that doc)
 
@@ -137,7 +137,7 @@ ___
 
 ▸ **listening**(): *Promise‹void›*
 
-*Defined in [SDBServer.ts:92](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBServer.ts#L92)*
+*Defined in [SDBServer.ts:92](https://github.com/soney/sdb-ts/blob/2d09328/src/SDBServer.ts#L92)*
 
 A promise that resolves (with no value) once the WebSocketServer is listening
 
@@ -149,7 +149,7 @@ ___
 
 ▸ **use**(`action`: any, `fn`: function): *void*
 
-*Defined in [SDBServer.ts:74](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBServer.ts#L74)*
+*Defined in [SDBServer.ts:74](https://github.com/soney/sdb-ts/blob/2d09328/src/SDBServer.ts#L74)*
 
 For ShareDB Middlewares
 
@@ -189,7 +189,7 @@ ___
 
 *Inherited from [SDB](_sdb_.sdb.md).[registerType](_sdb_.sdb.md#static-registertype)*
 
-*Defined in [SDB.ts:38](https://github.com/soney/sdb-ts/blob/5c450be/src/SDB.ts#L38)*
+*Defined in [SDB.ts:38](https://github.com/soney/sdb-ts/blob/2d09328/src/SDB.ts#L38)*
 
 Register a new ShareDB.OT type (see [https://github.com/ottypes/docs](https://github.com/ottypes/docs))
 
