@@ -1,17 +1,17 @@
-[sdb-ts](../README.md) > ["SDBServer"](../modules/_sdbserver_.md) > [WebSocketJSONStream](../classes/_sdbserver_.websocketjsonstream.md)
+[sdb-ts](../README.md) › [Globals](../globals.md) › ["SDBServer"](../modules/_sdbserver_.md) › [WebSocketJSONStream](_sdbserver_.websocketjsonstream.md)
 
 # Class: WebSocketJSONStream
 
 ## Hierarchy
 
- `Duplex`
+* Duplex
 
-**↳ WebSocketJSONStream**
+  ↳ **WebSocketJSONStream**
 
 ## Implements
 
-* `ReadableStream`
-* `Writable`
+* ReadableStream
+* Writable
 
 ## Index
 
@@ -21,22 +21,24 @@
 
 ### Properties
 
+* [destroyed](_sdbserver_.websocketjsonstream.md#destroyed)
 * [readable](_sdbserver_.websocketjsonstream.md#readable)
 * [readableHighWaterMark](_sdbserver_.websocketjsonstream.md#readablehighwatermark)
 * [readableLength](_sdbserver_.websocketjsonstream.md#readablelength)
 * [writable](_sdbserver_.websocketjsonstream.md#writable)
+* [writableFinished](_sdbserver_.websocketjsonstream.md#writablefinished)
 * [writableHighWaterMark](_sdbserver_.websocketjsonstream.md#writablehighwatermark)
 * [writableLength](_sdbserver_.websocketjsonstream.md#writablelength)
-* [defaultMaxListeners](_sdbserver_.websocketjsonstream.md#defaultmaxlisteners)
+* [defaultMaxListeners](_sdbserver_.websocketjsonstream.md#static-defaultmaxlisteners)
 
 ### Methods
 
-* [__@asyncIterator](_sdbserver_.websocketjsonstream.md#___asynciterator)
+* [__@asyncIterator](_sdbserver_.websocketjsonstream.md#__@asynciterator)
 * [_destroy](_sdbserver_.websocketjsonstream.md#_destroy)
 * [_final](_sdbserver_.websocketjsonstream.md#_final)
 * [_read](_sdbserver_.websocketjsonstream.md#_read)
 * [_write](_sdbserver_.websocketjsonstream.md#_write)
-* [_writev](_sdbserver_.websocketjsonstream.md#_writev)
+* [_writev](_sdbserver_.websocketjsonstream.md#optional-_writev)
 * [addListener](_sdbserver_.websocketjsonstream.md#addlistener)
 * [cork](_sdbserver_.websocketjsonstream.md#cork)
 * [destroy](_sdbserver_.websocketjsonstream.md#destroy)
@@ -68,1483 +70,1660 @@
 * [unshift](_sdbserver_.websocketjsonstream.md#unshift)
 * [wrap](_sdbserver_.websocketjsonstream.md#wrap)
 * [write](_sdbserver_.websocketjsonstream.md#write)
-* [listenerCount](_sdbserver_.websocketjsonstream.md#listenercount-1)
-
----
+* [from](_sdbserver_.websocketjsonstream.md#static-from)
+* [listenerCount](_sdbserver_.websocketjsonstream.md#static-listenercount)
 
 ## Constructors
 
-<a id="constructor"></a>
-
 ###  constructor
 
-⊕ **new WebSocketJSONStream**(ws: *`WebSocket`*): [WebSocketJSONStream](_sdbserver_.websocketjsonstream.md)
+\+ **new WebSocketJSONStream**(`ws`: WebSocket): *[WebSocketJSONStream](_sdbserver_.websocketjsonstream.md)*
 
-*Overrides Duplex.__constructor*
+*Overrides void*
 
-*Defined in [SDBServer.ts:115](https://github.com/soney/sdb-ts/blob/1937748/src/SDBServer.ts#L115)*
+*Defined in [SDBServer.ts:115](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBServer.ts#L115)*
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| ws | `WebSocket` |
+Name | Type |
+------ | ------ |
+`ws` | WebSocket |
 
-**Returns:** [WebSocketJSONStream](_sdbserver_.websocketjsonstream.md)
-
-___
+**Returns:** *[WebSocketJSONStream](_sdbserver_.websocketjsonstream.md)*
 
 ## Properties
 
-<a id="readable"></a>
+###  destroyed
+
+• **destroyed**: *boolean*
+
+*Inherited from void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:29
+
+___
 
 ###  readable
 
-**● readable**: *`boolean`*
+• **readable**: *boolean*
 
-*Inherited from Readable.readable*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6094*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:26
 
 ___
-<a id="readablehighwatermark"></a>
 
 ###  readableHighWaterMark
 
-**● readableHighWaterMark**: *`number`*
+• **readableHighWaterMark**: *number*
 
-*Inherited from Readable.readableHighWaterMark*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6095*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:27
 
 ___
-<a id="readablelength"></a>
 
 ###  readableLength
 
-**● readableLength**: *`number`*
+• **readableLength**: *number*
 
-*Inherited from Readable.readableLength*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6096*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:28
 
 ___
-<a id="writable"></a>
 
 ###  writable
 
-**● writable**: *`boolean`*
+• **writable**: *boolean*
 
-*Inherited from Duplex.writable*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6281*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:219
 
 ___
-<a id="writablehighwatermark"></a>
+
+###  writableFinished
+
+• **writableFinished**: *boolean*
+
+*Inherited from void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:220
+
+___
 
 ###  writableHighWaterMark
 
-**● writableHighWaterMark**: *`number`*
+• **writableHighWaterMark**: *number*
 
-*Inherited from Duplex.writableHighWaterMark*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6282*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:221
 
 ___
-<a id="writablelength"></a>
 
 ###  writableLength
 
-**● writableLength**: *`number`*
+• **writableLength**: *number*
 
-*Inherited from Duplex.writableLength*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6283*
-
-___
-<a id="defaultmaxlisteners"></a>
-
-### `<Static>` defaultMaxListeners
-
-**● defaultMaxListeners**: *`number`*
-
-*Inherited from EventEmitter.defaultMaxListeners*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:1030*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:222
 
 ___
+
+### `Static` defaultMaxListeners
+
+▪ **defaultMaxListeners**: *number*
+
+*Inherited from void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:9
 
 ## Methods
 
-<a id="___asynciterator"></a>
-
 ###  __@asyncIterator
 
-▸ **__@asyncIterator**(): `AsyncIterableIterator`<`any`>
+▸ **__@asyncIterator**(): *AsyncIterableIterator‹any›*
 
-*Inherited from Readable.[Symbol.asyncIterator]*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6169*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:102
 
-**Returns:** `AsyncIterableIterator`<`any`>
+**Returns:** *AsyncIterableIterator‹any›*
 
 ___
-<a id="_destroy"></a>
 
 ###  _destroy
 
-▸ **_destroy**(error: * `Error` &#124; `null`*, callback: *`function`*): `void`
+▸ **_destroy**(`error`: Error | null, `callback`: function): *void*
 
-*Inherited from Duplex._destroy*
+*Inherited from void*
 
-*Overrides Readable._destroy*
+*Overrides void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6287*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:226
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| error |  `Error` &#124; `null`|
-| callback | `function` |
+▪ **error**: *Error | null*
 
-**Returns:** `void`
+▪ **callback**: *function*
+
+▸ (`error`: Error | null): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`error` | Error &#124; null |
+
+**Returns:** *void*
 
 ___
-<a id="_final"></a>
 
 ###  _final
 
-▸ **_final**(callback: *`function`*): `void`
+▸ **_final**(`callback`: function): *void*
 
-*Inherited from Duplex._final*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6288*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:227
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| callback | `function` |
+▪ **callback**: *function*
 
-**Returns:** `void`
+▸ (`error?`: Error | null): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`error?` | Error &#124; null |
+
+**Returns:** *void*
 
 ___
-<a id="_read"></a>
 
 ###  _read
 
-▸ **_read**(): `void`
+▸ **_read**(): *void*
 
-*Overrides Readable._read*
+*Overrides void*
 
-*Defined in [SDBServer.ts:131](https://github.com/soney/sdb-ts/blob/1937748/src/SDBServer.ts#L131)*
+*Defined in [SDBServer.ts:135](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBServer.ts#L135)*
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="_write"></a>
 
 ###  _write
 
-▸ **_write**(msg: *`any`*, encoding: *`string`*, next: *`function`*): `void`
+▸ **_write**(`msg`: any, `encoding`: string, `next`: function): *void*
 
-*Overrides Duplex._write*
+*Overrides void*
 
-*Defined in [SDBServer.ts:132](https://github.com/soney/sdb-ts/blob/1937748/src/SDBServer.ts#L132)*
-
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| msg | `any` |
-| encoding | `string` |
-| next | `function` |
-
-**Returns:** `void`
-
-___
-<a id="_writev"></a>
-
-### `<Optional>` _writev
-
-▸ **_writev**(chunks: *`Array`<`object`>*, callback: *`function`*): `void`
-
-*Inherited from Duplex._writev*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6286*
+*Defined in [SDBServer.ts:136](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBServer.ts#L136)*
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| chunks | `Array`<`object`> |
-| callback | `function` |
+▪ **msg**: *any*
 
-**Returns:** `void`
+▪ **encoding**: *string*
+
+▪ **next**: *function*
+
+▸ (): *void*
+
+**Returns:** *void*
 
 ___
-<a id="addlistener"></a>
+
+### `Optional` _writev
+
+▸ **_writev**(`chunks`: Array‹object›, `callback`: function): *void*
+
+*Inherited from void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:225
+
+**Parameters:**
+
+▪ **chunks**: *Array‹object›*
+
+▪ **callback**: *function*
+
+▸ (`error?`: Error | null): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`error?` | Error &#124; null |
+
+**Returns:** *void*
+
+___
 
 ###  addListener
 
-▸ **addListener**(event: *"close"*, listener: *`function`*): `this`
+▸ **addListener**(`event`: "close", `listener`: function): *this*
 
-▸ **addListener**(event: *"data"*, listener: *`function`*): `this`
+*Inherited from void*
 
-▸ **addListener**(event: *"end"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **addListener**(event: *"readable"*, listener: *`function`*): `this`
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:53
 
-▸ **addListener**(event: *"error"*, listener: *`function`*): `this`
-
-▸ **addListener**(event: * `string` &#124; `symbol`*, listener: *`function`*): `this`
-
-*Inherited from Readable.addListener*
-
-*Overrides EventEmitter.addListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6120*
-
-Event emitter The defined events on documents including:
-
-1.  close
-2.  data
-3.  end
-4.  readable
-5.  error
+Event emitter
+The defined events on documents including:
+1. close
+2. data
+3. end
+4. readable
+5. error
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.addListener*
+▸ (): *void*
 
-*Overrides EventEmitter.addListener*
+**Returns:** *this*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6121*
+▸ **addListener**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from void*
 
-| Param | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.addListener*
-
-*Overrides EventEmitter.addListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6122*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:54
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.addListener*
-
-*Overrides EventEmitter.addListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6123*
+▸ (`chunk`: any): *void*
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | any |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.addListener*
+▸ **addListener**(`event`: "end", `listener`: function): *this*
 
-*Overrides EventEmitter.addListener*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6124*
+*Overrides void*
 
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.addListener*
-
-*Overrides EventEmitter.addListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6125*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:55
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event |  `string` &#124; `symbol`|
-| listener | `function` |
+▪ **event**: *"end"*
 
-**Returns:** `this`
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **addListener**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:56
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **addListener**(`event`: "error", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:57
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: Error): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | Error |
+
+**Returns:** *this*
+
+▸ **addListener**(`event`: string | symbol, `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:58
+
+**Parameters:**
+
+▪ **event**: *string | symbol*
+
+▪ **listener**: *function*
+
+▸ (...`args`: any[]): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...args` | any[] |
+
+**Returns:** *this*
 
 ___
-<a id="cork"></a>
 
 ###  cork
 
-▸ **cork**(): `void`
+▸ **cork**(): *void*
 
-*Inherited from Duplex.cork*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6295*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:234
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="destroy"></a>
 
 ###  destroy
 
-▸ **destroy**(error?: *`Error`*): `void`
+▸ **destroy**(`error?`: Error): *void*
 
-*Inherited from Readable.destroy*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6109*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:42
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| `Optional` error | `Error` |
+Name | Type |
+------ | ------ |
+`error?` | Error |
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="emit"></a>
 
 ###  emit
 
-▸ **emit**(event: *"close"*): `boolean`
+▸ **emit**(`event`: "close"): *boolean*
 
-▸ **emit**(event: *"data"*, chunk: *`any`*): `boolean`
+*Inherited from void*
 
-▸ **emit**(event: *"end"*): `boolean`
+*Overrides void*
 
-▸ **emit**(event: *"readable"*): `boolean`
-
-▸ **emit**(event: *"error"*, err: *`Error`*): `boolean`
-
-▸ **emit**(event: * `string` &#124; `symbol`*, ...args: *`any`[]*): `boolean`
-
-*Inherited from Readable.emit*
-
-*Overrides EventEmitter.emit*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6127*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:60
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "close" |
+Name | Type |
+------ | ------ |
+`event` | "close" |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
-*Inherited from Readable.emit*
+▸ **emit**(`event`: "data", `chunk`: any): *boolean*
 
-*Overrides EventEmitter.emit*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6128*
+*Overrides void*
 
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| event | "data" |
-| chunk | `any` |
-
-**Returns:** `boolean`
-
-*Inherited from Readable.emit*
-
-*Overrides EventEmitter.emit*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6129*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:61
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "end" |
+Name | Type |
+------ | ------ |
+`event` | "data" |
+`chunk` | any |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
-*Inherited from Readable.emit*
+▸ **emit**(`event`: "end"): *boolean*
 
-*Overrides EventEmitter.emit*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6130*
+*Overrides void*
 
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| event | "readable" |
-
-**Returns:** `boolean`
-
-*Inherited from Readable.emit*
-
-*Overrides EventEmitter.emit*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6131*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:62
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "error" |
-| err | `Error` |
+Name | Type |
+------ | ------ |
+`event` | "end" |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
-*Inherited from Readable.emit*
+▸ **emit**(`event`: "readable"): *boolean*
 
-*Overrides EventEmitter.emit*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6132*
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:63
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event |  `string` &#124; `symbol`|
-| `Rest` args | `any`[] |
+Name | Type |
+------ | ------ |
+`event` | "readable" |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
+
+▸ **emit**(`event`: "error", `err`: Error): *boolean*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:64
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`event` | "error" |
+`err` | Error |
+
+**Returns:** *boolean*
+
+▸ **emit**(`event`: string | symbol, ...`args`: any[]): *boolean*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:65
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`event` | string &#124; symbol |
+`...args` | any[] |
+
+**Returns:** *boolean*
 
 ___
-<a id="end"></a>
 
 ###  end
 
-▸ **end**(cb?: *`function`*): `void`
+▸ **end**(`cb?`: function): *void*
 
-▸ **end**(chunk: *`any`*, cb?: *`function`*): `void`
+*Inherited from void*
 
-▸ **end**(chunk: *`any`*, encoding?: *`string`*, cb?: *`function`*): `void`
-
-*Inherited from Duplex.end*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6292*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:231
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| `Optional` cb | `function` |
+▪`Optional`  **cb**: *function*
 
-**Returns:** `void`
+▸ (): *void*
 
-*Inherited from Duplex.end*
+**Returns:** *void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6293*
+▸ **end**(`chunk`: any, `cb?`: function): *void*
 
-**Parameters:**
+*Inherited from void*
 
-| Param | Type |
-| ------ | ------ |
-| chunk | `any` |
-| `Optional` cb | `function` |
-
-**Returns:** `void`
-
-*Inherited from Duplex.end*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6294*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:232
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| chunk | `any` |
-| `Optional` encoding | `string` |
-| `Optional` cb | `function` |
+▪ **chunk**: *any*
 
-**Returns:** `void`
+▪`Optional`  **cb**: *function*
+
+▸ (): *void*
+
+**Returns:** *void*
+
+▸ **end**(`chunk`: any, `encoding?`: string, `cb?`: function): *void*
+
+*Inherited from void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:233
+
+**Parameters:**
+
+▪ **chunk**: *any*
+
+▪`Optional`  **encoding**: *string*
+
+▪`Optional`  **cb**: *function*
+
+▸ (): *void*
+
+**Returns:** *void*
 
 ___
-<a id="eventnames"></a>
 
 ###  eventNames
 
-▸ **eventNames**(): `Array`< `string` &#124; `symbol`>
+▸ **eventNames**(): *Array‹string | symbol›*
 
-*Inherited from EventEmitter.eventNames*
+*Inherited from void*
 
-*Overrides EventEmitter.eventNames*
+*Overrides void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:1045*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:24
 
-**Returns:** `Array`< `string` &#124; `symbol`>
+**Returns:** *Array‹string | symbol›*
 
 ___
-<a id="getmaxlisteners"></a>
 
 ###  getMaxListeners
 
-▸ **getMaxListeners**(): `number`
+▸ **getMaxListeners**(): *number*
 
-*Inherited from EventEmitter.getMaxListeners*
+*Inherited from void*
 
-*Overrides EventEmitter.getMaxListeners*
+*Overrides void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:1041*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:20
 
-**Returns:** `number`
+**Returns:** *number*
 
 ___
-<a id="ispaused"></a>
 
 ###  isPaused
 
-▸ **isPaused**(): `boolean`
+▸ **isPaused**(): *boolean*
 
-*Inherited from Readable.isPaused*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6103*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:36
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
 ___
-<a id="listenercount"></a>
 
 ###  listenerCount
 
-▸ **listenerCount**(type: * `string` &#124; `symbol`*): `number`
+▸ **listenerCount**(`type`: string | symbol): *number*
 
-*Inherited from EventEmitter.listenerCount*
+*Inherited from void*
 
-*Overrides EventEmitter.listenerCount*
+*Overrides void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:1046*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:25
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| type |  `string` &#124; `symbol`|
+Name | Type |
+------ | ------ |
+`type` | string &#124; symbol |
 
-**Returns:** `number`
+**Returns:** *number*
 
 ___
-<a id="listeners"></a>
 
 ###  listeners
 
-▸ **listeners**(event: * `string` &#124; `symbol`*): `Function`[]
+▸ **listeners**(`event`: string | symbol): *Function[]*
 
-*Inherited from EventEmitter.listeners*
+*Inherited from void*
 
-*Overrides EventEmitter.listeners*
+*Overrides void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:1042*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:21
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event |  `string` &#124; `symbol`|
+Name | Type |
+------ | ------ |
+`event` | string &#124; symbol |
 
-**Returns:** `Function`[]
+**Returns:** *Function[]*
 
 ___
-<a id="off"></a>
 
 ###  off
 
-▸ **off**(event: * `string` &#124; `symbol`*, listener: *`function`*): `this`
+▸ **off**(`event`: string | symbol, `listener`: function): *this*
 
-*Inherited from EventEmitter.off*
+*Inherited from void*
 
-*Overrides EventEmitter.off*
+*Overrides void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:1038*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:17
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event |  `string` &#124; `symbol`|
-| listener | `function` |
+▪ **event**: *string | symbol*
 
-**Returns:** `this`
+▪ **listener**: *function*
+
+▸ (...`args`: any[]): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...args` | any[] |
+
+**Returns:** *this*
 
 ___
-<a id="on"></a>
 
 ###  on
 
-▸ **on**(event: *"close"*, listener: *`function`*): `this`
+▸ **on**(`event`: "close", `listener`: function): *this*
 
-▸ **on**(event: *"data"*, listener: *`function`*): `this`
+*Inherited from void*
 
-▸ **on**(event: *"end"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **on**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **on**(event: *"error"*, listener: *`function`*): `this`
-
-▸ **on**(event: * `string` &#124; `symbol`*, listener: *`function`*): `this`
-
-*Inherited from Readable.on*
-
-*Overrides EventEmitter.on*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6134*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:67
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.on*
+▸ (): *void*
 
-*Overrides EventEmitter.on*
+**Returns:** *this*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6135*
+▸ **on**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from void*
 
-| Param | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.on*
-
-*Overrides EventEmitter.on*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6136*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:68
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.on*
-
-*Overrides EventEmitter.on*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6137*
+▸ (`chunk`: any): *void*
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | any |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.on*
+▸ **on**(`event`: "end", `listener`: function): *this*
 
-*Overrides EventEmitter.on*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6138*
+*Overrides void*
 
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.on*
-
-*Overrides EventEmitter.on*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6139*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:69
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event |  `string` &#124; `symbol`|
-| listener | `function` |
+▪ **event**: *"end"*
 
-**Returns:** `this`
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **on**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:70
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **on**(`event`: "error", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:71
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: Error): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | Error |
+
+**Returns:** *this*
+
+▸ **on**(`event`: string | symbol, `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:72
+
+**Parameters:**
+
+▪ **event**: *string | symbol*
+
+▪ **listener**: *function*
+
+▸ (...`args`: any[]): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...args` | any[] |
+
+**Returns:** *this*
 
 ___
-<a id="once"></a>
 
 ###  once
 
-▸ **once**(event: *"close"*, listener: *`function`*): `this`
+▸ **once**(`event`: "close", `listener`: function): *this*
 
-▸ **once**(event: *"data"*, listener: *`function`*): `this`
+*Inherited from void*
 
-▸ **once**(event: *"end"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **once**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **once**(event: *"error"*, listener: *`function`*): `this`
-
-▸ **once**(event: * `string` &#124; `symbol`*, listener: *`function`*): `this`
-
-*Inherited from Readable.once*
-
-*Overrides EventEmitter.once*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6141*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:74
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.once*
+▸ (): *void*
 
-*Overrides EventEmitter.once*
+**Returns:** *this*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6142*
+▸ **once**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from void*
 
-| Param | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.once*
-
-*Overrides EventEmitter.once*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6143*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:75
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.once*
-
-*Overrides EventEmitter.once*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6144*
+▸ (`chunk`: any): *void*
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | any |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.once*
+▸ **once**(`event`: "end", `listener`: function): *this*
 
-*Overrides EventEmitter.once*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6145*
+*Overrides void*
 
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.once*
-
-*Overrides EventEmitter.once*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6146*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:76
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event |  `string` &#124; `symbol`|
-| listener | `function` |
+▪ **event**: *"end"*
 
-**Returns:** `this`
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **once**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:77
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **once**(`event`: "error", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:78
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: Error): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | Error |
+
+**Returns:** *this*
+
+▸ **once**(`event`: string | symbol, `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:79
+
+**Parameters:**
+
+▪ **event**: *string | symbol*
+
+▪ **listener**: *function*
+
+▸ (...`args`: any[]): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...args` | any[] |
+
+**Returns:** *this*
 
 ___
-<a id="pause"></a>
 
 ###  pause
 
-▸ **pause**(): `this`
+▸ **pause**(): *this*
 
-*Inherited from Readable.pause*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6101*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:34
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="pipe"></a>
 
 ###  pipe
 
-▸ **pipe**<`T`>(destination: *`T`*, options?: *`object`*): `T`
+▸ **pipe**<**T**>(`destination`: T, `options?`: object): *T*
 
-*Inherited from internal.pipe*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6079*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:5
 
 **Type parameters:**
 
-#### T :  `WritableStream`
+▪ **T**: *WritableStream*
+
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| destination | `T` |
-| `Optional` options | `object` |
+▪ **destination**: *T*
 
-**Returns:** `T`
+▪`Optional`  **options**: *object*
+
+Name | Type |
+------ | ------ |
+`end?` | boolean |
+
+**Returns:** *T*
 
 ___
-<a id="prependlistener"></a>
 
 ###  prependListener
 
-▸ **prependListener**(event: *"close"*, listener: *`function`*): `this`
+▸ **prependListener**(`event`: "close", `listener`: function): *this*
 
-▸ **prependListener**(event: *"data"*, listener: *`function`*): `this`
+*Inherited from void*
 
-▸ **prependListener**(event: *"end"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **prependListener**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **prependListener**(event: *"error"*, listener: *`function`*): `this`
-
-▸ **prependListener**(event: * `string` &#124; `symbol`*, listener: *`function`*): `this`
-
-*Inherited from Readable.prependListener*
-
-*Overrides EventEmitter.prependListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6148*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:81
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.prependListener*
+▸ (): *void*
 
-*Overrides EventEmitter.prependListener*
+**Returns:** *this*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6149*
+▸ **prependListener**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from void*
 
-| Param | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.prependListener*
-
-*Overrides EventEmitter.prependListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6150*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:82
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.prependListener*
-
-*Overrides EventEmitter.prependListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6151*
+▸ (`chunk`: any): *void*
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | any |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.prependListener*
+▸ **prependListener**(`event`: "end", `listener`: function): *this*
 
-*Overrides EventEmitter.prependListener*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6152*
+*Overrides void*
 
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.prependListener*
-
-*Overrides EventEmitter.prependListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6153*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:83
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event |  `string` &#124; `symbol`|
-| listener | `function` |
+▪ **event**: *"end"*
 
-**Returns:** `this`
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **prependListener**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:84
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **prependListener**(`event`: "error", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:85
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: Error): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | Error |
+
+**Returns:** *this*
+
+▸ **prependListener**(`event`: string | symbol, `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:86
+
+**Parameters:**
+
+▪ **event**: *string | symbol*
+
+▪ **listener**: *function*
+
+▸ (...`args`: any[]): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...args` | any[] |
+
+**Returns:** *this*
 
 ___
-<a id="prependoncelistener"></a>
 
 ###  prependOnceListener
 
-▸ **prependOnceListener**(event: *"close"*, listener: *`function`*): `this`
+▸ **prependOnceListener**(`event`: "close", `listener`: function): *this*
 
-▸ **prependOnceListener**(event: *"data"*, listener: *`function`*): `this`
+*Inherited from void*
 
-▸ **prependOnceListener**(event: *"end"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **prependOnceListener**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **prependOnceListener**(event: *"error"*, listener: *`function`*): `this`
-
-▸ **prependOnceListener**(event: * `string` &#124; `symbol`*, listener: *`function`*): `this`
-
-*Inherited from Readable.prependOnceListener*
-
-*Overrides EventEmitter.prependOnceListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6155*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:88
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.prependOnceListener*
+▸ (): *void*
 
-*Overrides EventEmitter.prependOnceListener*
+**Returns:** *this*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6156*
+▸ **prependOnceListener**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from void*
 
-| Param | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.prependOnceListener*
-
-*Overrides EventEmitter.prependOnceListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6157*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:89
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.prependOnceListener*
-
-*Overrides EventEmitter.prependOnceListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6158*
+▸ (`chunk`: any): *void*
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | any |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.prependOnceListener*
+▸ **prependOnceListener**(`event`: "end", `listener`: function): *this*
 
-*Overrides EventEmitter.prependOnceListener*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6159*
+*Overrides void*
 
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.prependOnceListener*
-
-*Overrides EventEmitter.prependOnceListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6160*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:90
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event |  `string` &#124; `symbol`|
-| listener | `function` |
+▪ **event**: *"end"*
 
-**Returns:** `this`
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **prependOnceListener**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:91
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **prependOnceListener**(`event`: "error", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:92
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: Error): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | Error |
+
+**Returns:** *this*
+
+▸ **prependOnceListener**(`event`: string | symbol, `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:93
+
+**Parameters:**
+
+▪ **event**: *string | symbol*
+
+▪ **listener**: *function*
+
+▸ (...`args`: any[]): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...args` | any[] |
+
+**Returns:** *this*
 
 ___
-<a id="push"></a>
 
 ###  push
 
-▸ **push**(chunk: *`any`*, encoding?: *`string`*): `boolean`
+▸ **push**(`chunk`: any, `encoding?`: string): *boolean*
 
-*Inherited from Readable.push*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6107*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:40
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| chunk | `any` |
-| `Optional` encoding | `string` |
+Name | Type |
+------ | ------ |
+`chunk` | any |
+`encoding?` | string |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
 ___
-<a id="rawlisteners"></a>
 
 ###  rawListeners
 
-▸ **rawListeners**(event: * `string` &#124; `symbol`*): `Function`[]
+▸ **rawListeners**(`event`: string | symbol): *Function[]*
 
-*Inherited from EventEmitter.rawListeners*
+*Inherited from void*
 
-*Overrides EventEmitter.rawListeners*
+*Overrides void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:1043*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:22
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event |  `string` &#124; `symbol`|
+Name | Type |
+------ | ------ |
+`event` | string &#124; symbol |
 
-**Returns:** `Function`[]
+**Returns:** *Function[]*
 
 ___
-<a id="read"></a>
 
 ###  read
 
-▸ **read**(size?: *`number`*): `any`
+▸ **read**(`size?`: number): *any*
 
-*Inherited from Readable.read*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6099*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:32
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| `Optional` size | `number` |
+Name | Type |
+------ | ------ |
+`size?` | number |
 
-**Returns:** `any`
+**Returns:** *any*
 
 ___
-<a id="removealllisteners"></a>
 
 ###  removeAllListeners
 
-▸ **removeAllListeners**(event?: * `string` &#124; `symbol`*): `this`
+▸ **removeAllListeners**(`event?`: string | symbol): *this*
 
-*Inherited from EventEmitter.removeAllListeners*
+*Inherited from void*
 
-*Overrides EventEmitter.removeAllListeners*
+*Overrides void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:1039*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:18
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| `Optional` event |  `string` &#124; `symbol`|
+Name | Type |
+------ | ------ |
+`event?` | string &#124; symbol |
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="removelistener"></a>
 
 ###  removeListener
 
-▸ **removeListener**(event: *"close"*, listener: *`function`*): `this`
+▸ **removeListener**(`event`: "close", `listener`: function): *this*
 
-▸ **removeListener**(event: *"data"*, listener: *`function`*): `this`
+*Inherited from void*
 
-▸ **removeListener**(event: *"end"*, listener: *`function`*): `this`
+*Overrides void*
 
-▸ **removeListener**(event: *"readable"*, listener: *`function`*): `this`
-
-▸ **removeListener**(event: *"error"*, listener: *`function`*): `this`
-
-▸ **removeListener**(event: * `string` &#124; `symbol`*, listener: *`function`*): `this`
-
-*Inherited from Readable.removeListener*
-
-*Overrides EventEmitter.removeListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6162*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:95
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "close" |
-| listener | `function` |
+▪ **event**: *"close"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.removeListener*
+▸ (): *void*
 
-*Overrides EventEmitter.removeListener*
+**Returns:** *this*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6163*
+▸ **removeListener**(`event`: "data", `listener`: function): *this*
 
-**Parameters:**
+*Inherited from void*
 
-| Param | Type |
-| ------ | ------ |
-| event | "data" |
-| listener | `function` |
+*Overrides void*
 
-**Returns:** `this`
-
-*Inherited from Readable.removeListener*
-
-*Overrides EventEmitter.removeListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6164*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:96
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "end" |
-| listener | `function` |
+▪ **event**: *"data"*
 
-**Returns:** `this`
+▪ **listener**: *function*
 
-*Inherited from Readable.removeListener*
-
-*Overrides EventEmitter.removeListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6165*
+▸ (`chunk`: any): *void*
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event | "readable" |
-| listener | `function` |
+Name | Type |
+------ | ------ |
+`chunk` | any |
 
-**Returns:** `this`
+**Returns:** *this*
 
-*Inherited from Readable.removeListener*
+▸ **removeListener**(`event`: "end", `listener`: function): *this*
 
-*Overrides EventEmitter.removeListener*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6166*
+*Overrides void*
 
-**Parameters:**
-
-| Param | Type |
-| ------ | ------ |
-| event | "error" |
-| listener | `function` |
-
-**Returns:** `this`
-
-*Inherited from Readable.removeListener*
-
-*Overrides EventEmitter.removeListener*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6167*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:97
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| event |  `string` &#124; `symbol`|
-| listener | `function` |
+▪ **event**: *"end"*
 
-**Returns:** `this`
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **removeListener**(`event`: "readable", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:98
+
+**Parameters:**
+
+▪ **event**: *"readable"*
+
+▪ **listener**: *function*
+
+▸ (): *void*
+
+**Returns:** *this*
+
+▸ **removeListener**(`event`: "error", `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:99
+
+**Parameters:**
+
+▪ **event**: *"error"*
+
+▪ **listener**: *function*
+
+▸ (`err`: Error): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`err` | Error |
+
+**Returns:** *this*
+
+▸ **removeListener**(`event`: string | symbol, `listener`: function): *this*
+
+*Inherited from void*
+
+*Overrides void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:100
+
+**Parameters:**
+
+▪ **event**: *string | symbol*
+
+▪ **listener**: *function*
+
+▸ (...`args`: any[]): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...args` | any[] |
+
+**Returns:** *this*
 
 ___
-<a id="resume"></a>
 
 ###  resume
 
-▸ **resume**(): `this`
+▸ **resume**(): *this*
 
-*Inherited from Readable.resume*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6102*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:35
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="setdefaultencoding"></a>
 
 ###  setDefaultEncoding
 
-▸ **setDefaultEncoding**(encoding: *`string`*): `this`
+▸ **setDefaultEncoding**(`encoding`: string): *this*
 
-*Inherited from Duplex.setDefaultEncoding*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6291*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:230
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| encoding | `string` |
+Name | Type |
+------ | ------ |
+`encoding` | string |
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="setencoding"></a>
 
 ###  setEncoding
 
-▸ **setEncoding**(encoding: *`string`*): `this`
+▸ **setEncoding**(`encoding`: string): *this*
 
-*Inherited from Readable.setEncoding*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6100*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:33
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| encoding | `string` |
+Name | Type |
+------ | ------ |
+`encoding` | string |
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="setmaxlisteners"></a>
 
 ###  setMaxListeners
 
-▸ **setMaxListeners**(n: *`number`*): `this`
+▸ **setMaxListeners**(`n`: number): *this*
 
-*Inherited from EventEmitter.setMaxListeners*
+*Inherited from void*
 
-*Overrides EventEmitter.setMaxListeners*
+*Overrides void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:1040*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:19
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| n | `number` |
+Name | Type |
+------ | ------ |
+`n` | number |
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="uncork"></a>
 
 ###  uncork
 
-▸ **uncork**(): `void`
+▸ **uncork**(): *void*
 
-*Inherited from Duplex.uncork*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6296*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:235
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="unpipe"></a>
 
 ###  unpipe
 
-▸ **unpipe**<`T`>(destination?: *`T`*): `this`
+▸ **unpipe**(`destination?`: WritableStream): *this*
 
-*Inherited from Readable.unpipe*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6104*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:37
 
-**Type parameters:**
-
-#### T :  `WritableStream`
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| `Optional` destination | `T` |
+Name | Type |
+------ | ------ |
+`destination?` | WritableStream |
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="unshift"></a>
 
 ###  unshift
 
-▸ **unshift**(chunk: *`any`*): `void`
+▸ **unshift**(`chunk`: any, `encoding?`: BufferEncoding): *void*
 
-*Inherited from Readable.unshift*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6105*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:38
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| chunk | `any` |
+Name | Type |
+------ | ------ |
+`chunk` | any |
+`encoding?` | BufferEncoding |
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="wrap"></a>
 
 ###  wrap
 
-▸ **wrap**(oldStream: *`ReadableStream`*): `this`
+▸ **wrap**(`oldStream`: ReadableStream): *this*
 
-*Inherited from Readable.wrap*
+*Inherited from void*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6106*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:39
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| oldStream | `ReadableStream` |
+Name | Type |
+------ | ------ |
+`oldStream` | ReadableStream |
 
-**Returns:** `this`
+**Returns:** *this*
 
 ___
-<a id="write"></a>
 
 ###  write
 
-▸ **write**(chunk: *`any`*, cb?: *`function`*): `boolean`
+▸ **write**(`chunk`: any, `encoding?`: string, `cb?`: function): *boolean*
 
-▸ **write**(chunk: *`any`*, encoding?: *`string`*, cb?: *`function`*): `boolean`
+*Inherited from void*
 
-*Inherited from Duplex.write*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6289*
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:228
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| chunk | `any` |
-| `Optional` cb | `function` |
+▪ **chunk**: *any*
 
-**Returns:** `boolean`
+▪`Optional`  **encoding**: *string*
 
-*Inherited from Duplex.write*
+▪`Optional`  **cb**: *function*
 
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:6290*
+▸ (`error`: Error | null | undefined): *void*
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| chunk | `any` |
-| `Optional` encoding | `string` |
-| `Optional` cb | `function` |
+Name | Type |
+------ | ------ |
+`error` | Error &#124; null &#124; undefined |
 
-**Returns:** `boolean`
+**Returns:** *boolean*
 
-___
-<a id="listenercount-1"></a>
+▸ **write**(`chunk`: any, `cb?`: function): *boolean*
 
-### `<Static>` listenerCount
+*Inherited from void*
 
-▸ **listenerCount**(emitter: *`EventEmitter`*, event: * `string` &#124; `symbol`*): `number`
-
-*Inherited from EventEmitter.listenerCount*
-
-*Defined in /home/soney/code/sdb-ts/node_modules/@types/node/index.d.ts:1029*
-
-*__deprecated__*: since v4.0.0
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:229
 
 **Parameters:**
 
-| Param | Type |
-| ------ | ------ |
-| emitter | `EventEmitter` |
-| event |  `string` &#124; `symbol`|
+▪ **chunk**: *any*
 
-**Returns:** `number`
+▪`Optional`  **cb**: *function*
+
+▸ (`error`: Error | null | undefined): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`error` | Error &#124; null &#124; undefined |
+
+**Returns:** *boolean*
 
 ___
 
+### `Static` from
+
+▸ **from**(`iterable`: Iterable‹any› | AsyncIterable‹any›, `options?`: ReadableOptions): *Readable*
+
+*Inherited from void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:24
+
+A utility method for creating Readable Streams out of iterators.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`iterable` | Iterable‹any› &#124; AsyncIterable‹any› |
+`options?` | ReadableOptions |
+
+**Returns:** *Readable*
+
+___
+
+### `Static` listenerCount
+
+▸ **listenerCount**(`emitter`: EventEmitter, `event`: string | symbol): *number*
+
+*Inherited from void*
+
+Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:8
+
+**`deprecated`** since v4.0.0
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`emitter` | EventEmitter |
+`event` | string &#124; symbol |
+
+**Returns:** *number*

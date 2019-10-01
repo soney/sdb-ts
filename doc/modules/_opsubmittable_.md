@@ -1,4 +1,4 @@
-[sdb-ts](../README.md) > ["OpSubmittable"](../modules/_opsubmittable_.md)
+[sdb-ts](../README.md) › [Globals](../globals.md) › ["OpSubmittable"](_opsubmittable_.md)
 
 # External module: "OpSubmittable"
 
@@ -7,6 +7,3 @@
 ### Classes
 
 * [OpSubmittable](../classes/_opsubmittable_.opsubmittable.md)
-
----
-

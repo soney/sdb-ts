@@ -1,8 +1,5 @@
-[sdb-ts](../README.md) > ["index"](../modules/_index_.md)
+[sdb-ts](../README.md) › [Globals](../globals.md) › ["index"](_index_.md)
 
 # External module: "index"
 
-## Index
-
----
 

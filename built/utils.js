@@ -127,9 +127,9 @@ class ReconnectingWebsocket extends events_1.EventEmitter {
         }
     }
 }
+exports.ReconnectingWebsocket = ReconnectingWebsocket;
 ReconnectingWebsocket.CONNECTING = WebSocket.CONNECTING;
 ReconnectingWebsocket.OPEN = WebSocket.OPEN;
 ReconnectingWebsocket.CLOSING = WebSocket.CLOSING;
 ReconnectingWebsocket.CLOSED = WebSocket.CLOSED;
-exports.ReconnectingWebsocket = ReconnectingWebsocket;
 //# sourceMappingURL=utils.js.map

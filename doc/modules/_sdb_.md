@@ -1,4 +1,4 @@
-[sdb-ts](../README.md) > ["SDB"](../modules/_sdb_.md)
+[sdb-ts](../README.md) › [Globals](../globals.md) › ["SDB"](_sdb_.md)
 
 # External module: "SDB"
 
@@ -7,6 +7,3 @@
 ### Classes
 
 * [SDB](../classes/_sdb_.sdb.md)
-
----
-

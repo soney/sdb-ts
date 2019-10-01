@@ -1,4 +1,4 @@
-[sdb-ts](../README.md) > ["SDBClient"](../modules/_sdbclient_.md) > [SDBClient](../classes/_sdbclient_.sdbclient.md)
+[sdb-ts](../README.md) › [Globals](../globals.md) › ["SDBClient"](../modules/_sdbclient_.md) › [SDBClient](_sdbclient_.sdbclient.md)
 
 # Class: SDBClient
 
@@ -6,9 +6,9 @@ SDBClient is the wrapper for clients (usually run in the browser)
 
 ## Hierarchy
 
- [SDB](_sdb_.sdb.md)
+* [SDB](_sdb_.sdb.md)
 
-**↳ SDBClient**
+  ↳ **SDBClient**
 
 ## Index
 
@@ -18,7 +18,7 @@ SDBClient is the wrapper for clients (usually run in the browser)
 
 ### Properties
 
-* [connection](_sdbclient_.sdbclient.md#connection)
+* [connection](_sdbclient_.sdbclient.md#protected-connection)
 * [ws](_sdbclient_.sdbclient.md#ws)
 
 ### Methods
@@ -26,141 +26,129 @@ SDBClient is the wrapper for clients (usually run in the browser)
 * [close](_sdbclient_.sdbclient.md#close)
 * [deleteDoc](_sdbclient_.sdbclient.md#deletedoc)
 * [get](_sdbclient_.sdbclient.md#get)
-* [registerType](_sdbclient_.sdbclient.md#registertype)
-
----
+* [registerType](_sdbclient_.sdbclient.md#static-registertype)
 
 ## Constructors
 
-<a id="constructor"></a>
-
 ###  constructor
 
-⊕ **new SDBClient**(ws: *`WebSocket`*): [SDBClient](_sdbclient_.sdbclient.md)
+\+ **new SDBClient**(`ws`: WebSocket | [ReconnectingWebsocket](_utils_.reconnectingwebsocket.md)): *[SDBClient](_sdbclient_.sdbclient.md)*
 
 *Overrides [SDB](_sdb_.sdb.md).[constructor](_sdb_.sdb.md#constructor)*
 
-*Defined in [SDBClient.ts:7](https://github.com/soney/sdb-ts/blob/1937748/src/SDBClient.ts#L7)*
+*Defined in [SDBClient.ts:8](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBClient.ts#L8)*
 
 Constructor
 
 **Parameters:**
 
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| ws | `WebSocket` |  A WebSocket object that connects to the ShareDB server |
+Name | Type | Description |
+------ | ------ | ------ |
+`ws` | WebSocket &#124; [ReconnectingWebsocket](_utils_.reconnectingwebsocket.md) | A WebSocket object that connects to the ShareDB server  |
 
-**Returns:** [SDBClient](_sdbclient_.sdbclient.md)
-
-___
+**Returns:** *[SDBClient](_sdbclient_.sdbclient.md)*
 
 ## Properties
 
-<a id="connection"></a>
+### `Protected` connection
 
-### `<Protected>` connection
+• **connection**: *ShareDB.Connection*
 
-**● connection**: *`ShareDB.Connection`*
+*Inherited from [SDB](_sdb_.sdb.md).[connection](_sdb_.sdb.md#protected-connection)*
 
-*Inherited from [SDB](_sdb_.sdb.md).[connection](_sdb_.sdb.md#connection)*
-
-*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/1937748/src/SDB.ts#L6)*
+*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/5c450be/src/SDB.ts#L6)*
 
 ___
-<a id="ws"></a>
 
 ###  ws
 
-**● ws**: *`WebSocket`*
+• **ws**: *WebSocket | [ReconnectingWebsocket](_utils_.reconnectingwebsocket.md)*
 
-*Defined in [SDBClient.ts:12](https://github.com/soney/sdb-ts/blob/1937748/src/SDBClient.ts#L12)*
+*Defined in [SDBClient.ts:13](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBClient.ts#L13)*
 
 A WebSocket object that connects to the ShareDB server
 
-___
-
 ## Methods
-
-<a id="close"></a>
 
 ###  close
 
-▸ **close**(): `Promise`<`void`>
+▸ **close**(): *Promise‹void›*
 
-*Overrides [SDB](_sdb_.sdb.md).[close](_sdb_.sdb.md#close)*
+*Overrides [SDB](_sdb_.sdb.md).[close](_sdb_.sdb.md#abstract-close)*
 
-*Defined in [SDBClient.ts:19](https://github.com/soney/sdb-ts/blob/1937748/src/SDBClient.ts#L19)*
+*Defined in [SDBClient.ts:20](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBClient.ts#L20)*
 
 Close up this client
 
-**Returns:** `Promise`<`void`>
+**Returns:** *Promise‹void›*
 
 ___
-<a id="deletedoc"></a>
 
 ###  deleteDoc
 
-▸ **deleteDoc**(doc: *[SDBDoc](_sdbdoc_.sdbdoc.md)<`any`>*): `void`
+▸ **deleteDoc**(`doc`: [SDBDoc](_sdbdoc_.sdbdoc.md)‹any›): *void*
 
 *Inherited from [SDB](_sdb_.sdb.md).[deleteDoc](_sdb_.sdb.md#deletedoc)*
 
-*Defined in [SDB.ts:50](https://github.com/soney/sdb-ts/blob/1937748/src/SDB.ts#L50)*
+*Defined in [SDB.ts:50](https://github.com/soney/sdb-ts/blob/5c450be/src/SDB.ts#L50)*
 
-Delete a document from the list of documents (note this does not delete the document itself; it just cleans up some memory in the wrapper). You should not call this method; it will be automatically called by the document.
+Delete a document from the list of documents (note this does not delete the document itself; it just cleans up some memory in the wrapper).
+You should not call this method; it will be automatically called by the document.
 
 **Parameters:**
 
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| doc | [SDBDoc](_sdbdoc_.sdbdoc.md)<`any`> |  The document to delete |
+Name | Type | Description |
+------ | ------ | ------ |
+`doc` | [SDBDoc](_sdbdoc_.sdbdoc.md)‹any› | The document to delete  |
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="get"></a>
 
 ###  get
 
-▸ **get**<`E`>(collectionName: *`string`*, documentID: *`string`*): [SDBDoc](_sdbdoc_.sdbdoc.md)<`E`>
+▸ **get**<**E**>(`collectionName`: string, `documentID`: string): *[SDBDoc](_sdbdoc_.sdbdoc.md)‹E›*
 
 *Inherited from [SDB](_sdb_.sdb.md).[get](_sdb_.sdb.md#get)*
 
-*Defined in [SDB.ts:21](https://github.com/soney/sdb-ts/blob/1937748/src/SDB.ts#L21)*
+*Defined in [SDB.ts:21](https://github.com/soney/sdb-ts/blob/5c450be/src/SDB.ts#L21)*
 
-Get a document for this connection. (note that to create a new document, you call `.get()` and _then_ `.create()` or `.createIfEmpty()` on that doc)
+Get a document for this connection. (note that to create a new document, you call `.get()` and *then* `.create()` or `.createIfEmpty()` on that doc)
 
 **Type parameters:**
 
-#### E 
+▪ **E**
+
 **Parameters:**
 
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| collectionName | `string` |  The collection ID |
-| documentID | `string` |  The document ID |
+Name | Type | Description |
+------ | ------ | ------ |
+`collectionName` | string | The collection ID |
+`documentID` | string | The document ID  |
 
-**Returns:** [SDBDoc](_sdbdoc_.sdbdoc.md)<`E`>
+**Returns:** *[SDBDoc](_sdbdoc_.sdbdoc.md)‹E›*
 
 ___
-<a id="registertype"></a>
 
-### `<Static>` registerType
+### `Static` registerType
 
-▸ **registerType**(type: *`object`*): `void`
+▸ **registerType**(`type`: object): *void*
 
-*Inherited from [SDB](_sdb_.sdb.md).[registerType](_sdb_.sdb.md#registertype)*
+*Inherited from [SDB](_sdb_.sdb.md).[registerType](_sdb_.sdb.md#static-registertype)*
 
-*Defined in [SDB.ts:38](https://github.com/soney/sdb-ts/blob/1937748/src/SDB.ts#L38)*
+*Defined in [SDB.ts:38](https://github.com/soney/sdb-ts/blob/5c450be/src/SDB.ts#L38)*
 
 Register a new ShareDB.OT type (see [https://github.com/ottypes/docs](https://github.com/ottypes/docs))
 
 **Parameters:**
 
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| type | `object` |  The type object |
+▪ **type**: *object*
 
-**Returns:** `void`
+The type object
 
-___
+Name | Type |
+------ | ------ |
+`name?` | string |
+`uri?` | string |
 
+**Returns:** *void*

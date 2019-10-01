@@ -1,4 +1,4 @@
-[sdb-ts](../README.md) > ["SDBClient"](../modules/_sdbclient_.md)
+[sdb-ts](../README.md) › [Globals](../globals.md) › ["SDBClient"](_sdbclient_.md)
 
 # External module: "SDBClient"
 
@@ -7,6 +7,3 @@
 ### Classes
 
 * [SDBClient](../classes/_sdbclient_.sdbclient.md)
-
----
-

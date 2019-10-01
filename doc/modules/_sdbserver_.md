@@ -1,4 +1,4 @@
-[sdb-ts](../README.md) > ["SDBServer"](../modules/_sdbserver_.md)
+[sdb-ts](../README.md) › [Globals](../globals.md) › ["SDBServer"](_sdbserver_.md)
 
 # External module: "SDBServer"
 
@@ -17,19 +17,12 @@
 
 * [getOpenPort](_sdbserver_.md#getopenport)
 
----
-
 ## Functions
-
-<a id="getopenport"></a>
 
 ###  getOpenPort
 
-▸ **getOpenPort**(): `Promise`<`number`>
+▸ **getOpenPort**(): *Promise‹number›*
 
-*Defined in [SDBServer.ts:139](https://github.com/soney/sdb-ts/blob/1937748/src/SDBServer.ts#L139)*
+*Defined in [SDBServer.ts:143](https://github.com/soney/sdb-ts/blob/5c450be/src/SDBServer.ts#L143)*
 
-**Returns:** `Promise`<`number`>
-
-___
-
+**Returns:** *Promise‹number›*

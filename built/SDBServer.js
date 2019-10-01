@@ -96,11 +96,11 @@ class SDBServer extends SDB_1.SDB {
     }
     ;
 }
+exports.SDBServer = SDBServer;
 SDBServer.optionDefaults = {
     disableDocAction: true,
     disableSpaceDelimitedActions: true
 };
-exports.SDBServer = SDBServer;
 ;
 // Adapted from https://github.com/avital/websocket-json-stream
 class WebSocketJSONStream extends stream_1.Duplex {

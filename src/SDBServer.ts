@@ -71,8 +71,8 @@ export class SDBServer extends SDB {
      * @param action e.g., `'connect'`, `'op'`, ... (see ShareDB documentation)
      * @param fn Call this function at the time specified by `action`
      */
-    public use(action:ShareDB.UseAction, fn:ShareDB.UseCallback):void {
-        this.share.use(action, fn);
+    public use(action:any, fn:(context: any, callback: (err?: any) => void) => void):void {
+        this.share.use<any>(action, fn);
     };
 
     /**
