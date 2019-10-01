@@ -33,7 +33,7 @@
 
 \+ **new SDB**(): *[SDB](_sdb_.sdb.md)*
 
-*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/2d09328/src/SDB.ts#L6)*
+*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/883d85d/src/SDB.ts#L6)*
 
 **Returns:** *[SDB](_sdb_.sdb.md)*
 
@@ -43,7 +43,7 @@
 
 • **connection**: *ShareDB.Connection*
 
-*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/2d09328/src/SDB.ts#L6)*
+*Defined in [SDB.ts:6](https://github.com/soney/sdb-ts/blob/883d85d/src/SDB.ts#L6)*
 
 ## Methods
 
@@ -51,7 +51,7 @@
 
 ▸ **close**(): *Promise‹void›*
 
-*Defined in [SDB.ts:43](https://github.com/soney/sdb-ts/blob/2d09328/src/SDB.ts#L43)*
+*Defined in [SDB.ts:43](https://github.com/soney/sdb-ts/blob/883d85d/src/SDB.ts#L43)*
 
 Close the connection (implemented by `SDBServer` and `SDBClient`)
 
@@ -63,7 +63,7 @@ ___
 
 ▸ **deleteDoc**(`doc`: [SDBDoc](_sdbdoc_.sdbdoc.md)‹any›): *void*
 
-*Defined in [SDB.ts:50](https://github.com/soney/sdb-ts/blob/2d09328/src/SDB.ts#L50)*
+*Defined in [SDB.ts:50](https://github.com/soney/sdb-ts/blob/883d85d/src/SDB.ts#L50)*
 
 Delete a document from the list of documents (note this does not delete the document itself; it just cleans up some memory in the wrapper).
 You should not call this method; it will be automatically called by the document.
@@ -82,7 +82,7 @@ ___
 
 ▸ **get**<**E**>(`collectionName`: string, `documentID`: string): *[SDBDoc](_sdbdoc_.sdbdoc.md)‹E›*
 
-*Defined in [SDB.ts:21](https://github.com/soney/sdb-ts/blob/2d09328/src/SDB.ts#L21)*
+*Defined in [SDB.ts:21](https://github.com/soney/sdb-ts/blob/883d85d/src/SDB.ts#L21)*
 
 Get a document for this connection. (note that to create a new document, you call `.get()` and *then* `.create()` or `.createIfEmpty()` on that doc)
 
@@ -105,7 +105,7 @@ ___
 
 ▸ **registerType**(`type`: object): *void*
 
-*Defined in [SDB.ts:38](https://github.com/soney/sdb-ts/blob/2d09328/src/SDB.ts#L38)*
+*Defined in [SDB.ts:38](https://github.com/soney/sdb-ts/blob/883d85d/src/SDB.ts#L38)*
 
 Register a new ShareDB.OT type (see [https://github.com/ottypes/docs](https://github.com/ottypes/docs))
 

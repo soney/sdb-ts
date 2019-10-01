@@ -60,7 +60,7 @@
 
 \+ **new ReconnectingWebsocket**(`url`: string, `protocols?`: string | string[]): *[ReconnectingWebsocket](_utils_.reconnectingwebsocket.md)*
 
-*Defined in [utils.ts:68](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L68)*
+*Defined in [utils.ts:68](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L68)*
 
 **Parameters:**
 
@@ -77,7 +77,7 @@ Name | Type |
 
 • **maxReconnectAttempts**: *number | false* = false
 
-*Defined in [utils.ts:59](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L59)*
+*Defined in [utils.ts:59](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L59)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 • **readyState**: *number*
 
-*Defined in [utils.ts:52](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L52)*
+*Defined in [utils.ts:52](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L52)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **reconnectInterval**: *number* = 1000
 
-*Defined in [utils.ts:61](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L61)*
+*Defined in [utils.ts:61](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L61)*
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 • **reconnectionDecay**: *number* = 1.3
 
-*Defined in [utils.ts:60](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L60)*
+*Defined in [utils.ts:60](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L60)*
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 • **timeoutInterval**: *number* = 2000
 
-*Defined in [utils.ts:62](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L62)*
+*Defined in [utils.ts:62](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L62)*
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 ▪ **CLOSED**: *number* =  WebSocket.CLOSED
 
-*Defined in [utils.ts:50](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L50)*
+*Defined in [utils.ts:50](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L50)*
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 ▪ **CLOSING**: *number* =  WebSocket.CLOSING
 
-*Defined in [utils.ts:49](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L49)*
+*Defined in [utils.ts:49](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L49)*
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 ▪ **CONNECTING**: *number* =  WebSocket.CONNECTING
 
-*Defined in [utils.ts:47](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L47)*
+*Defined in [utils.ts:47](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L47)*
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 ▪ **OPEN**: *number* =  WebSocket.OPEN
 
-*Defined in [utils.ts:48](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L48)*
+*Defined in [utils.ts:48](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L48)*
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 ▸ **close**(): *boolean*
 
-*Defined in [utils.ts:134](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L134)*
+*Defined in [utils.ts:134](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L134)*
 
 **Returns:** *boolean*
 
@@ -197,7 +197,7 @@ ___
 
 ▸ **connect**(`reconnectionAttempt`: boolean): *void*
 
-*Defined in [utils.ts:76](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L76)*
+*Defined in [utils.ts:76](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L76)*
 
 **Parameters:**
 
@@ -386,7 +386,7 @@ ___
 
 ▸ **onclose**(): *void*
 
-*Defined in [utils.ts:65](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L65)*
+*Defined in [utils.ts:65](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L65)*
 
 **Returns:** *void*
 
@@ -396,7 +396,7 @@ ___
 
 ▸ **onconnecting**(): *void*
 
-*Defined in [utils.ts:66](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L66)*
+*Defined in [utils.ts:66](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L66)*
 
 **Returns:** *void*
 
@@ -406,7 +406,7 @@ ___
 
 ▸ **onerror**(): *void*
 
-*Defined in [utils.ts:68](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L68)*
+*Defined in [utils.ts:68](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L68)*
 
 **Returns:** *void*
 
@@ -416,7 +416,7 @@ ___
 
 ▸ **onmessage**(): *void*
 
-*Defined in [utils.ts:67](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L67)*
+*Defined in [utils.ts:67](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L67)*
 
 **Returns:** *void*
 
@@ -426,7 +426,7 @@ ___
 
 ▸ **onopen**(): *void*
 
-*Defined in [utils.ts:64](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L64)*
+*Defined in [utils.ts:64](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L64)*
 
 **Returns:** *void*
 
@@ -560,7 +560,7 @@ ___
 
 ▸ **send**(`data`: any): *void*
 
-*Defined in [utils.ts:126](https://github.com/soney/sdb-ts/blob/2d09328/src/utils.ts#L126)*
+*Defined in [utils.ts:126](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L126)*
 
 **Parameters:**
 

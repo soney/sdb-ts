@@ -81,7 +81,7 @@
 
 *Overrides void*
 
-*Defined in [SDBServer.ts:115](https://github.com/soney/sdb-ts/blob/2d09328/src/SDBServer.ts#L115)*
+*Defined in [SDBServer.ts:115](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBServer.ts#L115)*
 
 **Parameters:**
 
@@ -253,7 +253,7 @@ ___
 
 *Overrides void*
 
-*Defined in [SDBServer.ts:135](https://github.com/soney/sdb-ts/blob/2d09328/src/SDBServer.ts#L135)*
+*Defined in [SDBServer.ts:135](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBServer.ts#L135)*
 
 **Returns:** *void*
 
@@ -265,7 +265,7 @@ ___
 
 *Overrides void*
 
-*Defined in [SDBServer.ts:136](https://github.com/soney/sdb-ts/blob/2d09328/src/SDBServer.ts#L136)*
+*Defined in [SDBServer.ts:136](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBServer.ts#L136)*
 
 **Parameters:**
 
