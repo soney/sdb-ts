@@ -60,7 +60,7 @@
 
 \+ **new ReconnectingWebsocket**(`url`: string, `protocols?`: string | string[]): *[ReconnectingWebsocket](_utils_.reconnectingwebsocket.md)*
 
-*Defined in [utils.ts:68](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L68)*
+*Defined in [utils.ts:68](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L68)*
 
 **Parameters:**
 
@@ -77,7 +77,7 @@ Name | Type |
 
 • **maxReconnectAttempts**: *number | false* = false
 
-*Defined in [utils.ts:59](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L59)*
+*Defined in [utils.ts:59](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L59)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 • **readyState**: *number*
 
-*Defined in [utils.ts:52](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L52)*
+*Defined in [utils.ts:52](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L52)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **reconnectInterval**: *number* = 1000
 
-*Defined in [utils.ts:61](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L61)*
+*Defined in [utils.ts:61](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L61)*
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 • **reconnectionDecay**: *number* = 1.3
 
-*Defined in [utils.ts:60](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L60)*
+*Defined in [utils.ts:60](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L60)*
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 • **timeoutInterval**: *number* = 2000
 
-*Defined in [utils.ts:62](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L62)*
+*Defined in [utils.ts:62](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L62)*
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 ▪ **CLOSED**: *number* =  WebSocket.CLOSED
 
-*Defined in [utils.ts:50](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L50)*
+*Defined in [utils.ts:50](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L50)*
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 ▪ **CLOSING**: *number* =  WebSocket.CLOSING
 
-*Defined in [utils.ts:49](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L49)*
+*Defined in [utils.ts:49](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L49)*
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 ▪ **CONNECTING**: *number* =  WebSocket.CONNECTING
 
-*Defined in [utils.ts:47](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L47)*
+*Defined in [utils.ts:47](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L47)*
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 ▪ **OPEN**: *number* =  WebSocket.OPEN
 
-*Defined in [utils.ts:48](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L48)*
+*Defined in [utils.ts:48](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L48)*
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:9
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:9
 
 ## Methods
 
@@ -163,7 +163,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:9
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:11
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:11
 
 **Parameters:**
 
@@ -187,7 +187,7 @@ ___
 
 ▸ **close**(): *boolean*
 
-*Defined in [utils.ts:134](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L134)*
+*Defined in [utils.ts:134](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L134)*
 
 **Returns:** *boolean*
 
@@ -197,7 +197,7 @@ ___
 
 ▸ **connect**(`reconnectionAttempt`: boolean): *void*
 
-*Defined in [utils.ts:76](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L76)*
+*Defined in [utils.ts:76](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L76)*
 
 **Parameters:**
 
@@ -217,7 +217,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:23
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:23
 
 **Parameters:**
 
@@ -238,7 +238,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:24
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:24
 
 **Returns:** *Array‹string | symbol›*
 
@@ -252,7 +252,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:20
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:20
 
 **Returns:** *number*
 
@@ -266,7 +266,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:25
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:25
 
 **Parameters:**
 
@@ -286,7 +286,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:21
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:21
 
 **Parameters:**
 
@@ -306,7 +306,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:17
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:17
 
 **Parameters:**
 
@@ -334,7 +334,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:12
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:12
 
 **Parameters:**
 
@@ -362,7 +362,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:13
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:13
 
 **Parameters:**
 
@@ -386,7 +386,7 @@ ___
 
 ▸ **onclose**(): *void*
 
-*Defined in [utils.ts:65](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L65)*
+*Defined in [utils.ts:65](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L65)*
 
 **Returns:** *void*
 
@@ -396,7 +396,7 @@ ___
 
 ▸ **onconnecting**(): *void*
 
-*Defined in [utils.ts:66](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L66)*
+*Defined in [utils.ts:66](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L66)*
 
 **Returns:** *void*
 
@@ -406,7 +406,7 @@ ___
 
 ▸ **onerror**(): *void*
 
-*Defined in [utils.ts:68](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L68)*
+*Defined in [utils.ts:68](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L68)*
 
 **Returns:** *void*
 
@@ -416,7 +416,7 @@ ___
 
 ▸ **onmessage**(): *void*
 
-*Defined in [utils.ts:67](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L67)*
+*Defined in [utils.ts:67](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L67)*
 
 **Returns:** *void*
 
@@ -426,7 +426,7 @@ ___
 
 ▸ **onopen**(): *void*
 
-*Defined in [utils.ts:64](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L64)*
+*Defined in [utils.ts:64](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L64)*
 
 **Returns:** *void*
 
@@ -440,7 +440,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:14
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:14
 
 **Parameters:**
 
@@ -468,7 +468,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:15
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:15
 
 **Parameters:**
 
@@ -496,7 +496,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:22
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:22
 
 **Parameters:**
 
@@ -516,7 +516,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:18
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:18
 
 **Parameters:**
 
@@ -536,7 +536,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:16
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:16
 
 **Parameters:**
 
@@ -560,7 +560,7 @@ ___
 
 ▸ **send**(`data`: any): *void*
 
-*Defined in [utils.ts:126](https://github.com/soney/sdb-ts/blob/883d85d/src/utils.ts#L126)*
+*Defined in [utils.ts:126](https://github.com/soney/sdb-ts/blob/57db8cd/src/utils.ts#L126)*
 
 **Parameters:**
 
@@ -580,7 +580,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:19
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:19
 
 **Parameters:**
 
@@ -598,7 +598,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:8
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:8
 
 **`deprecated`** since v4.0.0
 

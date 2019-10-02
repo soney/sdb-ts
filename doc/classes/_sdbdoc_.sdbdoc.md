@@ -55,7 +55,7 @@ A class that represents a ShareDB document. This class uses generics: `const doc
 
 *Overrides [OpSubmittable](_opsubmittable_.opsubmittable.md).[constructor](_opsubmittable_.opsubmittable.md#constructor)*
 
-*Defined in [SDBDoc.ts:13](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L13)*
+*Defined in [SDBDoc.ts:13](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L13)*
 
 Constructor. This hould never be called directly. Instead, use `SDBClient.get` or `SDBServer.get`
 
@@ -75,7 +75,7 @@ Name | Type | Description |
 
 ▸ **create**(`data`: E, `type?`: any, `options?`: any): *Promise‹this›*
 
-*Defined in [SDBDoc.ts:105](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L105)*
+*Defined in [SDBDoc.ts:105](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L105)*
 
 Create this document
 
@@ -95,7 +95,7 @@ ___
 
 ▸ **createIfEmpty**(`data`: E, `type?`: any, `options?`: any): *Promise‹this›*
 
-*Defined in [SDBDoc.ts:204](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L204)*
+*Defined in [SDBDoc.ts:204](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L204)*
 
 Create this document only if it's empty. If it's not empty, do nothing.
 
@@ -115,7 +115,7 @@ ___
 
 ▸ **del**(`source`: any): *Promise‹void›*
 
-*Defined in [SDBDoc.ts:116](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L116)*
+*Defined in [SDBDoc.ts:116](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L116)*
 
 Delete the document locally and send changes to the ShareDB server
 
@@ -133,7 +133,7 @@ ___
 
 ▸ **destroy**(): *void*
 
-*Defined in [SDBDoc.ts:215](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L215)*
+*Defined in [SDBDoc.ts:215](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L215)*
 
 When done with the document, do cleanup. This does *not* delete the doc.
 
@@ -147,7 +147,7 @@ ___
 
 *Overrides [OpSubmittable](_opsubmittable_.opsubmittable.md).[doSubmitOp](_opsubmittable_.opsubmittable.md#protected-abstract-dosubmitop)*
 
-*Defined in [SDBDoc.ts:187](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L187)*
+*Defined in [SDBDoc.ts:187](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L187)*
 
 Submit a raw series of ShareDB operations
 
@@ -166,7 +166,7 @@ ___
 
 ▸ **fetch**(): *Promise‹Doc›*
 
-*Defined in [SDBDoc.ts:88](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L88)*
+*Defined in [SDBDoc.ts:88](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L88)*
 
 Fetch and get the actual ShareDB doc.
 
@@ -180,7 +180,7 @@ ___
 
 ▸ **getData**(): *E*
 
-*Defined in [SDBDoc.ts:48](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L48)*
+*Defined in [SDBDoc.ts:48](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L48)*
 
 Get the data in this document
 
@@ -192,7 +192,7 @@ ___
 
 ▸ **getIdentifier**(): *[DocIdentifier](../modules/_sdbdoc_.md#docidentifier)*
 
-*Defined in [SDBDoc.ts:43](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L43)*
+*Defined in [SDBDoc.ts:43](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L43)*
 
 The identifier for this document
 
@@ -206,7 +206,7 @@ ___
 
 ▸ **subDoc**<**T**>(`path`: ShareDB.Path): *[SDBSubDoc](_sdbsubdoc_.sdbsubdoc.md)‹T›*
 
-*Defined in [SDBDoc.ts:35](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L35)*
+*Defined in [SDBDoc.ts:35](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L35)*
 
 Create a SubDoc of this document (a document to represent one particular item within it).
 ```
@@ -235,7 +235,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListDeleteOp](_opsubmittable_.opsubmittable.md#submitlistdeleteop)*
 
-*Defined in [OpSubmittable.ts:96](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L96)*
+*Defined in [OpSubmittable.ts:96](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L96)*
 
 Remove an item from a list
 ```
@@ -266,7 +266,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListInsertOp](_opsubmittable_.opsubmittable.md#submitlistinsertop)*
 
-*Defined in [OpSubmittable.ts:81](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L81)*
+*Defined in [OpSubmittable.ts:81](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L81)*
 
 Insert an item into a list
 ```
@@ -297,7 +297,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListPushOp](_opsubmittable_.opsubmittable.md#submitlistpushop)*
 
-*Defined in [OpSubmittable.ts:146](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L146)*
+*Defined in [OpSubmittable.ts:146](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L146)*
 
 Push any number of items to the end of the list.
 
@@ -318,7 +318,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListReplaceOp](_opsubmittable_.opsubmittable.md#submitlistreplaceop)*
 
-*Defined in [OpSubmittable.ts:66](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L66)*
+*Defined in [OpSubmittable.ts:66](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L66)*
 
 Replace an item in a list
 ```
@@ -350,7 +350,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListSpliceOp](_opsubmittable_.opsubmittable.md#submitlistspliceop)*
 
-*Defined in [OpSubmittable.ts:122](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L122)*
+*Defined in [OpSubmittable.ts:122](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L122)*
 
 Perform a JavaScript splice operation
 
@@ -373,7 +373,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitListUnshiftOp](_opsubmittable_.opsubmittable.md#submitlistunshiftop)*
 
-*Defined in [OpSubmittable.ts:159](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L159)*
+*Defined in [OpSubmittable.ts:159](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L159)*
 
 Add any number of items to the beginning of a list
 
@@ -394,7 +394,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitNumberAddOp](_opsubmittable_.opsubmittable.md#submitnumberaddop)*
 
-*Defined in [OpSubmittable.ts:112](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L112)*
+*Defined in [OpSubmittable.ts:112](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L112)*
 
 Increment a number
 ```
@@ -425,7 +425,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitObjectDeleteOp](_opsubmittable_.opsubmittable.md#submitobjectdeleteop)*
 
-*Defined in [OpSubmittable.ts:50](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L50)*
+*Defined in [OpSubmittable.ts:50](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L50)*
 
 Delete an object property.
 ```
@@ -456,7 +456,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitObjectInsertOp](_opsubmittable_.opsubmittable.md#submitobjectinsertop)*
 
-*Defined in [OpSubmittable.ts:35](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L35)*
+*Defined in [OpSubmittable.ts:35](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L35)*
 
 Insert within an object (if the property does not have a value).
 ```
@@ -487,7 +487,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitObjectReplaceOp](_opsubmittable_.opsubmittable.md#submitobjectreplaceop)*
 
-*Defined in [OpSubmittable.ts:20](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L20)*
+*Defined in [OpSubmittable.ts:20](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L20)*
 
 Replace within an object (if the property already has a value).
 ```
@@ -519,7 +519,7 @@ ___
 
 *Inherited from [OpSubmittable](_opsubmittable_.opsubmittable.md).[submitOp](_opsubmittable_.opsubmittable.md#submitop)*
 
-*Defined in [OpSubmittable.ts:169](https://github.com/soney/sdb-ts/blob/883d85d/src/OpSubmittable.ts#L169)*
+*Defined in [OpSubmittable.ts:169](https://github.com/soney/sdb-ts/blob/57db8cd/src/OpSubmittable.ts#L169)*
 
 Submit a series of ShareDB operations
 
@@ -538,7 +538,7 @@ ___
 
 ▸ **subscribe**(`subscriber`: [Subscriber](../modules/_sdbdoc_.md#subscriber)‹E›): *Promise‹void›*
 
-*Defined in [SDBDoc.ts:145](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L145)*
+*Defined in [SDBDoc.ts:145](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L145)*
 
 Signal that we want to listen to changes in this document. Note that we don't fetch new versions unless the document is being
 subscribed to
@@ -561,7 +561,7 @@ ___
 
 *Overrides [OpSubmittable](_opsubmittable_.opsubmittable.md).[traverse](_opsubmittable_.opsubmittable.md#abstract-traverse)*
 
-*Defined in [SDBDoc.ts:58](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L58)*
+*Defined in [SDBDoc.ts:58](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L58)*
 
 Get the value at a given location in the document.
 ```
@@ -583,7 +583,7 @@ ___
 
 ▸ **unsubscribe**(`subscriber`: [Subscriber](../modules/_sdbdoc_.md#subscriber)‹E›): *void*
 
-*Defined in [SDBDoc.ts:171](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L171)*
+*Defined in [SDBDoc.ts:171](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L171)*
 
 Stop listening in a subscription (the opposite of `.subscribe()`)
 
@@ -601,7 +601,7 @@ ___
 
 ▸ **relative**(`from`: ShareDB.Path, `to`: ShareDB.Path): *ShareDB.Path*
 
-*Defined in [SDBDoc.ts:78](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L78)*
+*Defined in [SDBDoc.ts:78](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L78)*
 
 Get the relative path from `from` to `to`.
 

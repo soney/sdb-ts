@@ -81,7 +81,7 @@
 
 *Overrides void*
 
-*Defined in [SDBServer.ts:115](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBServer.ts#L115)*
+*Defined in [SDBServer.ts:115](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBServer.ts#L115)*
 
 **Parameters:**
 
@@ -99,7 +99,7 @@ Name | Type |
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:29
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:29
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:26
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:26
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:27
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:27
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:28
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:28
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:219
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:219
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:220
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:220
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:221
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:221
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:222
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:222
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:9
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:9
 
 ## Methods
 
@@ -189,7 +189,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:9
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:102
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:102
 
 **Returns:** *AsyncIterableIterator‹any›*
 
@@ -203,7 +203,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:226
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:226
 
 **Parameters:**
 
@@ -229,7 +229,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:227
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:227
 
 **Parameters:**
 
@@ -253,7 +253,7 @@ ___
 
 *Overrides void*
 
-*Defined in [SDBServer.ts:135](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBServer.ts#L135)*
+*Defined in [SDBServer.ts:135](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBServer.ts#L135)*
 
 **Returns:** *void*
 
@@ -265,7 +265,7 @@ ___
 
 *Overrides void*
 
-*Defined in [SDBServer.ts:136](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBServer.ts#L136)*
+*Defined in [SDBServer.ts:136](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBServer.ts#L136)*
 
 **Parameters:**
 
@@ -287,7 +287,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:225
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:225
 
 **Parameters:**
 
@@ -315,7 +315,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:53
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:53
 
 Event emitter
 The defined events on documents including:
@@ -341,7 +341,7 @@ The defined events on documents including:
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:54
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:54
 
 **Parameters:**
 
@@ -365,7 +365,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:55
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:55
 
 **Parameters:**
 
@@ -383,7 +383,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:55
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:56
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:56
 
 **Parameters:**
 
@@ -401,7 +401,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:56
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:57
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:57
 
 **Parameters:**
 
@@ -425,7 +425,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:58
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:58
 
 **Parameters:**
 
@@ -451,7 +451,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:234
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:234
 
 **Returns:** *void*
 
@@ -463,7 +463,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:42
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:42
 
 **Parameters:**
 
@@ -483,7 +483,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:60
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:60
 
 **Parameters:**
 
@@ -499,7 +499,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:61
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:61
 
 **Parameters:**
 
@@ -516,7 +516,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:62
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:62
 
 **Parameters:**
 
@@ -532,7 +532,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:63
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:63
 
 **Parameters:**
 
@@ -548,7 +548,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:64
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:64
 
 **Parameters:**
 
@@ -565,7 +565,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:65
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:65
 
 **Parameters:**
 
@@ -584,7 +584,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:231
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:231
 
 **Parameters:**
 
@@ -598,7 +598,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:231
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:232
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:232
 
 **Parameters:**
 
@@ -614,7 +614,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:232
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:233
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:233
 
 **Parameters:**
 
@@ -638,7 +638,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:24
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:24
 
 **Returns:** *Array‹string | symbol›*
 
@@ -652,7 +652,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:20
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:20
 
 **Returns:** *number*
 
@@ -664,7 +664,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:36
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:36
 
 **Returns:** *boolean*
 
@@ -678,7 +678,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:25
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:25
 
 **Parameters:**
 
@@ -698,7 +698,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:21
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:21
 
 **Parameters:**
 
@@ -718,7 +718,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:17
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:17
 
 **Parameters:**
 
@@ -746,7 +746,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:67
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:67
 
 **Parameters:**
 
@@ -764,7 +764,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:67
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:68
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:68
 
 **Parameters:**
 
@@ -788,7 +788,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:69
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:69
 
 **Parameters:**
 
@@ -806,7 +806,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:69
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:70
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:70
 
 **Parameters:**
 
@@ -824,7 +824,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:70
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:71
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:71
 
 **Parameters:**
 
@@ -848,7 +848,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:72
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:72
 
 **Parameters:**
 
@@ -876,7 +876,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:74
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:74
 
 **Parameters:**
 
@@ -894,7 +894,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:74
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:75
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:75
 
 **Parameters:**
 
@@ -918,7 +918,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:76
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:76
 
 **Parameters:**
 
@@ -936,7 +936,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:76
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:77
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:77
 
 **Parameters:**
 
@@ -954,7 +954,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:77
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:78
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:78
 
 **Parameters:**
 
@@ -978,7 +978,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:79
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:79
 
 **Parameters:**
 
@@ -1004,7 +1004,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:34
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:34
 
 **Returns:** *this*
 
@@ -1016,7 +1016,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:5
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:5
 
 **Type parameters:**
 
@@ -1044,7 +1044,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:81
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:81
 
 **Parameters:**
 
@@ -1062,7 +1062,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:81
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:82
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:82
 
 **Parameters:**
 
@@ -1086,7 +1086,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:83
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:83
 
 **Parameters:**
 
@@ -1104,7 +1104,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:83
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:84
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:84
 
 **Parameters:**
 
@@ -1122,7 +1122,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:84
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:85
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:85
 
 **Parameters:**
 
@@ -1146,7 +1146,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:86
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:86
 
 **Parameters:**
 
@@ -1174,7 +1174,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:88
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:88
 
 **Parameters:**
 
@@ -1192,7 +1192,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:88
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:89
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:89
 
 **Parameters:**
 
@@ -1216,7 +1216,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:90
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:90
 
 **Parameters:**
 
@@ -1234,7 +1234,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:90
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:91
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:91
 
 **Parameters:**
 
@@ -1252,7 +1252,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:91
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:92
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:92
 
 **Parameters:**
 
@@ -1276,7 +1276,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:93
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:93
 
 **Parameters:**
 
@@ -1302,7 +1302,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:40
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:40
 
 **Parameters:**
 
@@ -1323,7 +1323,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:22
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:22
 
 **Parameters:**
 
@@ -1341,7 +1341,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:32
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:32
 
 **Parameters:**
 
@@ -1361,7 +1361,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:18
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:18
 
 **Parameters:**
 
@@ -1381,7 +1381,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:95
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:95
 
 **Parameters:**
 
@@ -1399,7 +1399,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:95
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:96
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:96
 
 **Parameters:**
 
@@ -1423,7 +1423,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:97
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:97
 
 **Parameters:**
 
@@ -1441,7 +1441,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:97
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:98
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:98
 
 **Parameters:**
 
@@ -1459,7 +1459,7 @@ Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:98
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:99
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:99
 
 **Parameters:**
 
@@ -1483,7 +1483,7 @@ Name | Type |
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:100
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:100
 
 **Parameters:**
 
@@ -1509,7 +1509,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:35
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:35
 
 **Returns:** *this*
 
@@ -1521,7 +1521,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:230
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:230
 
 **Parameters:**
 
@@ -1539,7 +1539,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:33
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:33
 
 **Parameters:**
 
@@ -1559,7 +1559,7 @@ ___
 
 *Overrides void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:19
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:19
 
 **Parameters:**
 
@@ -1577,7 +1577,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:235
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:235
 
 **Returns:** *void*
 
@@ -1589,7 +1589,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:37
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:37
 
 **Parameters:**
 
@@ -1607,7 +1607,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:38
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:38
 
 **Parameters:**
 
@@ -1626,7 +1626,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:39
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:39
 
 **Parameters:**
 
@@ -1644,7 +1644,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:228
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:228
 
 **Parameters:**
 
@@ -1668,7 +1668,7 @@ Name | Type |
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:229
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:229
 
 **Parameters:**
 
@@ -1694,7 +1694,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:24
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/stream.d.ts:24
 
 A utility method for creating Readable Streams out of iterators.
 
@@ -1715,7 +1715,7 @@ ___
 
 *Inherited from void*
 
-Defined in /Users/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:8
+Defined in /home/soney/code/sdb-ts/node_modules/@types/node/events.d.ts:8
 
 **`deprecated`** since v4.0.0
 

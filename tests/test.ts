@@ -1,6 +1,6 @@
 import 'mocha';
 import * as net from 'net';
-import * as WebSocket from 'ws';
+import * as WebSocket from 'isomorphic-ws';
 import { AddressInfo } from 'net';
 import { ReconnectingWebsocket, SDBServer, SDBClient, SDBDoc } from '../built/index'; 
 import { expect } from 'chai';

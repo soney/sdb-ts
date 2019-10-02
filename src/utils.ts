@@ -1,5 +1,5 @@
 import { EventEmitter } from "events";
-import * as WebSocket from 'ws';
+import * as WebSocket from 'isomorphic-ws';
 
 /**
  * Performs a shallow item-by-item comparison between two arrays.

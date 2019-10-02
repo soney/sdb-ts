@@ -19,7 +19,7 @@
 
 Ƭ **DocIdentifier**: *[string, string]*
 
-*Defined in [SDBDoc.ts:7](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L7)*
+*Defined in [SDBDoc.ts:7](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L7)*
 
 ___
 
@@ -27,7 +27,7 @@ ___
 
 Ƭ **Subscriber**: *function*
 
-*Defined in [SDBDoc.ts:8](https://github.com/soney/sdb-ts/blob/883d85d/src/SDBDoc.ts#L8)*
+*Defined in [SDBDoc.ts:8](https://github.com/soney/sdb-ts/blob/57db8cd/src/SDBDoc.ts#L8)*
 
 #### Type declaration:
 
