@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const SDB_1 = require("./SDB");
 const ShareDBClient = require("sharedb/lib/client");
-const utils_1 = require("./utils");
-exports.ReconnectingWebsocket = utils_1.ReconnectingWebsocket;
+const reconnecting_websocket_1 = require("reconnecting-websocket");
+exports.ReconnectingWebsocket = reconnecting_websocket_1.default;
 /**
  * SDBClient is the wrapper for clients (usually run in the browser)
  */

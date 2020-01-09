@@ -13,25 +13,26 @@
     "types": "./built/index.d.ts",
     "dependencies": {
         "isomorphic-ws": "^4.0.1",
-        "sharedb": "^1.0.0-beta.23",
-        "ws": "^7.1.2"
+        "reconnecting-websocket": "^4.2.0",
+        "sharedb": "^1.1.0",
+        "ws": "^7.2.1"
     },
     "devDependencies": {
-        "@types/chai": "^4.2.3",
-        "@types/lodash": "^4.14.141",
+        "@types/chai": "^4.2.7",
+        "@types/lodash": "^4.14.149",
         "@types/mocha": "^5.2.7",
-        "@types/node": "^12.7.8",
+        "@types/node": "^13.1.6",
         "@types/sharedb": "^1.0.5",
-        "@types/ws": "^6.0.3",
+        "@types/ws": "^6.0.4",
         "chai": "^4.2.0",
         "lodash": "^4.17.15",
-        "mocha": "^6.2.1",
-        "ts-loader": "^6.2.0",
-        "ts-node": "^8.4.1",
-        "typedoc": "^0.15.0",
-        "typedoc-plugin-markdown": "^2.2.7",
-        "typescript": "^3.6.3",
-        "webpack": "^4.41.0",
-        "webpack-cli": "^3.3.9"
+        "mocha": "^7.0.0",
+        "ts-loader": "^6.2.1",
+        "ts-node": "^8.5.4",
+        "typedoc": "^0.15.6",
+        "typedoc-plugin-markdown": "^2.2.16",
+        "typescript": "^3.7.4",
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.10"
     }
 }

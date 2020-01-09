@@ -1,6 +1,6 @@
 import { SDB } from './SDB';
 import * as ShareDBClient from 'sharedb/lib/client';
-import { ReconnectingWebsocket } from './utils';
+import ReconnectingWebsocket from 'reconnecting-websocket';
 
 /**
  * SDBClient is the wrapper for clients (usually run in the browser)

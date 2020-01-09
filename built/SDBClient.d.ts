@@ -1,5 +1,5 @@
 import { SDB } from './SDB';
-import { ReconnectingWebsocket } from './utils';
+import ReconnectingWebsocket from 'reconnecting-websocket';
 /**
  * SDBClient is the wrapper for clients (usually run in the browser)
  */
