@@ -1,7 +1,7 @@
 {
     "name": "sdb-ts",
     "description": "A TypeScript Wrapper for ShareDB",
-    "version": "0.3.1",
+    "version": "0.3.2-beta",
     "repository": "https://github.com/soney/sdb-ts",
     "license": "MIT",
     "scripts": {
