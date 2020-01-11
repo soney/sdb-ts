@@ -13,7 +13,7 @@
     "types": "./built/index.d.ts",
     "dependencies": {
         "isomorphic-ws": "^4.0.1",
-        "reconnecting-websocket": "^4.2.0",
+        "reconnecting-websocket": "git+https://github.com/soney/reconnecting-websocket.git#4.2.1",
         "sharedb": "^1.1.0",
         "ws": "^7.2.1"
     },
