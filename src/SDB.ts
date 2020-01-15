@@ -50,5 +50,9 @@ export abstract class SDB {
     public deleteDoc(doc:SDBDoc<any>):void {
         this.docs.delete(doc.getIdentifier());
     };
+
+    public __connection__(): ShareDB.Connection {
+        return this.connection;
+    }
 };
 

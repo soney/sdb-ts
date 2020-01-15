@@ -19,7 +19,9 @@ class SDBServer extends SDB_1.SDB {
         super();
         options = utils_1.extend({}, options, SDBServer.optionDefaults);
         this.share = new ShareDB(options);
-        this.connection = this.share.connect();
+        if (!options.manualConnection) {
+            this.connection = this.share.connect();
+        }
         if (server) {
             if (server instanceof WebSocket.Server || (server['clients'] && server['handleUpgrade'])) { // (use having .clients and .handleUpgrade as a proxy in case using a different version of WebSocket)
                 this.wssPromise = Promise.resolve(server);
@@ -44,6 +46,12 @@ class SDBServer extends SDB_1.SDB {
                 this.listen(stream);
             });
         });
+    }
+    /**
+     * Get the raw backend object
+     */
+    __backend__() {
+        return this.share;
     }
     /**
      * A promise that gets the address for this server (mainly useful if this instance was called without a `server` argument)

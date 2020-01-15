@@ -46,6 +46,9 @@ class SDB {
         this.docs.delete(doc.getIdentifier());
     }
     ;
+    __connection__() {
+        return this.connection;
+    }
 }
 exports.SDB = SDB;
 ;

@@ -12,7 +12,8 @@ export interface SDBServerOptions {
     db?:ShareDB.DB,
     pubsub?:ShareDB.PubSub,
     disableDocAction?: boolean,
-    disableSpaceDelimitedActions?: boolean
+    disableSpaceDelimitedActions?: boolean,
+    manualConnection?: boolean
 }
 
 /**
@@ -34,7 +35,10 @@ export class SDBServer extends SDB {
         super();
         options = extend({}, options as SDBServerOptions, SDBServer.optionDefaults);
         this.share = new ShareDB(options);
-        this.connection = this.share.connect();
+
+        if(!options.manualConnection) {
+            this.connection = this.share.connect();
+        }
 
         if (server) {
             if (server instanceof WebSocket.Server ||(server['clients'] && server['handleUpgrade'])) { // (use having .clients and .handleUpgrade as a proxy in case using a different version of WebSocket)
@@ -57,6 +61,13 @@ export class SDBServer extends SDB {
                 this.listen(stream);
             });
         });
+    }
+
+    /**
+     * Get the raw backend object
+     */
+    public __backend__(): ShareDB {
+        return this.share;
     }
 
     /**

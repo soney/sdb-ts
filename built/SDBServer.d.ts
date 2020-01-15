@@ -9,6 +9,7 @@ export interface SDBServerOptions {
     pubsub?: ShareDB.PubSub;
     disableDocAction?: boolean;
     disableSpaceDelimitedActions?: boolean;
+    manualConnection?: boolean;
 }
 /**
  * A class to wrap ShareDB servers (typically run in Node.js)
@@ -23,6 +24,10 @@ export declare class SDBServer extends SDB {
      * @param options Optional: options passed into ShareDB
      */
     constructor(server?: WebSocket.Server | net.Server, options?: SDBServerOptions);
+    /**
+     * Get the raw backend object
+     */
+    __backend__(): ShareDB;
     /**
      * A promise that gets the address for this server (mainly useful if this instance was called without a `server` argument)
      */
