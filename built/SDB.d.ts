@@ -30,5 +30,8 @@ export declare abstract class SDB {
      * @param doc The document to delete
      */
     deleteDoc(doc: SDBDoc<any>): void;
+    /**
+     * Gets the raw ShareDB connection object
+     */
     __connection__(): ShareDB.Connection;
 }

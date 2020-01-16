@@ -24,8 +24,8 @@ export class SDBServer extends SDB {
         disableDocAction: true,
         disableSpaceDelimitedActions: true
     };
-    private readonly share:ShareDB; // The ShareDB object we are wrapping
-    private wssPromise: Promise<WebSocket.Server>; // A promise wrapping our WebSocket server
+    protected readonly share:ShareDB; // The ShareDB object we are wrapping
+    protected wssPromise: Promise<WebSocket.Server>; // A promise wrapping our WebSocket server
     /**
      * 
      * @param server Either a WebSocket.Server object, a net.Server object (e.g., http.Server or https.Server in which case the constructor create a new WebSocket.Server) or ignored (in which case an open port is picked and a WebSocket.Server is created)
@@ -55,11 +55,13 @@ export class SDBServer extends SDB {
                 throw(err);
             });
         }
-        this.wssPromise.then((wss: WebSocket.Server) => {
-            wss.on('connection', (ws:WebSocket): void => {
-                const stream = new WebSocketJSONStream(ws);
-                this.listen(stream);
-            });
+        this.wssPromise.then(this.addWSSConnectionListener.bind(this));
+    }
+
+    protected addWSSConnectionListener(wss: WebSocket.Server) {
+        wss.on('connection', (ws:WebSocket): void => {
+            const stream = new WebSocketJSONStream(ws);
+            this.listen(stream);
         });
     }
 
@@ -117,13 +119,13 @@ export class SDBServer extends SDB {
     /**
      * For when a client connects (do not call this; it will be called automatically)
      */
-    private listen(stream:WebSocketJSONStream):void {
+    protected listen(stream:WebSocketJSONStream):void {
         this.share.listen(stream);
     };
 };
 
 // Adapted from https://github.com/avital/websocket-json-stream
-class WebSocketJSONStream extends Duplex {
+export class WebSocketJSONStream extends Duplex {
     constructor(private readonly ws:WebSocket) {
         super({objectMode: true});
         this.ws.on('message', (msg: string) => {

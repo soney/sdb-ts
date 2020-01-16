@@ -46,6 +46,9 @@ class SDB {
         this.docs.delete(doc.getIdentifier());
     }
     ;
+    /**
+     * Gets the raw ShareDB connection object
+     */
     __connection__() {
         return this.connection;
     }

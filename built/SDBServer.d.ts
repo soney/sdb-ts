@@ -3,6 +3,7 @@ import * as WebSocket from 'ws';
 import * as ShareDB from 'sharedb';
 import * as net from 'net';
 import { SDB } from './SDB';
+import { Duplex } from 'stream';
 import { AddressInfo } from 'ws';
 export interface SDBServerOptions {
     db?: ShareDB.DB;
@@ -16,14 +17,15 @@ export interface SDBServerOptions {
  */
 export declare class SDBServer extends SDB {
     private static optionDefaults;
-    private readonly share;
-    private wssPromise;
+    protected readonly share: ShareDB;
+    protected wssPromise: Promise<WebSocket.Server>;
     /**
      *
      * @param server Either a WebSocket.Server object, a net.Server object (e.g., http.Server or https.Server in which case the constructor create a new WebSocket.Server) or ignored (in which case an open port is picked and a WebSocket.Server is created)
      * @param options Optional: options passed into ShareDB
      */
     constructor(server?: WebSocket.Server | net.Server, options?: SDBServerOptions);
+    protected addWSSConnectionListener(wss: WebSocket.Server): void;
     /**
      * Get the raw backend object
      */
@@ -49,5 +51,11 @@ export declare class SDBServer extends SDB {
     /**
      * For when a client connects (do not call this; it will be called automatically)
      */
-    private listen;
+    protected listen(stream: WebSocketJSONStream): void;
+}
+export declare class WebSocketJSONStream extends Duplex {
+    private readonly ws;
+    constructor(ws: WebSocket);
+    _read(): void;
+    _write(msg: any, encoding: string, next: () => void): void;
 }

@@ -40,11 +40,12 @@ class SDBServer extends SDB_1.SDB {
                 throw (err);
             });
         }
-        this.wssPromise.then((wss) => {
-            wss.on('connection', (ws) => {
-                const stream = new WebSocketJSONStream(ws);
-                this.listen(stream);
-            });
+        this.wssPromise.then(this.addWSSConnectionListener.bind(this));
+    }
+    addWSSConnectionListener(wss) {
+        wss.on('connection', (ws) => {
+            const stream = new WebSocketJSONStream(ws);
+            this.listen(stream);
         });
     }
     /**
@@ -141,6 +142,7 @@ class WebSocketJSONStream extends stream_1.Duplex {
     }
     ;
 }
+exports.WebSocketJSONStream = WebSocketJSONStream;
 ;
 // Adapted from https://github.com/sindresorhus/get-port
 function getOpenPort() {

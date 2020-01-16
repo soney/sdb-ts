@@ -51,6 +51,9 @@ export abstract class SDB {
         this.docs.delete(doc.getIdentifier());
     };
 
+    /**
+     * Gets the raw ShareDB connection object
+     */
     public __connection__(): ShareDB.Connection {
         return this.connection;
     }
