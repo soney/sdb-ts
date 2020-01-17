@@ -224,19 +224,46 @@ export class SDBDoc<E> extends OpSubmittable {
         this.sdb.deleteDoc(this);
     };
 
-    public static matches(p: ShareDB.Path, regexes: ReadonlyArray<RegExp>): RegExpMatchArray[] | null {
+    public static matches(p: ShareDB.Path, regexes: ReadonlyArray<RegExp|number|NumberConstructor|string|boolean|number|((x: string|number, i: number, p: ShareDB.Path)=>boolean)>): (RegExpMatchArray|string|boolean|number)[] | null {
         if(p.length !== regexes.length) {
             return null;
         } else {
-            const matches: RegExpMatchArray[] = [];
+            const matches: (RegExpMatchArray|string|boolean|number)[] = [];
             for(let i: number = 0, len = p.length; i<len; i++) {
                 const regexi = regexes[i];
                 const pi = p[i];
-                const match = `${pi}`.match(regexi);
-                if(match === null) {
-                    return null;
+                if(regexi instanceof RegExp) {
+                    const match = `${pi}`.match(regexi);
+                    if(match === null) {
+                        return null;
+                    } else {
+                        matches.push(match);
+                    }
+                } else if(typeof regexi === 'boolean') {
+                    if(regexi === false) {
+                        return null;
+                    } else {
+                        matches.push(pi);
+                    }
+                } else if(regexi === Number) {
+                    if(typeof pi === 'number') {
+                        matches.push(pi);
+                    } else {
+                        return null;
+                    }
+                } else if(typeof regexi === 'function') {
+                    const result = regexi(pi, i, p);
+                    if(result === false) {
+                        return null;
+                    } else {
+                        matches.push(result);
+                    }
                 } else {
-                    matches.push(match);
+                    if(pi === regexi) {
+                        matches.push(pi);
+                    } else {
+                        return null;
+                    }
                 }
             }
             return matches;
