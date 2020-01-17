@@ -35,6 +35,12 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
     }
     ;
     /**
+     * Returns the raw ShareDB doc
+     */
+    __doc__() {
+        return this.doc;
+    }
+    /**
      * Create a SubDoc of this document (a document to represent one particular item within it).
      * ```
      * // suppose doc has {a: 1, b: { x: { val: "abc" }}}
@@ -234,6 +240,26 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
         this.sdb.deleteDoc(this);
     }
     ;
+    static matches(p, regexes) {
+        if (p.length !== regexes.length) {
+            return null;
+        }
+        else {
+            const matches = [];
+            for (let i = 0, len = p.length; i < len; i++) {
+                const regexi = regexes[i];
+                const pi = p[i];
+                const match = `${pi}`.match(regexi);
+                if (match === null) {
+                    return null;
+                }
+                else {
+                    matches.push(match);
+                }
+            }
+            return matches;
+        }
+    }
 }
 exports.SDBDoc = SDBDoc;
 ;

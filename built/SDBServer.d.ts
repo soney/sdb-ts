@@ -52,6 +52,9 @@ export declare class SDBServer extends SDB {
      * For when a client connects (do not call this; it will be called automatically)
      */
     protected listen(stream: WebSocketJSONStream): void;
+    addProjection(name: string, collection: string, fields: {
+        [name: string]: true;
+    }): void;
 }
 export declare class WebSocketJSONStream extends Duplex {
     private readonly ws;

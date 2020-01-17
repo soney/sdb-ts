@@ -24,6 +24,13 @@ export class SDBDoc<E> extends OpSubmittable {
     private subscribers:Subscriber<E>[] = []; // A list of functions that are subscribing to ops and events
 
     /**
+     * Returns the raw ShareDB doc
+     */
+    public __doc__(): ShareDB.Doc {
+        return this.doc;
+    }
+
+    /**
      * Create a SubDoc of this document (a document to represent one particular item within it).
      * ```
      * // suppose doc has {a: 1, b: { x: { val: "abc" }}}
@@ -216,4 +223,23 @@ export class SDBDoc<E> extends OpSubmittable {
         this.doc.destroy();
         this.sdb.deleteDoc(this);
     };
+
+    public static matches(p: ShareDB.Path, regexes: ReadonlyArray<RegExp>): RegExpMatchArray[] | null {
+        if(p.length !== regexes.length) {
+            return null;
+        } else {
+            const matches: RegExpMatchArray[] = [];
+            for(let i: number = 0, len = p.length; i<len; i++) {
+                const regexi = regexes[i];
+                const pi = p[i];
+                const match = `${pi}`.match(regexi);
+                if(match === null) {
+                    return null;
+                } else {
+                    matches.push(match);
+                }
+            }
+            return matches;
+        }
+    }
 };

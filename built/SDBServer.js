@@ -104,6 +104,9 @@ class SDBServer extends SDB_1.SDB {
         this.share.listen(stream);
     }
     ;
+    addProjection(name, collection, fields) {
+        this.share.addProjection(name, collection, fields);
+    }
 }
 exports.SDBServer = SDBServer;
 SDBServer.optionDefaults = {

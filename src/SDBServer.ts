@@ -122,6 +122,11 @@ export class SDBServer extends SDB {
     protected listen(stream:WebSocketJSONStream):void {
         this.share.listen(stream);
     };
+
+    public addProjection(name: string, collection: string, fields: {[name: string]: true}) {
+        this.share.addProjection(name, collection, fields);
+    }
+
 };
 
 // Adapted from https://github.com/avital/websocket-json-stream

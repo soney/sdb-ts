@@ -20,6 +20,10 @@ export declare class SDBDoc<E> extends OpSubmittable {
     constructor(docIdentifier: DocIdentifier, doc: ShareDB.Doc, sdb: SDB);
     private subscribers;
     /**
+     * Returns the raw ShareDB doc
+     */
+    __doc__(): ShareDB.Doc;
+    /**
      * Create a SubDoc of this document (a document to represent one particular item within it).
      * ```
      * // suppose doc has {a: 1, b: { x: { val: "abc" }}}
@@ -107,4 +111,5 @@ export declare class SDBDoc<E> extends OpSubmittable {
      * When done with the document, do cleanup. This does *not* delete the doc.
      */
     destroy(): void;
+    static matches(p: ShareDB.Path, regexes: ReadonlyArray<RegExp>): RegExpMatchArray[] | null;
 }
