@@ -274,6 +274,14 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
                         return null;
                     }
                 }
+                else if (regexi === String) {
+                    if (typeof pi === 'string') {
+                        matches.push(pi);
+                    }
+                    else {
+                        return null;
+                    }
+                }
                 else if (typeof regexi === 'function') {
                     const result = regexi(pi, i, p);
                     if (result === false) {

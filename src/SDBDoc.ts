@@ -224,7 +224,7 @@ export class SDBDoc<E> extends OpSubmittable {
         this.sdb.deleteDoc(this);
     };
 
-    public static matches(p: ShareDB.Path, regexes: ReadonlyArray<RegExp|number|NumberConstructor|string|boolean|number|((x: string|number, i: number, p: ShareDB.Path)=>boolean)>): (RegExpMatchArray|string|boolean|number)[] | null {
+    public static matches(p: ShareDB.Path, regexes: ReadonlyArray<RegExp|number|NumberConstructor|StringConstructor|string|boolean|number|((x: string|number, i: number, p: ShareDB.Path)=>boolean)>): (RegExpMatchArray|string|boolean|number)[] | null {
         if(p.length !== regexes.length) {
             return null;
         } else {
@@ -247,6 +247,12 @@ export class SDBDoc<E> extends OpSubmittable {
                     }
                 } else if(regexi === Number) {
                     if(typeof pi === 'number') {
+                        matches.push(pi);
+                    } else {
+                        return null;
+                    }
+                } else if(regexi === String) {
+                    if(typeof pi === 'string') {
                         matches.push(pi);
                     } else {
                         return null;

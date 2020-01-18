@@ -111,5 +111,5 @@ export declare class SDBDoc<E> extends OpSubmittable {
      * When done with the document, do cleanup. This does *not* delete the doc.
      */
     destroy(): void;
-    static matches(p: ShareDB.Path, regexes: ReadonlyArray<RegExp | number | NumberConstructor | string | boolean | number | ((x: string | number, i: number, p: ShareDB.Path) => boolean)>): (RegExpMatchArray | string | boolean | number)[] | null;
+    static matches(p: ShareDB.Path, regexes: ReadonlyArray<RegExp | number | NumberConstructor | StringConstructor | string | boolean | number | ((x: string | number, i: number, p: ShareDB.Path) => boolean)>): (RegExpMatchArray | string | boolean | number)[] | null;
 }
