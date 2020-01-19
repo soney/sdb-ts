@@ -12,6 +12,7 @@
     "main": "./built/index.js",
     "types": "./built/index.d.ts",
     "dependencies": {
+        "immutability-helper": "^3.0.1",
         "isomorphic-ws": "^4.0.1",
         "reconnecting-websocket": "git+https://github.com/soney/reconnecting-websocket.git#4.2.1",
         "sharedb": "^1.1.0",
