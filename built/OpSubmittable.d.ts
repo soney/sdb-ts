@@ -94,6 +94,13 @@ export declare abstract class OpSubmittable {
      */
     submitListDeleteOp(p: ShareDB.Path, ld?: any): Promise<this>;
     /**
+     * Move an item in a list
+     * @param p The path array
+     * @param lm The new index for the item specified in `p`
+     * @returns A promise that resolve to `this`
+     */
+    submitListMoveOp(p: ShareDB.Path, lm: number): Promise<this>;
+    /**
      * Increment a number
      * ```
      * doc.submitNumberAddOp(['prop1', 'x'], 4);

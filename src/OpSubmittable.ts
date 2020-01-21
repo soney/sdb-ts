@@ -96,6 +96,14 @@ export abstract class OpSubmittable {
     public async submitListDeleteOp   (p: ShareDB.Path, ld:any=this.traverse(p)):Promise<this>           { return await this.submitOp([{p,ld}]);    };
 
     /**
+     * Move an item in a list
+     * @param p The path array
+     * @param lm The new index for the item specified in `p`
+     * @returns A promise that resolve to `this`
+     */
+    public async submitListMoveOp   (p: ShareDB.Path, lm:number):Promise<this>           { return await this.submitOp([{p,lm}]);    };
+
+    /**
      * Increment a number
      * ```
      * doc.submitNumberAddOp(['prop1', 'x'], 4);

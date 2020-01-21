@@ -123,6 +123,16 @@ class OpSubmittable {
     }
     ;
     /**
+     * Move an item in a list
+     * @param p The path array
+     * @param lm The new index for the item specified in `p`
+     * @returns A promise that resolve to `this`
+     */
+    submitListMoveOp(p, lm) {
+        return __awaiter(this, void 0, void 0, function* () { return yield this.submitOp([{ p, lm }]); });
+    }
+    ;
+    /**
      * Increment a number
      * ```
      * doc.submitNumberAddOp(['prop1', 'x'], 4);
