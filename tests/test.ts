@@ -2,7 +2,7 @@ import 'mocha';
 import * as net from 'net';
 import * as WebSocket from 'isomorphic-ws';
 import { AddressInfo } from 'net';
-import { ReconnectingWebsocket, SDBServer, SDBClient, SDBDoc } from '../built/index'; 
+import { ReconnectingWebsocket, SDBServer, SDBClient, SDBDoc, ImmutabilityWrapper } from '../built/index'; 
 import { expect } from 'chai';
 import { times, sample, isEqual } from 'lodash';
 import { resolve } from 'path';

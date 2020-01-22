@@ -16,6 +16,7 @@ export class ImmutabilityWrapper<E> {
     private isSubscribed: boolean = false;
 
     public constructor(private doc: SDBDoc<E>|SDBSubDoc<E>) {
+        this.data = ImmutabilityWrapper.deepClone(this.doc.getData());
         this.subscribeToDoc();
     }
 
@@ -45,7 +46,13 @@ export class ImmutabilityWrapper<E> {
                 this.data = ImmutabilityWrapper.deepClone(this.doc.getData());
             } else if(eventType === 'op') {
                 ops.forEach((op) => {
-                    this.data = ImmutabilityWrapper.getUpdatedData<E>(this.data, op);
+                    const { p } = op;
+                    
+                    if(p.length === 0) { // strange stuff happens when the path length is 0
+                        this.data = ImmutabilityWrapper.deepClone(this.doc.getData());
+                    } else {
+                        this.data = ImmutabilityWrapper.getUpdatedData<E>(this.data, op);
+                    }
                 });
             }
         };
@@ -63,6 +70,7 @@ export class ImmutabilityWrapper<E> {
 
         const { p } = op;
         const plen = p.length;
+
         const updateObject: any = {};
         let currData: any = previousData;
         let currUpdateObject: any = updateObject;

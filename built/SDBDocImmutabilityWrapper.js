@@ -29,6 +29,7 @@ class ImmutabilityWrapper {
         this.doc = doc;
         this.data = null;
         this.isSubscribed = false;
+        this.data = ImmutabilityWrapper.deepClone(this.doc.getData());
         this.subscribeToDoc();
     }
     getData() {
@@ -59,7 +60,13 @@ class ImmutabilityWrapper {
                 }
                 else if (eventType === 'op') {
                     ops.forEach((op) => {
-                        this.data = ImmutabilityWrapper.getUpdatedData(this.data, op);
+                        const { p } = op;
+                        if (p.length === 0) { // strange stuff happens when the path length is 0
+                            this.data = ImmutabilityWrapper.deepClone(this.doc.getData());
+                        }
+                        else {
+                            this.data = ImmutabilityWrapper.getUpdatedData(this.data, op);
+                        }
                     });
                 }
             };
