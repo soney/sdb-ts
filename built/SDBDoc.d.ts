@@ -11,6 +11,7 @@ export declare class SDBDoc<E> extends OpSubmittable {
     private docIdentifier;
     private doc;
     private sdb;
+    private initialDocFetchPromise;
     /**
      * Constructor. This hould never be called directly. Instead, use `SDBClient.get` or `SDBServer.get`
      * @param docIdentifier A two-item array identifying the document

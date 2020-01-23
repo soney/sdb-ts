@@ -11,6 +11,7 @@ export type Subscriber<E> = (eventType: string | null, ops: ReadonlyArray<ShareD
  * A class that represents a ShareDB document. This class uses generics: `const doc: SDBDooc<{x: number}> = client.get('docs', 'doc1')`
  */
 export class SDBDoc<E> extends OpSubmittable {
+    private initialDocFetchPromise: Promise<E>|null = null;
     /**
      * Constructor. This hould never be called directly. Instead, use `SDBClient.get` or `SDBServer.get`
      * @param docIdentifier A two-item array identifying the document
@@ -155,20 +156,25 @@ export class SDBDoc<E> extends OpSubmittable {
         if(this.subscribers.length === 1) {
             this.doc.addListener('op', this.onOp);
             this.doc.addListener('create', this.onCreate);
-            return new Promise<void>((resolve, reject) => {
+            this.initialDocFetchPromise = new Promise<E>((resolve, reject) => {
                 this.doc.subscribe((err) => {
-                    subscriber(null, null, null, this.doc.data);
+                    if(this.subscribers.includes(subscriber)) { // in case the subscriber was removed before the first fetch
+                        subscriber(null, null, null, this.doc.data);
+                    }
                     if(err) {
                         reject(err);
                         throw(err);
                     } else {
-                        resolve();
+                        resolve(this.doc.data);
                     }
                 });
             });
         } else {
-            subscriber(null, null, null, this.doc.data);
-            return Promise.resolve();
+            return this.initialDocFetchPromise.then(() => {
+                if(this.subscribers.includes(subscriber)) { // in case the subscriber was removed before the first fetch
+                    subscriber(null, null, null, this.doc.data);
+                }
+            })
         }
     };
     /**

@@ -27,6 +27,7 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
         this.docIdentifier = docIdentifier;
         this.doc = doc;
         this.sdb = sdb;
+        this.initialDocFetchPromise = null;
         this.subscribers = []; // A list of functions that are subscribing to ops and events
         // When an op happens forward to every subscriber
         this.onOp = (ops, source) => { this.subscribers.forEach((sub) => sub('op', ops, source, this.doc.data)); };
@@ -162,22 +163,27 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
         if (this.subscribers.length === 1) {
             this.doc.addListener('op', this.onOp);
             this.doc.addListener('create', this.onCreate);
-            return new Promise((resolve, reject) => {
+            this.initialDocFetchPromise = new Promise((resolve, reject) => {
                 this.doc.subscribe((err) => {
-                    subscriber(null, null, null, this.doc.data);
+                    if (this.subscribers.includes(subscriber)) { // in case the subscriber was removed before the first fetch
+                        subscriber(null, null, null, this.doc.data);
+                    }
                     if (err) {
                         reject(err);
                         throw (err);
                     }
                     else {
-                        resolve();
+                        resolve(this.doc.data);
                     }
                 });
             });
         }
         else {
-            subscriber(null, null, null, this.doc.data);
-            return Promise.resolve();
+            return this.initialDocFetchPromise.then(() => {
+                if (this.subscribers.includes(subscriber)) { // in case the subscriber was removed before the first fetch
+                    subscriber(null, null, null, this.doc.data);
+                }
+            });
         }
     }
     ;
