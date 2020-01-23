@@ -45,15 +45,14 @@ export class ImmutabilityWrapper<E> {
             } else if(eventType === 'create') {
                 this.data = ImmutabilityWrapper.deepClone(this.doc.getData());
             } else if(eventType === 'op') {
-                ops.forEach((op) => {
-                    const { p } = op;
-                    
-                    if(p.length === 0) { // strange stuff happens when the path length is 0
-                        this.data = ImmutabilityWrapper.deepClone(this.doc.getData());
-                    } else {
+                // strange stuff happens when the path length is 0
+                if(ops.some((op) => op.p.length === 0)) {
+                    this.data = ImmutabilityWrapper.deepClone(this.doc.getData());
+                } else {
+                    ops.forEach((op) => {
                         this.data = ImmutabilityWrapper.getUpdatedData<E>(this.data, op);
-                    }
-                });
+                    });
+                }
             }
         };
 
