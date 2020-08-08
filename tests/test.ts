@@ -30,7 +30,7 @@ describe('Syncing Multiple Clients', async () => {
         const sCounterDoc: SDBDoc<CounterDoc> = sdbServer.get('ex', 'counter');
         const cCounterDocs: SDBDoc<CounterDoc>[] = sdbClients.map((c) => c.get('ex', 'counter'));
 
-        sCounterDoc.createIfEmpty({
+        await sCounterDoc.createIfEmpty({
             counter: 0,
             sd: {
                 strEx: 'ABC',

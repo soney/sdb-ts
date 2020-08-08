@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.extend = exports.isArrayEqual = void 0;
 /**
  * Performs a shallow item-by-item comparison between two arrays.
  *

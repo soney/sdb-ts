@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SDBDoc = void 0;
 const SDBSubDoc_1 = require("./SDBSubDoc");
 const OpSubmittable_1 = require("./OpSubmittable");
 const utils_1 = require("./utils");

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.WebSocketJSONStream = exports.SDBServer = void 0;
 const WebSocket = require("ws");
 const ShareDB = require("sharedb");
 const net = require("net");

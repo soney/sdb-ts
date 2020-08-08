@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ReconnectingWebsocket = exports.SDBClient = void 0;
 const SDB_1 = require("./SDB");
 const ShareDBClient = require("sharedb/lib/client");
 const reconnecting_websocket_1 = require("reconnecting-websocket");
