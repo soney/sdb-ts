@@ -44,7 +44,7 @@ describe('Syncing Multiple Clients', async () => {
         await sCounterDoc.subscribe();
 
         expect(d.getData()).is.eql(sCounterDoc.getData());
-        sCounterDoc.submitNumberAddOp(['counter'], 1);
+        await sCounterDoc.submitNumberAddOp(['counter'], 1);
         await delay(10);
         expect(d.getData()).is.eql(sCounterDoc.getData());
 

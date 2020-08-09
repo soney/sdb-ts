@@ -166,9 +166,9 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
             this.doc.addListener('create', this.onCreate);
             this.initialDocFetchPromise = new Promise((resolve, reject) => {
                 this.doc.subscribe((err) => {
-                    if (this.subscribers.includes(subscriber)) { // in case the subscriber was removed before the first fetch
-                        subscriber(null, null, null, this.doc.data);
-                    }
+                    // if(this.subscribers.includes(subscriber)) { // in case the subscriber was removed before the first fetch
+                    //     subscriber(null, null, null, this.doc.data);
+                    // }
                     if (err) {
                         reject(err);
                         throw (err);
@@ -179,13 +179,11 @@ class SDBDoc extends OpSubmittable_1.OpSubmittable {
                 });
             });
         }
-        else {
-            return this.initialDocFetchPromise.then(() => {
-                if (this.subscribers.includes(subscriber)) { // in case the subscriber was removed before the first fetch
-                    subscriber(null, null, null, this.doc.data);
-                }
-            });
-        }
+        return this.initialDocFetchPromise.then(() => {
+            if (this.subscribers.includes(subscriber)) { // in case the subscriber was removed before the first fetch
+                subscriber(null, null, null, this.doc.data);
+            }
+        });
     }
     ;
     /**
