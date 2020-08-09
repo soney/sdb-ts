@@ -1,6 +1,5 @@
 import * as ShareDB from 'sharedb';
 import { SDBDoc } from './SDBDoc';
-import { Type } from 'sharedb/lib/sharedb';
 export declare abstract class SDB {
     private readonly docs;
     protected connection: ShareDB.Connection;
@@ -16,7 +15,7 @@ export declare abstract class SDB {
      * Register a new ShareDB.OT type (see [https://github.com/ottypes/docs](https://github.com/ottypes/docs))
      * @param type The type object
      */
-    static registerType(type: Type): void;
+    static registerType(type: any): void;
     /**
      * Close the connection (implemented by `SDBServer` and `SDBClient`)
      */

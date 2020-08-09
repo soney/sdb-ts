@@ -1,6 +1,5 @@
 import * as ShareDB from 'sharedb';
 import { DocIdentifier, SDBDoc } from './SDBDoc';
-import { Type } from 'sharedb/lib/sharedb';
 
 export abstract class SDB {
     private readonly docs:Map<DocIdentifier, SDBDoc<any>> = new Map<DocIdentifier, SDBDoc<any>>();
@@ -36,7 +35,7 @@ export abstract class SDB {
      * Register a new ShareDB.OT type (see [https://github.com/ottypes/docs](https://github.com/ottypes/docs))
      * @param type The type object
      */
-    public static registerType(type: Type):void { ShareDB.types.register(type); };
+    public static registerType(type):void { ShareDB.types.register(type); };
 
     /**
      * Close the connection (implemented by `SDBServer` and `SDBClient`)

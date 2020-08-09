@@ -5,7 +5,6 @@ import * as net from 'net';
 import { SDB } from './SDB';
 import { Duplex } from 'stream';
 import { extend } from './utils';
-import { resolve } from 'path';
 import { AddressInfo } from 'ws';
 
 export interface SDBServerOptions {
